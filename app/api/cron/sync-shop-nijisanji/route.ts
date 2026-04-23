@@ -85,10 +85,16 @@ export async function GET(req: NextRequest) {
         .select("id")
         .single();
       if (orderErr || !orderRow) {
+        // unique constraint 撞到代表此信件已匯入過 → skip（idempotent）
+        const isDup =
+          orderErr?.code === "23505" ||
+          (orderErr?.message || "").includes("orders_source_email_id_key");
         results.push({
           messageId: mail.messageId,
-          status: "error",
-          reason: orderErr?.message || "insert order failed"
+          status: isDup ? "skipped" : "error",
+          reason: isDup
+            ? "already imported (unique)"
+            : orderErr?.message || "insert order failed"
         });
         continue;
       }
