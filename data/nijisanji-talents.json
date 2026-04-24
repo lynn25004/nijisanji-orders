@@ -1,0 +1,847 @@
+{
+  "groups": [
+    {
+      "name_zh": "SEEDs一期生",
+      "name_ja": "にじさんじSEEDs 1期生",
+      "debut_year": 2018,
+      "members": [
+        {
+          "name_zh": "多拉",
+          "name_ja": "ドーラ",
+          "name_en": "Dola"
+        },
+        {
+          "name_zh": "轰京子",
+          "name_ja": "轟京子",
+          "name_en": "Todoroki Kyoko"
+        },
+        {
+          "name_zh": "修女·克蕾雅",
+          "name_ja": "シスター・クレア",
+          "name_en": "Sister Cleaire"
+        },
+        {
+          "name_zh": "花畑嘉依卡",
+          "name_ja": "花畑チャイカ",
+          "name_en": "Hanabatake Chaika"
+        },
+        {
+          "name_zh": "铃木胜",
+          "name_ja": "鈴木勝",
+          "name_en": "Suzuki Masaru"
+        },
+        {
+          "name_zh": "卯月光",
+          "name_ja": "卯月コウ",
+          "name_en": "Uzuki Kou"
+        },
+        {
+          "name_zh": "绿仙",
+          "name_ja": "緑仙",
+          "name_en": "Ryuu Shen"
+        },
+        {
+          "name_zh": "社筑",
+          "name_ja": "社築",
+          "name_en": "Yashiro Kizuku"
+        }
+      ]
+    },
+    {
+      "name_zh": "SEEDs二期生",
+      "name_ja": "にじさんじSEEDs 2期生",
+      "debut_year": 2018,
+      "members": [
+        {
+          "name_zh": "神田笑一",
+          "name_ja": "神田笑一",
+          "name_en": "Kanda Shoichi"
+        },
+        {
+          "name_zh": "飞鸟雏",
+          "name_ja": "飛鳥ひな",
+          "name_en": "Asuka Hina"
+        },
+        {
+          "name_zh": "春崎艾尔",
+          "name_ja": "春崎エアル",
+          "name_en": "Harusaki Air"
+        },
+        {
+          "name_zh": "雨森小夜",
+          "name_ja": "雨森小夜",
+          "name_en": "Amemori Sayo"
+        },
+        {
+          "name_zh": "鹰宫莉音",
+          "name_ja": "鷹宮リオン",
+          "name_en": "Takamiya Rion"
+        },
+        {
+          "name_zh": "舞元启介",
+          "name_ja": "舞元啓介",
+          "name_en": "Maimoto Keisuke"
+        },
+        {
+          "name_zh": "龙胆尊",
+          "name_ja": "竜胆尊",
+          "name_en": "Rindou Mikoto"
+        },
+        {
+          "name_zh": "德比德比·德比鲁",
+          "name_ja": "でびでび・でびる",
+          "name_en": "Debidebi Debiru"
+        },
+        {
+          "name_zh": "樱凛月",
+          "name_ja": "桜凛月",
+          "name_en": "Sakura Ritsuki"
+        },
+        {
+          "name_zh": "町田千麻",
+          "name_ja": "町田ちま",
+          "name_en": "Machita Chima"
+        },
+        {
+          "name_zh": "周·力一",
+          "name_ja": "ジョー・力一",
+          "name_en": "Joe Rikiichi"
+        },
+        {
+          "name_zh": "贝尔蒙德·班德拉斯",
+          "name_ja": "ベルモンド・バンデラス",
+          "name_en": "Belmond Banderas"
+        },
+        {
+          "name_zh": "矢车理音",
+          "name_ja": "矢車りね",
+          "name_en": "Yaguruma Rine"
+        },
+        {
+          "name_zh": "梦追翔",
+          "name_ja": "夢追翔",
+          "name_en": "Yumeoi Kakeru"
+        },
+        {
+          "name_zh": "黑井柴",
+          "name_ja": "黒井しば",
+          "name_en": "Kuroi Shiba"
+        }
+      ]
+    },
+    {
+      "name_zh": "一期生",
+      "name_ja": "一期生",
+      "debut_year": 2018,
+      "members": [
+        {
+          "name_zh": "月之美兔",
+          "name_ja": "月ノ美兎",
+          "name_en": "Tsukino Mito"
+        },
+        {
+          "name_zh": "艾露",
+          "name_ja": "える",
+          "name_en": "Elu"
+        },
+        {
+          "name_zh": "樋口枫",
+          "name_ja": "樋口楓",
+          "name_en": "Higuchi Kaede"
+        },
+        {
+          "name_zh": "静凛",
+          "name_ja": "静凛",
+          "name_en": "Shizuka Rin"
+        },
+        {
+          "name_zh": "涩谷初",
+          "name_ja": "渋谷ハジメ",
+          "name_en": "Shibuya Hajime"
+        },
+        {
+          "name_zh": "摩伊拉",
+          "name_ja": "モイラ",
+          "name_en": "Moira"
+        }
+      ]
+    },
+    {
+      "name_zh": "二期生",
+      "name_ja": "二期生",
+      "debut_year": 2018,
+      "members": [
+        {
+          "name_zh": "宇志海莓",
+          "name_ja": "宇志海いちご",
+          "name_en": "Ushimi Ichigo"
+        },
+        {
+          "name_zh": "家长麦",
+          "name_ja": "家長むぎ",
+          "name_en": "Ienaga Mugi"
+        },
+        {
+          "name_zh": "夕阳莉莉",
+          "name_ja": "夕陽リリ",
+          "name_en": "Yuhi Riri"
+        },
+        {
+          "name_zh": "物述有栖",
+          "name_ja": "物述有栖",
+          "name_en": "Mononobe Alice"
+        },
+        {
+          "name_zh": "文野环",
+          "name_ja": "文野環",
+          "name_en": "Fumino Tamaki"
+        },
+        {
+          "name_zh": "伏见学",
+          "name_ja": "伏見ガク",
+          "name_en": "Fushimi Gaku"
+        },
+        {
+          "name_zh": "吉尔扎伦三世",
+          "name_ja": "ギルザレンIII世",
+          "name_en": "Gilzaren Ⅲ"
+        },
+        {
+          "name_zh": "剑持刀也",
+          "name_ja": "剣持刀也",
+          "name_en": "Kenmochi Toya"
+        },
+        {
+          "name_zh": "森中花咲",
+          "name_ja": "森中花咲",
+          "name_en": "Morinaka Kazaki"
+        }
+      ]
+    },
+    {
+      "name_zh": "彩虹社Gamers",
+      "name_ja": "にじさんじGamers",
+      "debut_year": 2018,
+      "members": [
+        {
+          "name_zh": "叶",
+          "name_ja": "叶",
+          "name_en": "Kanae"
+        },
+        {
+          "name_zh": "赤羽叶子",
+          "name_ja": "赤羽葉子",
+          "name_en": "Akaba Youko"
+        },
+        {
+          "name_zh": "笹木咲",
+          "name_ja": "笹木咲",
+          "name_en": "Sasaki Saku"
+        },
+        {
+          "name_zh": "本间向日葵",
+          "name_ja": "本間ひまわり",
+          "name_en": "Honma Himawari"
+        },
+        {
+          "name_zh": "魔界之莉莉姆",
+          "name_ja": "魔界ノりりむ",
+          "name_en": "Makaino Ririmu"
+        },
+        {
+          "name_zh": "葛叶",
+          "name_ja": "葛葉",
+          "name_en": "Kuzuha"
+        },
+        {
+          "name_zh": "椎名唯华",
+          "name_ja": "椎名唯華",
+          "name_en": "Shiina Yuika"
+        }
+      ]
+    },
+    {
+      "name_zh": "演剧同好会",
+      "name_ja": "演劇同好会",
+      "debut_year": 2019,
+      "members": [
+        {
+          "name_zh": "西园千草",
+          "name_ja": "西園チグサ",
+          "name_en": "Nishizono Chigusa"
+        },
+        {
+          "name_zh": "周央珊瑚",
+          "name_ja": "周央サンゴ",
+          "name_en": "Suo Sango"
+        },
+        {
+          "name_zh": "东堂琥珀",
+          "name_ja": "東堂コハク",
+          "name_en": "Todo Kohaku"
+        },
+        {
+          "name_zh": "北小路翡翠",
+          "name_ja": "北小路ヒスイ",
+          "name_en": "Kitakoji Hisui"
+        }
+      ]
+    },
+    {
+      "name_zh": "えりぶり",
+      "name_ja": "えりぶり",
+      "debut_year": 2020,
+      "members": [
+        {
+          "name_zh": "五木左京",
+          "name_ja": "五木左京",
+          "name_en": "Itsuki Sakyo"
+        },
+        {
+          "name_zh": "一桥绫人",
+          "name_ja": "一橋綾人",
+          "name_en": "Hitotsubashi Ayato"
+        }
+      ]
+    },
+    {
+      "name_zh": "AYAKAKI",
+      "name_ja": "AYAKAKI (彩輝)",
+      "debut_year": 2021,
+      "members": [
+        {
+          "name_zh": "绮沙良",
+          "name_ja": "綺沙良",
+          "name_en": "Kisara"
+        },
+        {
+          "name_zh": "梢桃音",
+          "name_ja": "梢桃音",
+          "name_en": "Kozue Mone"
+        },
+        {
+          "name_zh": "仑仑",
+          "name_ja": "ルンルン",
+          "name_en": "Lunlun"
+        },
+        {
+          "name_zh": "司贺莉子",
+          "name_ja": "司賀りこ",
+          "name_en": "Shiga Riko"
+        },
+        {
+          "name_zh": "珠乃井南奈",
+          "name_ja": "珠乃井ナナ",
+          "name_en": "Tamanoi Nana"
+        }
+      ]
+    },
+    {
+      "name_zh": "VOLTACTION",
+      "name_ja": "VOLTACTION",
+      "debut_year": 2021,
+      "members": [
+        {
+          "name_zh": "风乐奏斗",
+          "name_ja": "風楽奏斗",
+          "name_en": "Fura Kanato"
+        },
+        {
+          "name_zh": "渡会云雀",
+          "name_ja": "渡会雲雀",
+          "name_en": "Watarai Hibari"
+        },
+        {
+          "name_zh": "四季凪圣来",
+          "name_ja": "四季凪アキラ",
+          "name_en": "Shikinagi Akira"
+        },
+        {
+          "name_zh": "塞拉弗·迪滋加登",
+          "name_ja": "セラフ・ダズルガーデン",
+          "name_en": "Seraph Dazzlegarden"
+        }
+      ]
+    },
+    {
+      "name_zh": "3SKM",
+      "name_ja": "3SKM",
+      "debut_year": 2022,
+      "members": [
+        {
+          "name_zh": "北见游征",
+          "name_ja": "北見遊征",
+          "name_en": "Kitami Yusei"
+        },
+        {
+          "name_zh": "魁星",
+          "name_ja": "魁星",
+          "name_en": "Kaisei"
+        },
+        {
+          "name_zh": "榊奈司",
+          "name_ja": "榊ネス",
+          "name_en": "Sakaki Ness"
+        }
+      ]
+    },
+    {
+      "name_zh": "Eden组",
+      "name_ja": "Eden組",
+      "debut_year": 2022,
+      "members": [
+        {
+          "name_zh": "劳伦·伊罗斯",
+          "name_ja": "ローレン・イロアス",
+          "name_en": "Lauren Iroas"
+        },
+        {
+          "name_zh": "雷奥斯·文森特",
+          "name_ja": "レオス・ヴィンセント",
+          "name_en": "Leos Vincent"
+        },
+        {
+          "name_zh": "奥利弗·埃文斯",
+          "name_ja": "オリバー・エバンス",
+          "name_en": "Oliver Evans"
+        },
+        {
+          "name_zh": "兰·帕特森",
+          "name_ja": "レイン・パターソン",
+          "name_en": "Lain Paterson"
+        }
+      ]
+    },
+    {
+      "name_zh": "Ranunculus",
+      "name_ja": "Ranunculus",
+      "debut_year": 2022,
+      "members": [
+        {
+          "name_zh": "海妹四叶",
+          "name_ja": "海妹四葉",
+          "name_en": "Umise Yotsuha"
+        },
+        {
+          "name_zh": "天瀬梦愈",
+          "name_ja": "天ヶ瀬むゆ",
+          "name_en": "Amagase Muyu"
+        },
+        {
+          "name_zh": "先斗宁",
+          "name_ja": "先斗寧",
+          "name_en": "Ponto Nei"
+        }
+      ]
+    },
+    {
+      "name_zh": "Dytica",
+      "name_ja": "Dytica",
+      "debut_year": 2023,
+      "members": [
+        {
+          "name_zh": "星导霄",
+          "name_ja": "星導ショウ",
+          "name_en": "Hoshirube Sho"
+        },
+        {
+          "name_zh": "丛云花月",
+          "name_ja": "叢雲カゲツ",
+          "name_en": "Murakumo Kagetsu"
+        },
+        {
+          "name_zh": "小柳狼",
+          "name_ja": "小柳ロウ",
+          "name_en": "Koyanagi Rou"
+        },
+        {
+          "name_zh": "伊波雷",
+          "name_ja": "伊波ライ",
+          "name_en": "Inami Rai"
+        }
+      ]
+    },
+    {
+      "name_zh": "Idios",
+      "name_ja": "Idios",
+      "debut_year": 2023,
+      "members": [
+        {
+          "name_zh": "小清水透",
+          "name_ja": "小清水透",
+          "name_en": "Koshimizu Toru"
+        },
+        {
+          "name_zh": "狮子堂灯",
+          "name_ja": "獅子堂あかり",
+          "name_en": "Shishido Akari"
+        },
+        {
+          "name_zh": "镝木露恋",
+          "name_ja": "鏑木ろこ",
+          "name_en": "Kaburaki Roco"
+        },
+        {
+          "name_zh": "五十岚梨花",
+          "name_ja": "五十嵐梨花",
+          "name_en": "Igarashi Rika"
+        },
+        {
+          "name_zh": "石神望",
+          "name_ja": "石神のぞみ",
+          "name_en": "Ishigami Nozomi"
+        },
+        {
+          "name_zh": "苏菲娅·瓦纶玎",
+          "name_ja": "ソフィア・ヴァレンタイン",
+          "name_en": "Sophia Valentine"
+        },
+        {
+          "name_zh": "仓持妹路特",
+          "name_ja": "倉持めると",
+          "name_en": "Kuramochi Meruto"
+        }
+      ]
+    },
+    {
+      "name_zh": "Oriens",
+      "name_ja": "Oriens",
+      "debut_year": 2023,
+      "members": [
+        {
+          "name_zh": "赤城文",
+          "name_ja": "赤城ウェン",
+          "name_en": "Akagi Wen"
+        },
+        {
+          "name_zh": "宇佐美理人",
+          "name_ja": "宇佐美リト",
+          "name_en": "Usami Rito"
+        },
+        {
+          "name_zh": "佐伯一彻",
+          "name_ja": "佐伯イッテツ",
+          "name_en": "Saiki Ittetsu"
+        },
+        {
+          "name_zh": "绯八舞成",
+          "name_ja": "緋八マナ",
+          "name_en": "Hibachi Mana"
+        }
+      ]
+    },
+    {
+      "name_zh": "Speciale",
+      "name_ja": "Speciale",
+      "debut_year": 2024,
+      "members": [
+        {
+          "name_zh": "云母玉子",
+          "name_ja": "雲母たまこ",
+          "name_en": "Kirara Tamako"
+        },
+        {
+          "name_zh": "渚托劳特",
+          "name_ja": "渚トラウト",
+          "name_en": "Nagisa Trout"
+        },
+        {
+          "name_zh": "七濑铃菜",
+          "name_ja": "七瀬すず菜",
+          "name_en": "Nanase Suzuna"
+        },
+        {
+          "name_zh": "酒寄飒马",
+          "name_ja": "酒寄颯馬",
+          "name_en": "Sakayori Soma"
+        },
+        {
+          "name_zh": "早乙女蓓丽",
+          "name_ja": "早乙女ベリー",
+          "name_en": "Saotome Berry"
+        }
+      ]
+    },
+    {
+      "name_zh": "Umyamii",
+      "name_ja": "Umyamii",
+      "debut_year": 2026,
+      "members": [
+        {
+          "name_zh": "白砂绫音",
+          "name_ja": "白砂綾音",
+          "name_en": ""
+        },
+        {
+          "name_zh": "水面円香",
+          "name_ja": "水面円香",
+          "name_en": ""
+        }
+      ]
+    },
+    {
+      "name_zh": "Y4T4",
+      "name_ja": "Y4T4",
+      "debut_year": 2026,
+      "members": [
+        {
+          "name_zh": "Rei7",
+          "name_ja": "Rei7",
+          "name_en": "Rei7"
+        },
+        {
+          "name_zh": "男虎",
+          "name_ja": "男虎",
+          "name_en": ""
+        },
+        {
+          "name_zh": "御子神琴音",
+          "name_ja": "御子神琴音",
+          "name_en": ""
+        },
+        {
+          "name_zh": "塚原大地",
+          "name_ja": "塚原大地",
+          "name_en": ""
+        },
+        {
+          "name_zh": "千凛步",
+          "name_ja": "千凛歩",
+          "name_en": ""
+        },
+        {
+          "name_zh": "九里咏太",
+          "name_ja": "九里詠太",
+          "name_en": ""
+        },
+        {
+          "name_zh": "小小波衣琉花",
+          "name_ja": "小々波衣琉花",
+          "name_en": ""
+        },
+        {
+          "name_zh": "芮昂",
+          "name_ja": "芮昂",
+          "name_en": ""
+        }
+      ]
+    }
+  ],
+  "solo": [
+    {
+      "name_zh": "梦月萝娅",
+      "name_ja": "夢月ロア",
+      "name_en": "Yuzuki Roa"
+    },
+    {
+      "name_zh": "语部纺",
+      "name_ja": "語部紡",
+      "name_en": "Kataribe Tsumugu"
+    },
+    {
+      "name_zh": "戌亥床",
+      "name_ja": "戌亥とこ",
+      "name_en": "Inui Toko"
+    },
+    {
+      "name_zh": "安洁·卡特莉娜",
+      "name_ja": "アンジュ・カトリーナ",
+      "name_en": "Ange Katrina"
+    },
+    {
+      "name_zh": "莉泽·赫露艾斯塔",
+      "name_ja": "リゼ・ヘルエスタ",
+      "name_en": "Lize Helesta"
+    },
+    {
+      "name_zh": "三枝明那",
+      "name_ja": "三枝明那",
+      "name_en": "Saegusa Akina"
+    },
+    {
+      "name_zh": "爱园爱美",
+      "name_ja": "愛園愛美",
+      "name_en": "Aizono Manami"
+    },
+    {
+      "name_zh": "铃原露露",
+      "name_ja": "鈴原るる",
+      "name_en": "Suzuhara Lulu"
+    },
+    {
+      "name_zh": "雪城真寻",
+      "name_ja": "雪城眞尋",
+      "name_en": "Yukishiro Mahiro"
+    },
+    {
+      "name_zh": "艾克斯·阿尔比欧",
+      "name_ja": "エクス・アルビオ",
+      "name_en": "Ex Albio"
+    },
+    {
+      "name_zh": "利维·艾莉法",
+      "name_ja": "レヴィ・エリファ",
+      "name_en": "Levi Elipha"
+    },
+    {
+      "name_zh": "叶山舞铃",
+      "name_ja": "葉山舞鈴",
+      "name_en": "Hayama Marin"
+    },
+    {
+      "name_zh": "纽伊·索西艾瑞",
+      "name_ja": "ニュイ・ソシエール",
+      "name_en": "Nui Sociere"
+    },
+    {
+      "name_zh": "加贺美隼人",
+      "name_ja": "加賀美ハヤト",
+      "name_en": "Kagami Hayato"
+    },
+    {
+      "name_zh": "叶加濑冬雪",
+      "name_ja": "葉加瀬冬雪",
+      "name_en": "Hakase Fuyuki"
+    },
+    {
+      "name_zh": "夜见蕾娜",
+      "name_ja": "夜見れな",
+      "name_en": "Yorumi Rena"
+    },
+    {
+      "name_zh": "阿露丝·阿尔玛",
+      "name_ja": "アルス・アルマル",
+      "name_en": "Ars Almal"
+    },
+    {
+      "name_zh": "艾莉·柯妮法",
+      "name_ja": "エリー・コニファー",
+      "name_en": "Eli Conifer"
+    },
+    {
+      "name_zh": "拉特娜·葡蒂",
+      "name_ja": "ラトナ・プティ",
+      "name_en": "Ratna Petit"
+    },
+    {
+      "name_zh": "天宫心",
+      "name_ja": "天宮こころ",
+      "name_en": "Amamiya Kokoro"
+    },
+    {
+      "name_zh": "早濑走",
+      "name_ja": "早瀬走",
+      "name_en": "Hayase Sou"
+    },
+    {
+      "name_zh": "健屋花那",
+      "name_ja": "健屋花那",
+      "name_en": "Sukoya Kana"
+    },
+    {
+      "name_zh": "谢林·伯艮第",
+      "name_ja": "シェリン・バーガンディ",
+      "name_en": "Shellin Burgundy"
+    },
+    {
+      "name_zh": "文美",
+      "name_ja": "フミ",
+      "name_en": "Fumi"
+    },
+    {
+      "name_zh": "星川莎拉",
+      "name_ja": "星川サラ",
+      "name_en": "Hoshikawa Sara"
+    },
+    {
+      "name_zh": "山神歌流多",
+      "name_ja": "山神カルタ",
+      "name_en": "Yagami karuta"
+    },
+    {
+      "name_zh": "艾玛★奥加斯特",
+      "name_ja": "えま★おうがすと",
+      "name_en": "Emma August"
+    },
+    {
+      "name_zh": "路易斯·嘉米",
+      "name_ja": "ルイス・キャミー",
+      "name_en": "Luis Cammy"
+    },
+    {
+      "name_zh": "魔使真央",
+      "name_ja": "魔使マオ",
+      "name_en": "Matsukai Mao"
+    },
+    {
+      "name_zh": "不破湊",
+      "name_ja": "不破湊",
+      "name_en": "Fuwa Minato"
+    },
+    {
+      "name_zh": "白雪巴",
+      "name_ja": "白雪巴",
+      "name_en": "Shirayuki Tomoe"
+    },
+    {
+      "name_zh": "真白爻",
+      "name_ja": "ましろ爻",
+      "name_en": "Mashiro Meme"
+    },
+    {
+      "name_zh": "来栖夏芽",
+      "name_ja": "来栖夏芽",
+      "name_en": "Kurusu Natsume"
+    },
+    {
+      "name_zh": "芙莲·E·露丝塔莉欧",
+      "name_ja": "フレン・E・ルスタリオ",
+      "name_en": "Furen E Lustario"
+    },
+    {
+      "name_zh": "伊卜拉新",
+      "name_ja": "イブラヒム",
+      "name_en": "Ibrahim"
+    },
+    {
+      "name_zh": "长尾景",
+      "name_ja": "長尾景",
+      "name_en": "Nagao Kei"
+    },
+    {
+      "name_zh": "弦月藤士郎",
+      "name_ja": "弦月藤士郎",
+      "name_en": "Genzuki Tojiro"
+    },
+    {
+      "name_zh": "甲斐田晴",
+      "name_ja": "甲斐田晴",
+      "name_en": "Kaida Haru"
+    },
+    {
+      "name_zh": "空星煌",
+      "name_ja": "空星きらめ",
+      "name_en": "Sorahoshi Kirame"
+    },
+    {
+      "name_zh": "壹百满天原莎乐美",
+      "name_ja": "壱百満天原サロメ",
+      "name_en": "Hyakumantenbara Salome"
+    },
+    {
+      "name_zh": "立传都都",
+      "name_ja": "立伝都々",
+      "name_en": "Tachitsute Toto"
+    },
+    {
+      "name_zh": "栞叶琉璃",
+      "name_ja": "栞葉るり",
+      "name_en": "Shioriha Ruri"
+    },
+    {
+      "name_zh": "米兰·凯斯特雷尔",
+      "name_ja": "ミラン・ケストレル",
+      "name_en": "Milan Kestrel"
+    }
+  ]
+}
