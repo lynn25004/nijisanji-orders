@@ -136,11 +136,17 @@ export async function scrapeShopProduct(
 
   // 先用 sitemap 挑最長 prefix match；若 404 再試其他候選
   const best = findBestMatch(shopProductCode, sitemap);
-  const tryList = best
-    ? [best, ...allCandidates(shopProductCode).filter((c) => c !== best)]
-    : allCandidates(shopProductCode);
+  // tryList 每項標記是否來自 sitemap 最長 prefix match（高信心）
+  const tryList: { code: string; fromSitemap: boolean }[] = best
+    ? [
+        { code: best, fromSitemap: true },
+        ...allCandidates(shopProductCode)
+          .filter((c) => c !== best)
+          .map((code) => ({ code, fromSitemap: false }))
+      ]
+    : allCandidates(shopProductCode).map((code) => ({ code, fromSitemap: false }));
 
-  for (const code of tryList) {
+  for (const { code, fromSitemap } of tryList) {
     const url = `${BASE}/${code}.html`;
     try {
       const { status, text: html } = await fetchText(url);
@@ -166,8 +172,13 @@ export async function scrapeShopProduct(
         talents_ja: extractTalents(html)
       };
 
-      // 精確 code 直接接受；否則要通過 liver 一致性檢查
-      if (code === shopProductCode || isPageRelevant(scraped, orderName ?? null)) {
+      // 信任來源：精確 code 命中 / sitemap 最長 prefix match
+      // 只對 allCandidates 降級才套用 liver sanity check
+      if (
+        code === shopProductCode ||
+        fromSitemap ||
+        isPageRelevant(scraped, orderName ?? null)
+      ) {
         return scraped;
       }
     } catch {
