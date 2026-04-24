@@ -182,51 +182,56 @@ export default function HomePage() {
           {filtered.map((r, i) => (
             <li
               key={`${r.order_id}-${r.product_id}-${i}`}
-              className="border border-neutral-200 dark:border-neutral-800 rounded-lg p-3 flex gap-3 bg-white dark:bg-neutral-900"
+              className="border border-neutral-200 dark:border-neutral-800 rounded-lg bg-white dark:bg-neutral-900 overflow-hidden"
             >
-              {r.image_url ? (
-                <img
-                  src={r.image_url}
-                  alt=""
-                  className="w-20 h-20 object-cover rounded"
-                  loading="lazy"
-                />
-              ) : (
-                <div className="w-20 h-20 bg-neutral-200 dark:bg-neutral-800 rounded flex items-center justify-center text-xs text-neutral-500">
-                  無圖
+              <Link
+                href={`/orders/${r.order_id}`}
+                className="p-3 flex gap-3 hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-colors"
+              >
+                {r.image_url ? (
+                  <img
+                    src={r.image_url}
+                    alt=""
+                    className="w-20 h-20 object-cover rounded"
+                    loading="lazy"
+                  />
+                ) : (
+                  <div className="w-20 h-20 bg-neutral-200 dark:bg-neutral-800 rounded flex items-center justify-center text-xs text-neutral-500">
+                    無圖
+                  </div>
+                )}
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-start gap-2">
+                    <div className="font-medium truncate flex-1">{r.product_name}</div>
+                    <button
+                      onClick={(e) => { e.preventDefault(); e.stopPropagation(); toggleReceived(r.order_id); }}
+                      disabled={toggling === r.order_id}
+                      title={r.received_at ? `已收到 ${r.received_at}（點擊取消）` : "標記已收到"}
+                      className={
+                        "shrink-0 text-xs px-2 py-0.5 rounded border " +
+                        (r.received_at
+                          ? "bg-green-600 text-white border-green-600"
+                          : "bg-transparent border-neutral-300 dark:border-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-800") +
+                        (toggling === r.order_id ? " opacity-50" : "")
+                      }
+                    >
+                      {r.received_at ? "✅ 已收到" : "☐ 未收到"}
+                    </button>
+                  </div>
+                  <div className="text-xs text-neutral-500 mt-0.5 flex flex-wrap gap-x-2">
+                    {r.group_name && <span>#{r.group_name}</span>}
+                    {r.release_date && <span>上架 {r.release_date}</span>}
+                  </div>
+                  <div className="text-xs mt-1">
+                    下單 {r.ordered_at} · 數量 {r.qty}
+                    {r.unit_price_jpy ? ` · ¥${r.unit_price_jpy}` : ""}
+                  </div>
+                  <div className="text-xs text-neutral-500 mt-0.5">
+                    {r.proxy_service ?? "（代購未填）"} · {r.status}
+                    {r.received_at && ` · 收到於 ${r.received_at}`}
+                  </div>
                 </div>
-              )}
-              <div className="flex-1 min-w-0">
-                <div className="flex items-start gap-2">
-                  <div className="font-medium truncate flex-1">{r.product_name}</div>
-                  <button
-                    onClick={() => toggleReceived(r.order_id)}
-                    disabled={toggling === r.order_id}
-                    title={r.received_at ? `已收到 ${r.received_at}（點擊取消）` : "標記已收到"}
-                    className={
-                      "shrink-0 text-xs px-2 py-0.5 rounded border " +
-                      (r.received_at
-                        ? "bg-green-600 text-white border-green-600"
-                        : "bg-transparent border-neutral-300 dark:border-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-800") +
-                      (toggling === r.order_id ? " opacity-50" : "")
-                    }
-                  >
-                    {r.received_at ? "✅ 已收到" : "☐ 未收到"}
-                  </button>
-                </div>
-                <div className="text-xs text-neutral-500 mt-0.5 flex flex-wrap gap-x-2">
-                  {r.group_name && <span>#{r.group_name}</span>}
-                  {r.release_date && <span>上架 {r.release_date}</span>}
-                </div>
-                <div className="text-xs mt-1">
-                  下單 {r.ordered_at} · 數量 {r.qty}
-                  {r.unit_price_jpy ? ` · ¥${r.unit_price_jpy}` : ""}
-                </div>
-                <div className="text-xs text-neutral-500 mt-0.5">
-                  {r.proxy_service ?? "（代購未填）"} · {r.status}
-                  {r.received_at && ` · 收到於 ${r.received_at}`}
-                </div>
-              </div>
+              </Link>
             </li>
           ))}
         </ul>
