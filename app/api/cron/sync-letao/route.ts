@@ -70,6 +70,39 @@ export async function GET(req: NextRequest) {
     byOrigin[o.originSite] = (byOrigin[o.originSite] || 0) + 1;
   }
 
+  // 批次撈「已存在訂單」：58 次 round-trip 改 1 次
+  const dedupKeys = allOrders.map((o) => `letao:${o.orderId}`);
+  const existingMap = new Map<string, { id: string; status: string }>();
+  if (dedupKeys.length) {
+    const { data: existingRows } = await sb
+      .from("orders")
+      .select("id, status, source_email_id")
+      .in("source_email_id", dedupKeys);
+    for (const row of existingRows ?? []) {
+      if (row.source_email_id) existingMap.set(row.source_email_id, { id: row.id, status: row.status });
+    }
+  }
+
+  // 批次撈「已存在商品」：每單 1-2 件商品 × 58 訂單 → 1 次查詢
+  const allCodes = Array.from(
+    new Set(
+      allOrders
+        .flatMap((o) => o.orderInfoList || [])
+        .map((it) => it.externalProductId)
+        .filter((c): c is string => !!c)
+    )
+  );
+  const productMap = new Map<string, { id: string; image_url: string | null }>();
+  if (allCodes.length) {
+    const { data: prodRows } = await sb
+      .from("products")
+      .select("id, shop_product_code, image_url")
+      .in("shop_product_code", allCodes);
+    for (const row of prodRows ?? []) {
+      if (row.shop_product_code) productMap.set(row.shop_product_code, { id: row.id, image_url: row.image_url });
+    }
+  }
+
   for (const o of allOrders) {
     try {
       const dedupKey = `letao:${o.orderId}`;
@@ -79,11 +112,7 @@ export async function GET(req: NextRequest) {
         continue;
       }
 
-      const { data: existing } = await sb
-        .from("orders")
-        .select("id, status")
-        .eq("source_email_id", dedupKey)
-        .maybeSingle();
+      const existing = existingMap.get(dedupKey);
 
       if (existing) {
         // 更新狀態
@@ -129,11 +158,7 @@ export async function GET(req: NextRequest) {
         const code = it.externalProductId || null;
 
         if (code) {
-          const { data: existingProduct } = await sb
-            .from("products")
-            .select("id, image_url")
-            .eq("shop_product_code", code)
-            .maybeSingle();
+          const existingProduct = productMap.get(code);
           if (existingProduct) {
             productId = existingProduct.id;
             // 補圖（如果原本沒有）
@@ -142,6 +167,7 @@ export async function GET(req: NextRequest) {
                 .from("products")
                 .update({ image_url: it.image })
                 .eq("id", productId);
+              existingProduct.image_url = it.image;
             }
           }
         }
@@ -166,6 +192,7 @@ export async function GET(req: NextRequest) {
             continue;
           }
           productId = newProd.id;
+          if (code) productMap.set(code, { id: newProd.id, image_url: it.image ?? null });
         }
 
         await sb.from("order_items").insert({

@@ -20,12 +20,12 @@ export async function GET(req: NextRequest) {
   const qs = req.nextUrl.searchParams.get("secret") || "";
   if (!secret || (token !== secret && qs !== secret)) return unauthorized();
 
-  // 每支商品要抓 sitemap + 頁面 + 0.8s 禮貌延遲（~3s 實測）
-  // 限 8 筆避免 60s timeout；缺圖商品會在下一次 cron 繼續補
-  const limit = parseInt(req.nextUrl.searchParams.get("limit") || "8", 10);
+  // 每支商品要抓 sitemap + 頁面（~3s 實測）
+  // cron-job.org 免費版 timeout 上限 30s → 限 5 筆 + 軟上限 25s
+  const limit = parseInt(req.nextUrl.searchParams.get("limit") || "5", 10);
   const force = req.nextUrl.searchParams.get("force") === "1";
   const startedAt = Date.now();
-  const SOFT_DEADLINE_MS = 50_000; // 留 10s buffer 給後續 DB 操作
+  const SOFT_DEADLINE_MS = 25_000;
 
   const sb = supabaseServer();
 
