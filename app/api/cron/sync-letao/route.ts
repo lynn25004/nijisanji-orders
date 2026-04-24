@@ -63,11 +63,14 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({ error: msg }, { status: 500 });
   }
 
-  // 只處理 NIJISANJI 的訂單
-  const niji = allOrders.filter((o) => o.originSite === "NIJISANJI");
+  // 處理所有 Letao 訂單（NIJISANJI / AMAZON / MERCARI / PAYPAY…）
   const results: any[] = [];
+  const byOrigin: Record<string, number> = {};
+  for (const o of allOrders) {
+    byOrigin[o.originSite] = (byOrigin[o.originSite] || 0) + 1;
+  }
 
-  for (const o of niji) {
+  for (const o of allOrders) {
     try {
       const dedupKey = `letao:${o.orderId}`;
       const orderedAt = toDate(o.createTime);
@@ -181,7 +184,7 @@ export async function GET(req: NextRequest) {
 
   const summary = {
     total_fetched: allOrders.length,
-    nijisanji_orders: niji.length,
+    by_origin: byOrigin,
     inserted: results.filter((r) => r.status === "inserted").length,
     updated: results.filter((r) => r.status === "updated").length,
     unchanged: results.filter((r) => r.status === "unchanged").length,

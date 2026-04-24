@@ -29,6 +29,7 @@ export default function HomePage() {
   const [receivedFilter, setReceivedFilter] = useState<"all" | "yes" | "no">("all");
   const [sortBy, setSortBy] = useState<"ordered_at" | "release_date">("ordered_at");
   const [toggling, setToggling] = useState<string | null>(null);
+  const [zoomImg, setZoomImg] = useState<string | null>(null);
 
   const load = async () => {
     const { data, error } = await supabase
@@ -74,6 +75,13 @@ export default function HomePage() {
   useEffect(() => {
     load();
   }, []);
+
+  useEffect(() => {
+    if (!zoomImg) return;
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setZoomImg(null);
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [zoomImg]);
 
   const groupOptions = useMemo(() => {
     const m = new Map<string, string>();
@@ -184,23 +192,30 @@ export default function HomePage() {
               key={`${r.order_id}-${r.product_id}-${i}`}
               className="border border-neutral-200 dark:border-neutral-800 rounded-lg bg-white dark:bg-neutral-900 overflow-hidden"
             >
-              <Link
-                href={`/orders/${r.order_id}`}
-                className="p-3 flex gap-3 hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-colors"
-              >
+              <div className="p-3 flex gap-3">
                 {r.image_url ? (
-                  <img
-                    src={r.image_url}
-                    alt=""
-                    className="w-20 h-20 object-cover rounded"
-                    loading="lazy"
-                  />
+                  <button
+                    type="button"
+                    onClick={(e) => { e.preventDefault(); e.stopPropagation(); setZoomImg(r.image_url!); }}
+                    className="shrink-0"
+                    title="點擊放大"
+                  >
+                    <img
+                      src={r.image_url}
+                      alt=""
+                      className="w-20 h-20 object-cover rounded hover:scale-105 transition-transform"
+                      loading="lazy"
+                    />
+                  </button>
                 ) : (
                   <div className="w-20 h-20 bg-neutral-200 dark:bg-neutral-800 rounded flex items-center justify-center text-xs text-neutral-500">
                     無圖
                   </div>
                 )}
-                <div className="flex-1 min-w-0">
+                <Link
+                  href={`/orders/${r.order_id}`}
+                  className="flex-1 min-w-0 hover:bg-neutral-50 dark:hover:bg-neutral-800 -m-1 p-1 rounded transition-colors"
+                >
                   <div className="flex items-start gap-2">
                     <div className="font-medium truncate flex-1">{r.product_name}</div>
                     <button
@@ -230,11 +245,33 @@ export default function HomePage() {
                     {r.proxy_service ?? "（代購未填）"} · {r.status}
                     {r.received_at && ` · 收到於 ${r.received_at}`}
                   </div>
-                </div>
-              </Link>
+                </Link>
+              </div>
             </li>
           ))}
         </ul>
+      )}
+
+      {zoomImg && (
+        <div
+          className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4 cursor-zoom-out"
+          onClick={() => setZoomImg(null)}
+          role="dialog"
+          aria-modal="true"
+        >
+          <img
+            src={zoomImg}
+            alt=""
+            className="max-w-full max-h-[90vh] object-contain rounded-lg"
+            onClick={(e) => e.stopPropagation()}
+          />
+          <button
+            type="button"
+            onClick={() => setZoomImg(null)}
+            className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white text-black flex items-center justify-center text-xl shadow"
+            aria-label="關閉"
+          >×</button>
+        </div>
       )}
     </div>
   );

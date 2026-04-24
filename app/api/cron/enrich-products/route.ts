@@ -58,13 +58,14 @@ export async function GET(req: NextRequest) {
       // 處理藝人 → talents + product_talents
       const talentIds: string[] = [];
       for (const nameJa of scraped.talents_ja) {
-        const { data: existing } = await sb
+        // 用 limit(1) 而非 maybeSingle()，避免已有重複 row 時誤判為「不存在」而再插一筆
+        const { data: existingList } = await sb
           .from("talents")
           .select("id")
           .eq("name_ja", nameJa)
-          .maybeSingle();
-        if (existing?.id) {
-          talentIds.push(existing.id);
+          .limit(1);
+        if (existingList && existingList.length > 0) {
+          talentIds.push(existingList[0].id);
         } else {
           const { data: created } = await sb
             .from("talents")

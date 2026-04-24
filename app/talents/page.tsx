@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useMemo, useState } from "react";
+import Link from "next/link";
 import { supabase } from "@/lib/supabase";
 
 type Talent = {
@@ -18,7 +19,6 @@ type Talent = {
 export default function TalentsPage() {
   const [talents, setTalents] = useState<Talent[]>([]);
   const [loading, setLoading] = useState(true);
-  const [zoom, setZoom] = useState<Talent | null>(null);
 
   useEffect(() => {
     (async () => {
@@ -58,15 +58,6 @@ export default function TalentsPage() {
       setLoading(false);
     })();
   }, []);
-
-  useEffect(() => {
-    if (!zoom) return;
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setZoom(null);
-    };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [zoom]);
 
   const grouped = useMemo(() => {
     const byYear = new Map<string, Talent[]>();
@@ -109,12 +100,10 @@ export default function TalentsPage() {
                   key={t.id}
                   className="border border-neutral-200 dark:border-neutral-800 rounded-lg bg-white dark:bg-neutral-900 overflow-hidden"
                 >
-                  <button
-                    type="button"
-                    onClick={() => t.image_url && setZoom(t)}
-                    className="block w-full aspect-square bg-neutral-100 dark:bg-neutral-800 overflow-hidden disabled:cursor-default"
-                    disabled={!t.image_url}
-                    title={t.image_url ? "點擊放大" : undefined}
+                  <Link
+                    href={`/talents/${t.id}`}
+                    className="block w-full aspect-square bg-neutral-100 dark:bg-neutral-800 overflow-hidden"
+                    title="查看購買記錄"
                   >
                     {t.image_url ? (
                       <img
@@ -128,7 +117,7 @@ export default function TalentsPage() {
                         無圖
                       </div>
                     )}
-                  </button>
+                  </Link>
                   <div className="p-2">
                     <div className="font-medium text-sm truncate" title={t.name_ja}>
                       {t.name_ja}
@@ -157,40 +146,6 @@ export default function TalentsPage() {
         ))
       )}
 
-      {zoom && (
-        <div
-          className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4 cursor-zoom-out"
-          onClick={() => setZoom(null)}
-          role="dialog"
-          aria-modal="true"
-        >
-          <div
-            className="relative max-w-3xl max-h-[90vh] flex flex-col items-center"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <img
-              src={zoom.image_url!}
-              alt={zoom.name_ja}
-              className="max-w-full max-h-[80vh] object-contain rounded-lg"
-            />
-            <div className="mt-3 text-white text-center">
-              <div className="text-lg font-bold">{zoom.name_ja}</div>
-              {zoom.name_en && <div className="text-sm opacity-80">{zoom.name_en}</div>}
-              {zoom.debut_at && (
-                <div className="text-xs opacity-60 mt-1">出道 {zoom.debut_at.slice(0, 10)}</div>
-              )}
-            </div>
-            <button
-              type="button"
-              onClick={() => setZoom(null)}
-              className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-white text-black flex items-center justify-center text-lg shadow"
-              aria-label="關閉"
-            >
-              ×
-            </button>
-          </div>
-        </div>
-      )}
     </div>
   );
 }
