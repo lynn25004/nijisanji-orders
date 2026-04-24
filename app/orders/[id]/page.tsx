@@ -1,8 +1,11 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { supabase } from "@/lib/supabase";
+
+type Group = { id: string; name_ja: string; name_zh: string | null };
+type Talent = { id: string; name_ja: string; name_zh: string | null; group_id: string | null };
 
 type OrderForm = {
   proxy_service: string;
@@ -49,6 +52,12 @@ export default function EditOrderPage({ params }: { params: { id: string } }) {
   const [err, setErr] = useState<string | null>(null);
   const [order, setOrder] = useState<OrderForm | null>(null);
   const [items, setItems] = useState<ItemForm[]>([]);
+  const [groups, setGroups] = useState<Group[]>([]);
+  const [talents, setTalents] = useState<Talent[]>([]);
+  // item_id → [talent_id, ...]
+  const [itemTalents, setItemTalents] = useState<Record<string, string[]>>({});
+  const [newTalentName, setNewTalentName] = useState<Record<string, string>>({});
+  const [newTalentGroup, setNewTalentGroup] = useState<Record<string, string>>({});
 
   useEffect(() => {
     (async () => {
@@ -78,7 +87,7 @@ export default function EditOrderPage({ params }: { params: { id: string } }) {
         notes: str(o.notes)
       });
 
-      setItems((its ?? []).map((r: any) => ({
+      const mapped = (its ?? []).map((r: any) => ({
         item_id: r.id,
         product_id: r.product_id,
         name_ja: str(r.products?.name_ja),
@@ -88,10 +97,80 @@ export default function EditOrderPage({ params }: { params: { id: string } }) {
         shop_product_code: str(r.products?.shop_product_code),
         qty: str(r.qty),
         unit_price_jpy: str(r.unit_price_jpy)
-      })));
+      }));
+      setItems(mapped);
+
+      // 載入所有 talents + groups
+      const [{ data: gs }, { data: ts }] = await Promise.all([
+        supabase.from("groups").select("id, name_ja, name_zh").order("sort_order"),
+        supabase.from("talents").select("id, name_ja, name_zh, group_id").order("name_ja")
+      ]);
+      setGroups((gs ?? []) as Group[]);
+      setTalents((ts ?? []) as Talent[]);
+
+      // 各 item 的 linked talents
+      if (mapped.length) {
+        const pids = mapped.map((m) => m.product_id).filter(Boolean);
+        const { data: pts } = await supabase
+          .from("product_talents")
+          .select("product_id, talent_id")
+          .in("product_id", pids);
+        const m: Record<string, string[]> = {};
+        for (const it of mapped) {
+          m[it.item_id] = (pts ?? [])
+            .filter((p: any) => p.product_id === it.product_id)
+            .map((p: any) => p.talent_id);
+        }
+        setItemTalents(m);
+      }
+
       setLoading(false);
     })();
   }, [params.id]);
+
+  const linkTalent = async (itemId: string, productId: string, talentId: string) => {
+    if (!talentId) return;
+    const existing = itemTalents[itemId] || [];
+    if (existing.includes(talentId)) return;
+    const { error } = await supabase
+      .from("product_talents")
+      .upsert({ product_id: productId, talent_id: talentId }, { onConflict: "product_id,talent_id" });
+    if (error) { setErr(error.message); return; }
+    setItemTalents((m) => ({ ...m, [itemId]: [...existing, talentId] }));
+  };
+
+  const unlinkTalent = async (itemId: string, productId: string, talentId: string) => {
+    const { error } = await supabase
+      .from("product_talents")
+      .delete()
+      .eq("product_id", productId)
+      .eq("talent_id", talentId);
+    if (error) { setErr(error.message); return; }
+    setItemTalents((m) => ({ ...m, [itemId]: (m[itemId] || []).filter((id) => id !== talentId) }));
+  };
+
+  const createAndLinkTalent = async (itemId: string, productId: string) => {
+    const name = (newTalentName[itemId] || "").trim();
+    if (!name) return;
+    const groupId = newTalentGroup[itemId] || null;
+    // 先看有沒有同名（避免重複）
+    const existing = talents.find((t) => t.name_ja === name);
+    let talentId: string | null = existing?.id ?? null;
+    if (!talentId) {
+      const { data, error } = await supabase
+        .from("talents")
+        .insert({ name_ja: name, group_id: groupId })
+        .select("id, name_ja, name_zh, group_id")
+        .single();
+      if (error || !data) { setErr(error?.message ?? "新增藝人失敗"); return; }
+      talentId = data.id;
+      setTalents((arr) => [...arr, data as Talent].sort((a, b) => a.name_ja.localeCompare(b.name_ja)));
+    }
+    if (!talentId) return;
+    await linkTalent(itemId, productId, talentId);
+    setNewTalentName((m) => ({ ...m, [itemId]: "" }));
+    setNewTalentGroup((m) => ({ ...m, [itemId]: "" }));
+  };
 
   const setO = (k: keyof OrderForm, v: string) => setOrder((o) => o ? { ...o, [k]: v } : o);
   const setI = (idx: number, k: keyof ItemForm, v: string) =>
@@ -223,6 +302,87 @@ export default function EditOrderPage({ params }: { params: { id: string } }) {
             {it.image_url && (
               <img src={it.image_url} alt="" className="max-h-24 rounded border border-neutral-200 dark:border-neutral-800" />
             )}
+
+            <div className="border-t border-neutral-200 dark:border-neutral-800 pt-2 space-y-2">
+              <div className="text-xs text-neutral-500">團體 / 藝人（影響首頁團體篩選）</div>
+              <div className="flex flex-wrap gap-1 items-center">
+                {(itemTalents[it.item_id] || []).map((tid) => {
+                  const t = talents.find((x) => x.id === tid);
+                  if (!t) return null;
+                  const g = groups.find((x) => x.id === t.group_id);
+                  return (
+                    <span
+                      key={tid}
+                      className="px-2 py-0.5 text-xs bg-neutral-200 dark:bg-neutral-700 rounded-full flex items-center gap-1"
+                    >
+                      {t.name_ja}
+                      {g && <span className="text-neutral-500">· {g.name_zh ?? g.name_ja}</span>}
+                      <button
+                        type="button"
+                        onClick={() => unlinkTalent(it.item_id, it.product_id, tid)}
+                        className="text-neutral-500 hover:text-red-600"
+                        title="移除"
+                      >
+                        ×
+                      </button>
+                    </span>
+                  );
+                })}
+                <select
+                  className="text-xs border rounded px-1 py-0.5 bg-transparent"
+                  value=""
+                  onChange={(e) => linkTalent(it.item_id, it.product_id, e.target.value)}
+                >
+                  <option value="">+ 加藝人</option>
+                  {groups.map((g) => {
+                    const ts = talents.filter((t) => t.group_id === g.id && !(itemTalents[it.item_id] || []).includes(t.id));
+                    if (!ts.length) return null;
+                    return (
+                      <optgroup key={g.id} label={g.name_zh ?? g.name_ja}>
+                        {ts.map((t) => (
+                          <option key={t.id} value={t.id}>{t.name_ja}</option>
+                        ))}
+                      </optgroup>
+                    );
+                  })}
+                  {(() => {
+                    const nog = talents.filter((t) => !t.group_id && !(itemTalents[it.item_id] || []).includes(t.id));
+                    return nog.length ? (
+                      <optgroup label="（未分團）">
+                        {nog.map((t) => (
+                          <option key={t.id} value={t.id}>{t.name_ja}</option>
+                        ))}
+                      </optgroup>
+                    ) : null;
+                  })()}
+                </select>
+              </div>
+              <div className="flex flex-wrap gap-1 items-center">
+                <input
+                  className="text-xs border rounded px-1 py-0.5 bg-transparent"
+                  placeholder="新藝人名（日文）"
+                  value={newTalentName[it.item_id] || ""}
+                  onChange={(e) => setNewTalentName((m) => ({ ...m, [it.item_id]: e.target.value }))}
+                />
+                <select
+                  className="text-xs border rounded px-1 py-0.5 bg-transparent"
+                  value={newTalentGroup[it.item_id] || ""}
+                  onChange={(e) => setNewTalentGroup((m) => ({ ...m, [it.item_id]: e.target.value }))}
+                >
+                  <option value="">（無團體）</option>
+                  {groups.map((g) => (
+                    <option key={g.id} value={g.id}>{g.name_zh ?? g.name_ja}</option>
+                  ))}
+                </select>
+                <button
+                  type="button"
+                  onClick={() => createAndLinkTalent(it.item_id, it.product_id)}
+                  className="text-xs border rounded px-2 py-0.5 hover:bg-neutral-100 dark:hover:bg-neutral-800"
+                >
+                  新增並關聯
+                </button>
+              </div>
+            </div>
           </div>
         ))}
       </fieldset>
