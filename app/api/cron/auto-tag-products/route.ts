@@ -153,9 +153,12 @@ export async function GET(req: NextRequest) {
     const already = existing.get(p.id) ?? new Set<string>();
     const toInsert = [...hits].filter((id) => !already.has(id));
     if (toInsert.length > 0) {
-      const { error } = await sb.from("product_talents").insert(
-        toInsert.map((talent_id) => ({ product_id: p.id, talent_id }))
-      );
+      const { error } = await sb
+        .from("product_talents")
+        .upsert(
+          toInsert.map((talent_id) => ({ product_id: p.id, talent_id })),
+          { onConflict: "product_id,talent_id", ignoreDuplicates: true }
+        );
       if (error) {
         results.errors.push(`${p.id}: ${error.message}`);
       } else {
