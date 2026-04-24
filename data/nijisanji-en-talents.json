@@ -1,0 +1,222 @@
+{
+  "groups": [
+    {
+      "name_zh": "LazuLight",
+      "name_ja": "LazuLight",
+      "name_en": "LazuLight",
+      "members": [
+        {
+          "name_zh": "Elira Pendora",
+          "name_ja": "エリーラ・ペンドラ",
+          "name_en": "Elira Pendora"
+        },
+        {
+          "name_zh": "龙宫Finana",
+          "name_ja": "フィナーナ・竜宮",
+          "name_en": "Finana Ryugu"
+        }
+      ]
+    },
+    {
+      "name_zh": "OBSYDIA",
+      "name_ja": "OBSYDIA",
+      "name_en": "OBSYDIA",
+      "members": [
+        {
+          "name_zh": "Petra Gurin",
+          "name_ja": "ペトラ・グリン",
+          "name_en": "Petra Gurin"
+        }
+      ]
+    },
+    {
+      "name_zh": "Ethyria",
+      "name_ja": "Ethyria",
+      "name_en": "Ethyria",
+      "members": [
+        {
+          "name_zh": "Enna Alouette",
+          "name_ja": "エナー・アールウェット",
+          "name_en": "Enna Alouette"
+        },
+        {
+          "name_zh": "Millie Parfait",
+          "name_ja": "ミリー・パフェ",
+          "name_en": "Millie Parfait"
+        }
+      ]
+    },
+    {
+      "name_zh": "Luxiem",
+      "name_ja": "Luxiem",
+      "name_en": "Luxiem",
+      "members": [
+        {
+          "name_zh": "Luca Kaneshiro",
+          "name_ja": "ルカ・カネシロ",
+          "name_en": "Luca Kaneshiro"
+        },
+        {
+          "name_zh": "暗之Shu",
+          "name_ja": "闇ノシュウ",
+          "name_en": "Shu Yamino"
+        },
+        {
+          "name_zh": "Vox Akuma",
+          "name_ja": "ヴォックス・アクマ",
+          "name_en": "Vox Akuma"
+        }
+      ]
+    },
+    {
+      "name_zh": "Noctyx",
+      "name_ja": "Noctyx",
+      "name_en": "Noctyx",
+      "members": [
+        {
+          "name_zh": "Sonny Brisko",
+          "name_ja": "サニー・ブリスコー",
+          "name_en": "Sonny Brisko"
+        },
+        {
+          "name_zh": "浮奇·Violeta",
+          "name_ja": "浮奇・ヴィオレタ",
+          "name_en": "Uki Violeta"
+        },
+        {
+          "name_zh": "Alban Knox",
+          "name_ja": "アルバーン・ノックス",
+          "name_en": "Alban Knox"
+        }
+      ]
+    },
+    {
+      "name_zh": "ILUNA",
+      "name_ja": "ILUNA",
+      "name_en": "ILUNA",
+      "members": [
+        {
+          "name_zh": "Scarle Yonaguni",
+          "name_ja": "スカーレ・ヨナグニ",
+          "name_en": "Scarle Yonaguni"
+        },
+        {
+          "name_zh": "Aia Amare",
+          "name_ja": "アイア・アマレ",
+          "name_en": "Aia Amare"
+        },
+        {
+          "name_zh": "Maria Marionette",
+          "name_ja": "マリア・マリオネット",
+          "name_en": "Maria Marionette"
+        },
+        {
+          "name_zh": "Ren Zotto",
+          "name_ja": "レン・ゾット",
+          "name_en": "Ren Zotto"
+        }
+      ]
+    },
+    {
+      "name_zh": "XSOLEIL",
+      "name_ja": "XSOLEIL",
+      "name_en": "XSOLEIL",
+      "members": [
+        {
+          "name_zh": "Doppio Dropscythe",
+          "name_ja": "ドッピオ・ドロップサイト",
+          "name_en": "Doppio Dropscythe"
+        },
+        {
+          "name_zh": "狂兰Meloco",
+          "name_ja": "狂蘭・メロコ",
+          "name_en": "Meloco Kyoran"
+        },
+        {
+          "name_zh": "Ver Vermillion",
+          "name_ja": "ヴェール・ヴァーミリオン",
+          "name_en": "Ver Vermillion"
+        }
+      ]
+    },
+    {
+      "name_zh": "Krisis",
+      "name_ja": "Krisis",
+      "name_en": "Krisis",
+      "members": [
+        {
+          "name_zh": "Yu Q. Wilson",
+          "name_ja": "ユウ Q ウィルソン",
+          "name_en": "Yu Q. Wilson"
+        },
+        {
+          "name_zh": "Vantacrow Bringer",
+          "name_ja": "ベンタクロウ ブリンガー",
+          "name_en": "Vantacrow Bringer"
+        },
+        {
+          "name_zh": "Vezalius Bandage",
+          "name_ja": "ヴェザリウス バンデージ",
+          "name_en": "Vezalius Bandage"
+        }
+      ]
+    },
+    {
+      "name_zh": "TTT",
+      "name_ja": "TTT",
+      "name_en": "TTT",
+      "members": [
+        {
+          "name_zh": "Claude Clawmark",
+          "name_ja": "クロード クローマーク",
+          "name_en": "Claude Clawmark"
+        }
+      ]
+    },
+    {
+      "name_zh": "Denauth",
+      "name_ja": "Denauth",
+      "name_en": "Denauth",
+      "members": [
+        {
+          "name_zh": "Klara Charmwood",
+          "name_ja": "クララ チャームウッド",
+          "name_en": "Klara Charmwood"
+        },
+        {
+          "name_zh": "Ryoma Barrenwort",
+          "name_ja": "凉舞 バレンウォート",
+          "name_en": "Ryoma Barrenwort"
+        }
+      ]
+    },
+    {
+      "name_zh": "BY THE BEAT",
+      "name_ja": "BY THE BEAT",
+      "name_en": "BY THE BEAT",
+      "members": [
+        {
+          "name_zh": "Zeal Ginjoka",
+          "name_ja": "ジール ギンジョウカ",
+          "name_en": "Zeal Ginjoka"
+        },
+        {
+          "name_zh": "Freodore",
+          "name_ja": "フリオドール",
+          "name_en": "Freodore"
+        },
+        {
+          "name_zh": "Seible",
+          "name_ja": "セイブル",
+          "name_en": "Seible"
+        },
+        {
+          "name_zh": "Kaelix Debonair",
+          "name_ja": "ケイリクス デボネア",
+          "name_en": "Kaelix Debonair"
+        }
+      ]
+    }
+  ],
+  "solo": []
+}
