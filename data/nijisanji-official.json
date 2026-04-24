@@ -1,0 +1,5392 @@
+[
+  {
+    "branch": "JP",
+    "slug": "kuzuha",
+    "name_ja": "葛葉",
+    "name_en": "Kuzuha",
+    "debut_at": "2018-07-29T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/72c4d4d190f14fb2b865a24596118ba2/liver-face_Kuzuha.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "salome-hyakumantenbara",
+    "name_ja": "壱百満天原サロメ",
+    "name_en": "Hyakumantenbara Salome",
+    "debut_at": "2022-05-21T03:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/58a505029c69440699d4e44416bba57d/liver-face_Salome_Hyakumantenbara.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "kanae",
+    "name_ja": "叶",
+    "name_en": "Kanae",
+    "debut_at": "2018-05-01T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/ba94d70307e344b083ca0b50fb733659/liver-face_Kanae.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "mito-tsukino",
+    "name_ja": "月ノ美兎",
+    "name_en": "Tsukino Mito",
+    "debut_at": "2018-01-31T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/bd287ec9cfb8453da4a32161e4e76ce1/liver-face_Mito_Tsukino.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "vox-akuma",
+    "name_ja": "ヴォックス・アクマ",
+    "name_en": "Vox Akuma",
+    "debut_at": "2021-12-19T15:00:00.000Z",
+    "affiliation": [
+      "NIJISANJI EN"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/75bce98aa25943518ae8b1d42ec3dd5d/liver-face_Vox_Akuma.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "toya-kenmochi",
+    "name_ja": "剣持刀也",
+    "name_en": "Kenmochi Toya",
+    "debut_at": "2018-03-14T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/fa185ae5b61e4ed2ab59d3858e29229c/liver-face_Toya_Kenmochi.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "sara-hoshikawa",
+    "name_ja": "星川サラ",
+    "name_en": "Hoshikawa Sara",
+    "debut_at": "2019-10-16T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/ebb66fde318b469a8ef5bff61312730a/liver-face_Sara_Hoshikawa.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "minato-fuwa",
+    "name_ja": "不破湊",
+    "name_en": "Fuwa Minato",
+    "debut_at": "2019-11-27T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/4b3624d691304879ac020c6ada8c7856/liver-face_Minato_Fuwa.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "luca-kaneshiro",
+    "name_ja": "ルカ・カネシロ",
+    "name_en": "Luca Kaneshiro",
+    "debut_at": "2021-12-19T15:00:00.000Z",
+    "affiliation": [
+      "NIJISANJI EN"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/a69e253aceeb4ea2aad124963263d1f3/liver-face_Luca_Kaneshiro.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "kaede-higuchi",
+    "name_ja": "樋口楓",
+    "name_en": "Higuchi Kaede",
+    "debut_at": "2018-01-31T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/a10e6c0587a74e4781e3329c4ae732d6/liver-face_Kaede_Higuchi.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "lauren-iroas",
+    "name_ja": "ローレン・イロアス",
+    "name_en": "Lauren Iroas",
+    "debut_at": "2021-07-21T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/20a7002d409545f68b235f2dbadda706/liver-face_Lauren_Iroas.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "ange-katrina",
+    "name_ja": "アンジュ・カトリーナ",
+    "name_en": "Ange Katrina",
+    "debut_at": "2019-03-21T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/15670f33fae545de9fc5dff585be332c/liver-face_Ange_Katrina.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "lize-helesta",
+    "name_ja": "リゼ・ヘルエスタ",
+    "name_en": "Lize Helesta",
+    "debut_at": "2019-03-21T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/47f33a1d55ff4c40aa815eaff1be3aab/liver-face_Lize_Helesta.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "toko-inui",
+    "name_ja": "戌亥とこ",
+    "name_en": "Inui Toko",
+    "debut_at": "2019-03-21T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/e901f31dd23841438d5ed3113828353b/liver-face_Toko_Inui.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "shu-yamino",
+    "name_ja": "闇ノシュウ",
+    "name_en": "Shu Yamino",
+    "debut_at": "2021-12-19T15:00:00.000Z",
+    "affiliation": [
+      "NIJISANJI EN"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/57f8266ce45a4ace95f272c19e032413/liver-face_ShuYamino.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "saku-sasaki",
+    "name_ja": "笹木咲",
+    "name_en": "Sasaki Saku",
+    "debut_at": "2018-07-05T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/cf45532cb7eb45bdb2789b3d3932f596/liver-face_Saku_Sasaki.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "hayato-kagami",
+    "name_ja": "加賀美ハヤト",
+    "name_en": "Kagami Hayato",
+    "debut_at": "2019-07-02T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/616a31c054da4761ae731bc852f9381b/liver-face_Hayato_Kagami.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "kizuku-yashiro",
+    "name_ja": "社築",
+    "name_en": "Yashiro Kizuku",
+    "debut_at": "2018-06-02T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/ff46243c3787455cb8005023513616ca/liver-face_Kizuku_Yashiro.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "lunlun",
+    "name_ja": "ルンルン",
+    "name_en": "Lunlun",
+    "debut_at": "2024-06-18T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/21cd9392b3c24edcb8de8359286f7839/liver-face_Lunlun.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "ibrahim",
+    "name_ja": "イブラヒム",
+    "name_en": "Ibrahim",
+    "debut_at": "2020-01-29T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/4e6360c6d1994303ba0c0c5b753aa225/liver-face_Ibrahim.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "yuika-shiina",
+    "name_ja": "椎名唯華",
+    "name_en": "Shiina Yuika",
+    "debut_at": "2018-07-29T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/23ba0b2e138d45f6bdb6b94025377dc2/liver-face_Yuika_Shiina.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "ars-almal",
+    "name_ja": "アルス・アルマル",
+    "name_en": "Ars Almal",
+    "debut_at": "2019-07-23T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/663f3aa8834241799f2449e8b393df17/liver-face_Ars_Almal.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "chima-machita",
+    "name_ja": "町田ちま",
+    "name_en": "Machita Chima",
+    "debut_at": "2018-08-30T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/42d168bf6eca48e39031a2bbc6e666c6/liver-face_Chima_Machita.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "furen-e-lustario",
+    "name_ja": "フレン・E・ルスタリオ",
+    "name_en": "Furen E Lustario",
+    "debut_at": "2020-01-29T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/217a9552d9544da2997dd017ac95b0ac/liver-face_Furen_E_Lustario.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "ryushen",
+    "name_ja": "緑仙",
+    "name_en": "Ryushen",
+    "debut_at": "2018-06-02T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/aa5e0be7f66c4c4e902a56f8bb2266b0/liver-face_Ryushen.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "kokoro-amamiya",
+    "name_ja": "天宮こころ",
+    "name_en": "Amamiya Kokoro",
+    "debut_at": "2019-08-07T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/96874bf1074c477198deffe96d64c65e/liver-face_Kokoro_Amamiya.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "himawari-honma",
+    "name_ja": "本間ひまわり",
+    "name_en": "Honma Himawari",
+    "debut_at": "2018-07-05T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/977cdefa720e4035b71e580692316190/liver-face_Himawari_Honma.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "lulu-suzuhara",
+    "name_ja": "鈴原るる",
+    "name_en": "Suzuhara Lulu",
+    "debut_at": "2019-04-28T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/78c0abc6efae46ea9d2bc98070866878/liver-face_Lulu_Suzuhara.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "alban-knox",
+    "name_ja": "アルバーン・ノックス",
+    "name_en": "Alban Knox",
+    "debut_at": "2022-02-26T15:00:00.000Z",
+    "affiliation": [
+      "NIJISANJI EN"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/b55c850f56474b81876f9a678640ce52/liver-face_Alban_Knox.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "akina-saegusa",
+    "name_ja": "三枝明那",
+    "name_en": "Saegusa Akina",
+    "debut_at": "2019-04-01T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/110c847a4d9a4dc389758a66a408370b/liver-face_Akina_Saegusa.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "haru-kaida",
+    "name_ja": "甲斐田晴",
+    "name_en": "Kaida Haru",
+    "debut_at": "2020-04-01T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/f5ac57e32d534ade918207d631b43b63/liver-face_Haru_Kaida.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "elu",
+    "name_ja": "える",
+    "name_en": "Elu",
+    "debut_at": "2018-01-31T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/e749a2e50e1b4005b272260e9393d108/liver-face_Elu.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "meloco-kyoran",
+    "name_ja": "狂蘭 メロコ",
+    "name_en": "Meloco Kyoran",
+    "debut_at": "2022-12-05T15:00:00.000Z",
+    "affiliation": [
+      "NIJISANJI EN"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/51ec419d0e4f4843a5a2385d908dcff8/liver-face_Meloco_Kyoran.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "nui-sociere",
+    "name_ja": "ニュイ・ソシエール",
+    "name_en": "Nui Sociere",
+    "debut_at": "2019-06-18T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/4643fd371d974cdb93f07e9aa80d1fd0/liver-face_Nui_Sociere.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "chigusa-nishizono",
+    "name_ja": "西園チグサ",
+    "name_en": "Nishizono Chigusa",
+    "debut_at": "2020-08-05T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/63c5cc2c1c0546a6a8ea0617c182b849/liver-face_Chigusa_Nishizono.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "uki-violeta",
+    "name_ja": "浮奇・ヴィオレタ",
+    "name_en": "Uki Violeta",
+    "debut_at": "2022-02-26T15:00:00.000Z",
+    "affiliation": [
+      "NIJISANJI EN"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/a3ad52e072e64b8294dee73c0618f00b/liver-face_Uki_Violeta.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "sango-suo",
+    "name_ja": "周央サンゴ",
+    "name_en": "Suo Sango",
+    "debut_at": "2020-08-05T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/1df05d7e85a6468192f664ff258903f8/liver-face_Sango_Suo.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "enna-alouette",
+    "name_ja": "エナー・アールウェット",
+    "name_en": "Enna Alouette",
+    "debut_at": "2021-10-08T15:00:00.000Z",
+    "affiliation": [
+      "NIJISANJI EN"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/0a0aec871e504f5c9eab69144afcd447/liver-face_Enna_Alouette.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "kana-sukoya",
+    "name_ja": "健屋花那",
+    "name_en": "Sukoya Kana",
+    "debut_at": "2019-09-19T16:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/5b67649f6b7b4d84af278e4cce9532c9/liver-face_Kana_Sukoya.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "debidebi-debiru",
+    "name_ja": "でびでび・でびる",
+    "name_en": "Debidebi Debiru",
+    "debut_at": "2018-08-30T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/04f4ba87b763413da8836997ae3cd4c7/liver-face_Debidebi_Debiru.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "ratna-petit",
+    "name_ja": "ラトナ・プティ",
+    "name_en": "Ratna Petit",
+    "debut_at": "2019-08-07T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/cd5fe76cad754bc598421c15c5880c7b/liver-face_Ratna_Petit.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "hibari-watarai",
+    "name_ja": "渡会雲雀",
+    "name_en": "Watarai Hibari",
+    "debut_at": "2022-07-12T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/65aa007678984a8ea3ff49da2c5f3260/liver-face_Hibari_Watarai.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "sister-claire",
+    "name_ja": "シスター・クレア",
+    "name_en": "Sister Claire",
+    "debut_at": "2018-06-02T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/001f88b9145f495fb158d56550628e64/liver-face_Sister_Claire.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "marin-hayama",
+    "name_ja": "葉山舞鈴",
+    "name_en": "Hayama Marin",
+    "debut_at": "2019-06-18T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/f4a21638525f45b398f5b8e73fc558df/liver-face_Marin_Hayama.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "joe-rikiichi",
+    "name_ja": "ジョー・力一",
+    "name_en": "Joe Rikiichi",
+    "debut_at": "2018-08-30T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/4a3b9b71b6574bed8b6d5c08840ecdbe/liver-face_Joe_Rikiichi.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "rena-yorumi",
+    "name_ja": "夜見れな",
+    "name_en": "Yorumi Rena",
+    "debut_at": "2019-07-02T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/b889e7e0017d42d4986258b934978bc0/liver-face_Rena_Yorumi.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "meme-mashiro",
+    "name_ja": "ましろ爻",
+    "name_en": "Mashiro Meme",
+    "debut_at": "2019-12-25T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/df5827d29d5a4bc38b0b8bb8bc79c1e2/liver-face_Meme_Mashiro.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "mikoto-rindou",
+    "name_ja": "竜胆尊",
+    "name_en": "Rindou Mikoto",
+    "debut_at": "2018-08-30T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/1bf138f610fc48dda135b93ab9d93478/liver-face_Mikoto_Rindou.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "makaino-ririmu",
+    "name_ja": "魔界ノりりむ",
+    "name_en": "Makaino Ririmu",
+    "debut_at": "2018-07-29T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/4cdb61c4fc1545b38996ccb2296fc95a/liver-face_Ririmu_Makaino.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "chaika-hanabatake",
+    "name_ja": "花畑チャイカ",
+    "name_en": "Hanabatake Chaika",
+    "debut_at": "2018-06-02T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/e7a6cbdcfc9b40ea8ea8be29199becc7/liver-face_Chaika_Hanabatake.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "ex-albio",
+    "name_ja": "エクス・アルビオ",
+    "name_en": "Ex Albio",
+    "debut_at": "2019-05-17T16:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/623ba1c69fd64308a4eb32efaa4a80d2/liver-face_Ex_Albio.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "rion-takamiya",
+    "name_ja": "鷹宮リオン",
+    "name_en": "Takamiya Rion",
+    "debut_at": "2018-08-08T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/3284cbdeda0e4bd8ad7d5fdfafc4623b/liver-face_Rion_Takamiya.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "sonny-brisko",
+    "name_ja": "サニー・ブリスコー",
+    "name_en": "Sonny Brisko",
+    "debut_at": "2022-02-26T15:00:00.000Z",
+    "affiliation": [
+      "NIJISANJI EN"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/7951b32b19244128a2379a53fb8a9493/liver-face_Sonny_Brisko.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "ren-zotto",
+    "name_ja": "レン ゾット",
+    "name_en": "Ren Zotto",
+    "debut_at": "2022-07-24T15:00:00.000Z",
+    "affiliation": [
+      "NIJISANJI EN"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/deca5e8685ed481f8a618df234e5408c/liver-face_Ren_Zotto.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "kei-nagao",
+    "name_ja": "長尾景",
+    "name_en": "Nagao Kei",
+    "debut_at": "2020-04-01T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/883ad7825d6141f1beb2f50b0a79f542/liver-face_Kei_Nagao.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "elira-pendora",
+    "name_ja": "エリーラ ペンドラ",
+    "name_en": "Elira Pendora",
+    "debut_at": "2021-05-15T15:00:00.000Z",
+    "affiliation": [
+      "NIJISANJI EN"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/3b0f859e100e419aa179bc9def264714/liver-face_Elira_Pendora.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "leos-vincent",
+    "name_ja": "レオス・ヴィンセント",
+    "name_en": "Leos Vincent",
+    "debut_at": "2021-07-21T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/fc61ee728a9949a4936c89be4a922e7c/liver-face_Leos_Vincent.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "petra-gurin",
+    "name_ja": "ペトラ グリン",
+    "name_en": "Petra Gurin",
+    "debut_at": "2021-07-18T00:00:00.000Z",
+    "affiliation": [
+      "NIJISANJI EN"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/c11417fb94b04f27aaca9a698861286e/liver-face_Petra_Gurin.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "belmond-banderas",
+    "name_ja": "ベルモンド・バンデラス",
+    "name_en": "Belmond Banderas",
+    "debut_at": "2018-09-24T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/af124abd3da043268dc7f59162d6e632/liver-face_Belmond_Banderas.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "millie-parfait",
+    "name_ja": "ミリー・パフェ",
+    "name_en": "Millie Parfait",
+    "debut_at": "2021-10-08T15:00:00.000Z",
+    "affiliation": [
+      "NIJISANJI EN"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/fdf4cecc8af14d99a1d2c9f6acd4a6cb/liver-face_Millie_Parfait.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "finana-ryugu",
+    "name_ja": "フィナーナ 竜宮",
+    "name_en": "Finana Ryugu",
+    "debut_at": "2021-05-15T15:00:00.000Z",
+    "affiliation": [
+      "NIJISANJI EN"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/825b3215dd994a998e00c8efcecf49ce/liver-face_Finana_Ryugu.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "akira-shikinagi",
+    "name_ja": "四季凪アキラ",
+    "name_en": "Shikinagi Akira",
+    "debut_at": "2022-07-12T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/de2e34f9584544fe882846f24947226e/liver-face_Akira_Shikinagi.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "fuyuki-hakase",
+    "name_ja": "葉加瀬冬雪",
+    "name_en": "Hakase Fuyuki",
+    "debut_at": "2019-07-02T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/041b493000c24f8d92adcc60ead539fb/liver-face_Fuyuki_Hakase.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "maria-marionette",
+    "name_ja": "マリア マリオネット",
+    "name_en": "Maria Marionette",
+    "debut_at": "2022-07-24T15:00:00.000Z",
+    "affiliation": [
+      "NIJISANJI EN"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/e4d32f8f3a9e4efc852950d38ea4ba57/liver-face_Maria_Marionette.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "rou-koyanagi",
+    "name_ja": "小柳ロウ",
+    "name_en": "Koyanagi Rou",
+    "debut_at": "2023-04-25T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/2222cb2866fe4f3b9c85a45f3689fe53/liver-face_Rou_Koyanagi.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "keisuke-maimoto",
+    "name_ja": "舞元啓介",
+    "name_en": "Maimoto Keisuke",
+    "debut_at": "2018-08-08T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/62cb2dc53c984daaac6cf0d398415364/liver-face_Keisuke_Maimoto.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "tomoe-shirayuki",
+    "name_ja": "白雪巴",
+    "name_en": "Shirayuki Tomoe",
+    "debut_at": "2019-11-27T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/d5a34b5834374e50a289198280aad119/liver-face_Tomoe_Shirayuki.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "lain-paterson",
+    "name_ja": "レイン・パターソン",
+    "name_en": "Lain Paterson",
+    "debut_at": "2021-07-21T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/da6c50863a1247ff92ab8246d88a4145/liver-face_Lain_Paterson.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "ruri-shioriha",
+    "name_ja": "栞葉るり",
+    "name_en": "Shioriha Ruri",
+    "debut_at": "2023-11-20T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/a1334987716b45f0875d3ac8c8dd0593/liver-face_Ruri_Shioriha.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "sho-hoshirube",
+    "name_ja": "星導ショウ",
+    "name_en": "Hoshirube Sho",
+    "debut_at": "2023-04-25T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/4b2b45a06a2a49e3b6c6835087ecc1b2/liver-face_Sho_Hoshirube.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "kou-uzuki",
+    "name_ja": "卯月コウ",
+    "name_en": "Uzuki Kou",
+    "debut_at": "2018-06-02T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/af6b8193430741f8b5633a2ffa4ab9dc/liver-face_Kou_Uzuki.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "tamaki-fumino",
+    "name_ja": "文野環",
+    "name_en": "Fumino Tamaki",
+    "debut_at": "2018-03-14T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/362f946246d049ada0e4e88410ace52e/liver-face_Tamaki_Fumino.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "shellin-burgundy",
+    "name_ja": "シェリン・バーガンディ",
+    "name_en": "Shellin Burgundy",
+    "debut_at": "2019-09-19T16:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/9be70f7ce3534a908efce63118bb7fef/liver-face_Shellin_Burgundy.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "riri-yuhi",
+    "name_ja": "夕陽リリ",
+    "name_en": "Yuhi Riri",
+    "debut_at": "2018-03-14T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/f9bfdda16f1f46159faf7965894c9a1e/liver-face_Riri_Yuuhi.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "rin-shizuka",
+    "name_ja": "静凛",
+    "name_en": "Shizuka Rin",
+    "debut_at": "2018-01-31T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/3e388baf964c4c4a84b27cd709f86ce4/liver-face_Rin_Shizuka.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "seraph-dazzlegarden",
+    "name_ja": "セラフ・ダズルガーデン",
+    "name_en": "Seraph Dazzlegarden",
+    "debut_at": "2022-07-12T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/42fb181000564635aab64bb7cbedb886/liver-face_Seraph_Dazzlegarden.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "kanato-fura",
+    "name_ja": "風楽奏斗",
+    "name_en": "Fura Kanato",
+    "debut_at": "2022-07-12T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/b0151287da7d40e4b3d80ce499838785/liver-face_Kanato_Fura.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "mana-hibachi",
+    "name_ja": "緋八マナ",
+    "name_en": "Hibachi Mana",
+    "debut_at": "2023-03-29T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/c1a94fff322a4796833eca994d9d0bf5/liver-face_Mana_Hibachi.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "tojiro-genzuki",
+    "name_ja": "弦月藤士郎",
+    "name_en": "Genzuki Tojiro",
+    "debut_at": "2020-04-01T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/ee4d153e3ebd4dc8aa7a2d1af6b65a3e/liver-face_Tojiro_Genzuki.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "sophia-valentine",
+    "name_ja": "ソフィア・ヴァレンタイン",
+    "name_en": "Sophia Valentine",
+    "debut_at": "2023-01-15T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/6489a08fe04c4bfc9e77e652f664ac66/liver-face_Sophia_Valentine.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "nozomi-ishigami",
+    "name_ja": "石神のぞみ",
+    "name_en": "Ishigami Nozomi",
+    "debut_at": "2023-01-15T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/e1a09f9b02084889a165541da18a6c14/liver-face_Nozomi_Ishigami.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "rai-inami",
+    "name_ja": "伊波ライ",
+    "name_en": "Inami Rai",
+    "debut_at": "2023-04-25T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/177564c99e734028b8a59f318b333c33/liver-face_Rai_Inami.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "ittetsu-saiki",
+    "name_ja": "佐伯イッテツ",
+    "name_en": "Saiki Ittetsu",
+    "debut_at": "2023-03-29T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/36b63b547d2a4facad876cc40f0736a0/liver-face_Ittetsu_Saiki.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "toru-koshimizu",
+    "name_ja": "小清水透",
+    "name_en": "Koshimizu Toru",
+    "debut_at": "2023-01-15T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/922486712e7140f5abf2ba415c8a574a/liver-face_Toru_Koshimizu.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "kakeru-yumeoi",
+    "name_ja": "夢追翔",
+    "name_en": "Yumeoi Kakeru",
+    "debut_at": "2018-09-24T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/a14d762a2d674b599d530083fcd49447/liver-face_Kakeru_Yumeoi.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "levi-elipha",
+    "name_ja": "レヴィ・エリファ",
+    "name_en": "Levi Elipha",
+    "debut_at": "2019-05-17T16:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/a2d250273e0f4146990ebac2d5d1ce8d/liver-face_Levi_Elipha.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "kagetsu-murakumo",
+    "name_ja": "叢雲カゲツ",
+    "name_en": "Murakumo Kagetsu",
+    "debut_at": "2023-04-25T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/44eb7fa3087b480dad1ae245db21952e/liver-face_Kagetsu_Murakumo.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "dola",
+    "name_ja": "ドーラ",
+    "name_en": "Dola",
+    "debut_at": "2018-06-02T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/2a755bcce89344fbbc50d336af45efd3/liver-face_Dola.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "gaku-fushimi",
+    "name_ja": "伏見ガク",
+    "name_en": "Fushimi Gaku",
+    "debut_at": "2018-03-14T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/4834edc2a7c9472ea9d6fe4ee43c2a04/liver-face_Gaku_Fushimi.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "scarle-yonaguni",
+    "name_ja": "スカーレ ヨナグニ",
+    "name_en": "Scarle Yonaguni",
+    "debut_at": "2022-07-24T15:00:00.000Z",
+    "affiliation": [
+      "NIJISANJI EN"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/a410b878c4f64e9a9d1577097e3e56d9/liver-face_Scarle_Yonaguni.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "oliver-evans",
+    "name_ja": "オリバー・エバンス",
+    "name_en": "Oliver Evans",
+    "debut_at": "2021-07-21T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/ad3beeb99c4a4482a90d1a567648450e/liver-face_Oliver_Evans.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "kaisei",
+    "name_ja": "魁星",
+    "name_en": "Kaisei",
+    "debut_at": "2024-03-11T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/c531381ae7554535b16a266bbb3d3729/liver-face_Kaisei.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "rito-usami",
+    "name_ja": "宇佐美リト",
+    "name_en": "Usami Rito",
+    "debut_at": "2023-03-29T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/b7b9c49fc81440efb0b3fbf29faad4ce/liver-face_Rito_Usami.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "roa-yuzuki",
+    "name_ja": "夢月ロア",
+    "name_en": "Yuzuki Roa",
+    "debut_at": "2019-01-18T16:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/dc2fe6896dcd4b77bfb89f60f4a588e8/liver-face_Roa_Yuzuki.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "kazaki-morinaka",
+    "name_ja": "森中花咲",
+    "name_en": "Morinaka Kazaki",
+    "debut_at": "2018-03-14T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/3e3e5fefe79c47fe8bfb9601fd027376/liver-face_Kazaki_Morinaka.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "ness-sakaki",
+    "name_ja": "榊ネス",
+    "name_en": "Sakaki Ness",
+    "debut_at": "2024-03-11T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/3c3a4035d9a2410481bd59b3d6a99bb9/liver-face_Ness_Sakaki.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "masaru-suzuki",
+    "name_ja": "鈴木勝",
+    "name_en": "Suzuki Masaru",
+    "debut_at": "2018-06-02T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/21a992f2a13c450caa01eed8bf092868/liver-face_Masaru_Suzuki.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "akari-shishido",
+    "name_ja": "獅子堂あかり",
+    "name_en": "Shishido Akari",
+    "debut_at": "2023-01-15T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/e44d14200fec437eb35361aab7e29e76/liver-face_Akari_Shishido.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "wen-akagi",
+    "name_ja": "赤城ウェン",
+    "name_en": "Akagi Wen",
+    "debut_at": "2023-03-29T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/d35a7ec3da38468c8830eaf9f0a51c4c/liver-face_Wen_Akagi.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "rika-igarashi",
+    "name_ja": "五十嵐梨花",
+    "name_en": "Igarashi Rika",
+    "debut_at": "2023-01-15T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/a5dc528f536b4c7eaf06fadca75013d8/liver-face_Rika_Igarashi.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "yang-nari",
+    "name_ja": "ヤン ナリ",
+    "name_en": "Yang Nari",
+    "debut_at": "2020-10-14T05:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/aafac3ee207e439aa4a736c230fac310/liver-face_Yang_Nari.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "hisui-kitakoji",
+    "name_ja": "北小路ヒスイ",
+    "name_en": "Kitakoji Hisui",
+    "debut_at": "2020-08-05T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/b9d1759ea04d47ebb5503f1d4b66688b/liver-face_Hisui_Kitakoji.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "nana-tamanoi",
+    "name_ja": "珠乃井ナナ",
+    "name_en": "Tamanoi Nana",
+    "debut_at": "2024-06-18T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/f76ae3abb42440108fb75605bdd764e7/liver-face_Nana_Tamanoi.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "mao-matsukai",
+    "name_ja": "魔使マオ",
+    "name_en": "Matsukai Mao",
+    "debut_at": "2019-10-31T16:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/247b9af77e04473091ee72acbf259fa4/liver-face_Mao_Matsukai.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "nei-ponto",
+    "name_ja": "先斗寧",
+    "name_en": "Ponto Nei",
+    "debut_at": "2022-03-16T03:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/08a0455940404ccfa11a8c9d6a4538ad/liver-face_Nei_Ponto.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "vantacrow-bringer",
+    "name_ja": "ベンタクロウ ブリンガー",
+    "name_en": "Vantacrow Bringer",
+    "debut_at": "2023-06-21T15:00:00.000Z",
+    "affiliation": [
+      "NIJISANJI EN"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/d35ae95c701a41dfb191ba04f5d6e05f/liver-face_Vantacrow_Bringer.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "shiba-kuroi",
+    "name_ja": "黒井しば",
+    "name_en": "Kuroi Shiba",
+    "debut_at": "2018-09-24T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/63a01a3e31514430b203b973aa97f22e/liver-face_Shiba_Kuroi.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "sou-hayase",
+    "name_ja": "早瀬走",
+    "name_en": "Hayase Sou",
+    "debut_at": "2019-09-19T16:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/79033e0bc6ef4db3b4d24abde3fddcc9/liver-face_Sou_Hayase.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "aia-amare",
+    "name_ja": "アイア アマレ",
+    "name_en": "Aia Amare",
+    "debut_at": "2022-07-24T15:00:00.000Z",
+    "affiliation": [
+      "NIJISANJI EN"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/277243c23e434832abb4d2eb80db5ad9/liver-face_Aia_Amare.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "mugi-ienaga",
+    "name_ja": "家長むぎ",
+    "name_en": "Ienaga Mugi",
+    "debut_at": "2018-03-14T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/7a2a96dda3af40afbb54d5e7af2e5955/liver-face_Mugi_Ienaga.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "karuta-yamagami",
+    "name_ja": "山神カルタ",
+    "name_en": "Yamagami Karuta",
+    "debut_at": "2019-10-16T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/6d5442e6ebd64412ae714901c0669487/liver-face_Karuta_Yamagami.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "hana-macchia",
+    "name_ja": "ハナ マキア",
+    "name_en": "Hana Macchia",
+    "debut_at": "2019-09-13T00:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/fb0035ee1e374daf9f57a6589468dced/liver-face_Hana_Macchia.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "ritsuki-sakura",
+    "name_ja": "桜凛月",
+    "name_en": "Sakura Ritsuki",
+    "debut_at": "2018-08-30T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/3b53416aa270464f994b3a88f65ec79b/liver-face_Ritsuki_Sakura.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "fumi",
+    "name_ja": "フミ",
+    "name_en": "Fumi",
+    "debut_at": "2019-10-16T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/2aecf7a5282e4a349ead29f8f8e525f1/liver-face_Fumi.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "meruto-kuramochi",
+    "name_ja": "倉持めると",
+    "name_en": "Kuramochi Meruto",
+    "debut_at": "2023-01-15T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/6da2c0ebc0e84b3da6c1a410379b8346/liver-face_Meruto_Kuramochi.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "shoichi-kanda",
+    "name_ja": "神田笑一",
+    "name_en": "Kanda Shoichi",
+    "debut_at": "2018-08-08T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/54c64c3432ff45e683af0ada04908535/liver-face_Shoichi_Kanda.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "milan-kestrel",
+    "name_ja": "ミラン・ケストレル",
+    "name_en": "Milan Kestrel",
+    "debut_at": "2023-11-20T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/21f60a123e9d470383170b1ebb85914b/liver-face_Milan_Kestrel.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "yusei-kitami",
+    "name_ja": "北見遊征",
+    "name_en": "Kitami Yusei",
+    "debut_at": "2024-03-11T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/fa69680e8c48481d9d290762430a381d/liver-face_Yusei_Kitami.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "alice-mononobe",
+    "name_ja": "物述有栖",
+    "name_en": "Mononobe Alice",
+    "debut_at": "2018-03-14T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/8b1feefa2107498da11f9c6ec559b415/liver-face_Alice_Mononobe.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "yotsuha-umise",
+    "name_ja": "海妹四葉",
+    "name_en": "Umise Yotsuha",
+    "debut_at": "2022-03-16T03:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/a4633f90873b4427843f95ee84970b8a/liver-face_Yotsuha_Umise.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "suzuna-nanase",
+    "name_ja": "七瀬すず菜",
+    "name_en": "Nanase Suzuna",
+    "debut_at": "2024-08-12T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/df041caab67b41a0b7539c054e10294a/liver-face_Suzuna_Nanase.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "doppio-dropscythe",
+    "name_ja": "ドッピオ ドロップサイト",
+    "name_en": "Doppio Dropscythe",
+    "debut_at": "2022-12-05T15:00:00.000Z",
+    "affiliation": [
+      "NIJISANJI EN"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/44d559377a9649ddb85df12fcab6421e/liver-face_Doppio_Dropscythe.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "natsume-kurusu",
+    "name_ja": "来栖夏芽",
+    "name_en": "Kurusu Natsume",
+    "debut_at": "2019-12-25T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/ef419dca96cd46af9511ee6393562dfe/liver-face_Natsume_Kurusu.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "luis-cammy",
+    "name_ja": "ルイス・キャミー",
+    "name_en": "Luis Cammy",
+    "debut_at": "2019-10-31T16:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/91e3108fec9e4cf4b632c4c76a060c7b/liver-face_Luis_Cammy.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "trout-nagisa",
+    "name_ja": "渚トラウト",
+    "name_en": "Nagisa Trout",
+    "debut_at": "2024-08-12T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/03ab673bb8c0400a9fdce1f51755a7e7/liver-face_Trout_Nagisa.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "berry-saotome",
+    "name_ja": "早乙女ベリー",
+    "name_en": "Saotome Berry",
+    "debut_at": "2024-08-12T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/712d2034f4d24f29ae34ffaf8b55f46a/liver-face_Berry_Saotome.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "roco-kaburaki",
+    "name_ja": "鏑木ろこ",
+    "name_en": "Kaburaki Roco",
+    "debut_at": "2023-01-15T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/c1cec4b0ed294941a115cffa01b0c203/liver-face_Roko_Kaburaki.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "eli-conifer",
+    "name_ja": "エリー・コニファー",
+    "name_en": "Eli Conifer",
+    "debut_at": "2019-08-07T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/40723eda291747c58e4c148334ea95d4/liver-face_Eli_Conifer.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "ver-vermillion",
+    "name_ja": "ヴェール ヴァーミリオン",
+    "name_en": "Ver Vermillion",
+    "debut_at": "2022-12-05T15:00:00.000Z",
+    "affiliation": [
+      "NIJISANJI EN"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/f0b609dfe4e84993ba2960c8c7fca9f5/liver-face_Ver_Vermillion.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "yu-q-wilson",
+    "name_ja": "ユウ Q ウィルソン",
+    "name_en": "Yu Q. Wilson",
+    "debut_at": "2023-06-21T15:00:00.000Z",
+    "affiliation": [
+      "NIJISANJI EN"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/d0ee818c0be94a03836c33a5e54dc091/liver-face_Yu_Q._Wilson.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "seffyna",
+    "name_ja": "セフィナ",
+    "name_en": "Seffyna",
+    "debut_at": "2021-04-30T11:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/b1a1d6c519e94e458d216b027f37ceee/liver-face_Seffyna.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "emma-august",
+    "name_ja": "えま★おうがすと",
+    "name_en": "Emma August",
+    "debut_at": "2019-10-31T16:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/b9ee06612e6647159a40a668b8d602e4/liver-face_Emma_August.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "soma-sakayori",
+    "name_ja": "酒寄颯馬",
+    "name_en": "Sakayori Soma",
+    "debut_at": "2024-08-12T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/9bb7b450ba15434aad0b137ad0b4232f/liver-face_Soma_Sakayori.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "vezalius-bandage",
+    "name_ja": "ヴェザリウス バンデージ",
+    "name_en": "Vezalius Bandage",
+    "debut_at": "2023-06-21T15:00:00.000Z",
+    "affiliation": [
+      "NIJISANJI EN"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/d82003529a8f472c825834942a43c98a/liver-face_Vezalius_Bandage.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "kaelix-debonair",
+    "name_ja": "ケイリクス・デボネア",
+    "name_en": "Kaelix Debonair",
+    "debut_at": "2025-03-12T15:00:00.000Z",
+    "affiliation": [
+      "NIJISANJI EN"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/6d3794aa4a0b46de802ee1dda99dc0df/liver-face_Kaelix_Debonair.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "riko-shiga",
+    "name_ja": "司賀りこ",
+    "name_en": "Shiga Riko",
+    "debut_at": "2024-06-18T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/7a0d6f47b7bc4785b570386b748d1b8e/liver-face_Riko_Shiga.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "sayo-amemori",
+    "name_ja": "雨森小夜",
+    "name_en": "Amemori Sayo",
+    "debut_at": "2018-08-08T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/a6e0e401536542db95ed616a038d5d6f/liver-face_Sayo_Amemori.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "mahiro-yukishiro",
+    "name_ja": "雪城眞尋",
+    "name_en": "Yukishiro Mahiro",
+    "debut_at": "2019-04-28T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/ef95a4f652d644889603b8ddd29f2f0b/liver-face_Mahiro_Yukishiro.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "youko-akabane",
+    "name_ja": "赤羽葉子",
+    "name_en": "Akabane Youko",
+    "debut_at": "2018-05-01T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/c921440e235d419ab515e49a46ec0648/liver-face_Yoko_Akabane.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "kirame-sorahoshi",
+    "name_ja": "空星きらめ",
+    "name_en": "Sorahoshi Kirame",
+    "debut_at": "2020-06-30T17:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/61254e647cfb4edea5bb19a5f1ec90d7/liver-face_Kirame_Sorahoshi.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "ayato-hitotsubashi",
+    "name_ja": "一橋綾人",
+    "name_en": "Hitotsubashi Ayato",
+    "debut_at": "2025-04-10T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/2629dbb7346d4ec8827dec1ee894e5e8/liver-face_Ayato_Hitotsubashi.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "gilzaren-iii",
+    "name_ja": "ギルザレンⅢ世",
+    "name_en": "Gilzaren III",
+    "debut_at": "2018-03-14T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/fc45c528d4ad49ae992ccf99c9e27deb/liver-face_Gilzaren_%E2%85%A2.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "kohaku-todo",
+    "name_ja": "東堂コハク",
+    "name_en": "Todo Kohaku",
+    "debut_at": "2020-08-05T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/4c6791bb45cc4c5087eb2ce96a63fa9a/liver-face_Kohaku_Todo.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "air-harusaki",
+    "name_ja": "春崎エアル",
+    "name_en": "Harusaki Air",
+    "debut_at": "2018-06-07T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/4961a4b80e264badaa2d8bbb699c992e/liver-face_Air_Harusaki.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "kisara",
+    "name_ja": "綺沙良",
+    "name_en": "Kisara",
+    "debut_at": "2024-06-18T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/a5e303fc14b94d74bda56acdb673620b/liver-face_Kisara.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "rine-yaguruma",
+    "name_ja": "矢車りね",
+    "name_en": "Yaguruma Rine",
+    "debut_at": "2018-09-24T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/e11a9833e0224a1e9a17c5f3eacfda5b/liver-face_Rine_Yaguruma.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "ichigo-ushimi",
+    "name_ja": "宇志海いちご",
+    "name_en": "Ushimi Ichigo",
+    "debut_at": "2018-03-14T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/3007bd76572d42f19efd70a1f168ebc4/liver-face_Ichigo_Ushimi.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "freodore",
+    "name_ja": "フリオドール",
+    "name_en": "Freodore",
+    "debut_at": "2025-03-12T15:00:00.000Z",
+    "affiliation": [
+      "NIJISANJI EN"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/e62e2f857c8e46fc98c79bdf9bb848bd/liver-face_Freodore.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "manami-aizono",
+    "name_ja": "愛園愛美",
+    "name_en": "Aizono Manami",
+    "debut_at": "2019-04-01T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/5af8b71bbf0240db97c2345e13ec7f58/liver-face_Manami_Aizono.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "min-suha",
+    "name_ja": "ミン スゥーハ",
+    "name_en": "Min Suha",
+    "debut_at": "2020-01-24T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/5e8e5c93e7fe4d3eb30b14ffe6581ef0/liver-face_Suha_Min.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "zeal-ginjoka",
+    "name_ja": "ジール・ギンジョウカ",
+    "name_en": "Zeal Ginjoka",
+    "debut_at": "2025-03-12T15:00:00.000Z",
+    "affiliation": [
+      "NIJISANJI EN"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/0e8b5902726d43babafc6f2623c76be5/liver-face_Zeal_Ginjoka.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "tamako-kirara",
+    "name_ja": "雲母たまこ",
+    "name_en": "Kirara Tamako",
+    "debut_at": "2024-08-12T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/e3730f9f6b6f4428a0f5d9d135e0b1f8/liver-face_Tamako_Kirara.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "seible",
+    "name_ja": "セイブル",
+    "name_en": "Seible",
+    "debut_at": "2025-03-12T15:00:00.000Z",
+    "affiliation": [
+      "NIJISANJI EN"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/a8766bf970164d168b02dbd7ce635abc/liver-face_Seible.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "toto-tachitsute",
+    "name_ja": "立伝都々",
+    "name_en": "Tachitsute Toto",
+    "debut_at": "2023-11-20T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/bf7e7bc838da450bbe4d875eba2e263e/liver-face_Toto_Tachitsute.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "hajime-shibuya",
+    "name_ja": "渋谷ハジメ",
+    "name_en": "Shibuya Hajime",
+    "debut_at": "2018-01-31T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/48d793b718984df8b9f81ade7f0b8a5a/liver-face_Hajime_Shibuya.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "claude-clawmark",
+    "name_ja": "クロード クローマーク",
+    "name_en": "Claude Clawmark",
+    "debut_at": "2023-10-25T15:00:00.000Z",
+    "affiliation": [
+      "NIJISANJI EN"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/9a3e3897cd36495cb28868a355506527/liver-face_Claude_Clawmark.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "sakyo-itsuki",
+    "name_ja": "五木左京",
+    "name_en": "Itsuki Sakyo",
+    "debut_at": "2025-04-10T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/3e196e23ad234fc39212007f10fa046d/liver-face_Sakyo_Itsuki.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "kyoko-todoroki",
+    "name_ja": "轟京子",
+    "name_en": "Todoroki Kyoko",
+    "debut_at": "2018-06-02T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/72d24f8d5950414294f799c85542681f/liver-face_Kyoko_Todoroki.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "moira",
+    "name_ja": "モイラ",
+    "name_en": "Moira",
+    "debut_at": "2018-01-31T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/ea9f478820c84208840d248d5c6610d1/liver-face_Moira.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "muyu-amagase",
+    "name_ja": "天ヶ瀬むゆ",
+    "name_en": "Amagase Muyu",
+    "debut_at": "2022-03-16T03:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/93ac3fe993a4417987e983c31c972da8/liver-face_Muyu_Amagase.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "mone-kozue",
+    "name_ja": "梢桃音",
+    "name_en": "Kozue Mone",
+    "debut_at": "2024-06-18T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/c2b3cb15c4374087b1e5c2d306326583/liver-face_Mone_Kozue.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "ha-yun",
+    "name_ja": "ハ ユン",
+    "name_en": "Ha Yun",
+    "debut_at": "2021-08-31T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/4a89b0fe3c2a42d1912d6f053a766264/liver-face_Ha_Yun.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "miku-nekoyashiki",
+    "name_ja": "猫屋敷美紅",
+    "name_en": "Nekoyashiki Miku",
+    "debut_at": "2025-08-13T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/365b8ecc7fa74048841d38f4b21a07e6/liver-face_Miku_Nekoyashiki.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "tsumugu-kataribe",
+    "name_ja": "語部紡",
+    "name_en": "Kataribe Tsumugu",
+    "debut_at": "2019-01-27T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/a3ece7130cf946c69697c7a4105b9a77/liver-face_Tsumugu_Kataribe.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "hina-asuka",
+    "name_ja": "飛鳥ひな",
+    "name_en": "Asuka Hina",
+    "debut_at": "2018-08-08T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/d6f703f463bd4882abf19872d5897ea4/liver-face_Hina_Asuka.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "isumi-shirose",
+    "name_ja": "城瀬いすみ",
+    "name_en": "Shirose Isumi",
+    "debut_at": "2025-09-16T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/c359f30b042746be88cd87f76bd49894/liver-face_Isumi_Shirose.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "madoka-minamo",
+    "name_ja": "水面まどか",
+    "name_en": "Minamo Madoka",
+    "debut_at": "2026-01-28T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/4b9fcaf98c0d4b7f91e2c1ab9be7985b/liver-face_Madoka_Minamo.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "lee-roha",
+    "name_ja": "イ ロハ",
+    "name_en": "Lee Roha",
+    "debut_at": "2020-08-06T08:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/0901bc3c2c534410a60d82ac7ad347d1/liver-face_Roha_Lee.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "ayane-shirasa",
+    "name_ja": "白砂あやね",
+    "name_en": "Shirasa Ayane",
+    "debut_at": "2026-01-28T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/d61c28ffcf8a420aafbaca7d0769b07f/liver-face_Ayane_Shirasa.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "reo-sumeragi",
+    "name_ja": "皇れお",
+    "name_en": "Sumeragi Reo",
+    "debut_at": "2025-09-16T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/7965aa35528c4bb2918ce13b44f78ea8/liver-face_Reo_Sumeragi.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "klara-charmwood",
+    "name_ja": "クララ チャームウッド",
+    "name_en": "Klara Charmwood",
+    "debut_at": "2024-05-20T15:00:00.000Z",
+    "affiliation": [
+      "NIJISANJI EN"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/f20391e06870486ca53c6c90b39b4c13/liver-face_Klara_Charmwood.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "mikaru-kadou",
+    "name_ja": "蝸堂みかる",
+    "name_en": "Kadou Mikaru",
+    "debut_at": "2025-08-13T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/2fabd91950cc46d19be06392a8654708/liver-face_Mikaru_Kadou.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "tsubasa-hanakago",
+    "name_ja": "花籠つばさ",
+    "name_en": "Hanakago Tsubasa",
+    "debut_at": "2025-09-16T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/fcd6581ea328412e99cd953e80ae738d/liver-face_Tsubasa_Hanakago.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "nonoha-togawa",
+    "name_ja": "十河ののは",
+    "name_en": "Togawa Nonoha",
+    "debut_at": "2025-08-13T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/da656750c9204df59abf3ba0a84cf56c/liver-face_Nonoha_Togawa.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "yuno-shinomiya",
+    "name_ja": "篠宮ゆの",
+    "name_en": "Shinomiya Yuno",
+    "debut_at": "2025-09-16T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/5fa8e0b57d7c4b8fac7ec953105e0708/liver-face_Yuno_Shinomiya.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "so-nagi",
+    "name_ja": "ソ ナギ",
+    "name_en": "So Nagi",
+    "debut_at": "2020-06-01T10:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/2a11c3b58b16417080e1f408585d4783/liver-face_So_Nagi.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "layla-alstroemeria",
+    "name_ja": "ライラ アルストロエメリア",
+    "name_en": "Layla Alstroemeria",
+    "debut_at": "2020-03-15T00:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/6aacb7c7f40c4d558b3384a026f55402/liver-face_Layla_Alstroemeria.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "ryoma-barrenwort",
+    "name_ja": "凉舞 バレンウォート",
+    "name_en": "Ryoma Barrenwort",
+    "debut_at": "2024-05-20T15:00:00.000Z",
+    "affiliation": [
+      "NIJISANJI EN"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/0576be0e5a0c44c2a44d761f29a4e84c/liver-face_Ryoma_Barrenwort.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "shino-yagyu",
+    "name_ja": "夜牛詩乃",
+    "name_en": "Yagyu Shino",
+    "debut_at": "2025-08-13T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/d712a24a2b8543e0b589ecdfbe7c5ad9/liver-face_Shino_Yagyu.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "rayon",
+    "name_ja": "レヨン",
+    "name_en": "Rayon",
+    "debut_at": "2026-04-18T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/29d0df78c9b241ebbfd6a0dc3f1590ff/liver-face_Rayon.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "na-sera",
+    "name_ja": "ナ セラ",
+    "name_en": "Na Sera",
+    "debut_at": "2021-08-31T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/40bc06403098465284d410b6ee21d3e2/liver-face_Na_Sera%20(1).png"
+  },
+  {
+    "branch": "JP",
+    "slug": "kotone-mikogami",
+    "name_ja": "御子神琴音",
+    "name_en": "Mikogami Kotone",
+    "debut_at": "2026-04-18T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/ea9e654925fe4b5ab70f75ed5c9bec16/liver-face_Kotone_Mikogami.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "reina",
+    "name_ja": "Rei7",
+    "name_en": "Reina",
+    "debut_at": "2026-04-18T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/d52c689962e940d2b422753e0fecd744/liver-face_Rei7.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "daichi-tsukahara",
+    "name_ja": "塚原大地",
+    "name_en": "Tsukahara Daichi",
+    "debut_at": "2026-04-18T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/076a419e60b243f484fdb1f076dae6d3/liver-face_Daichi_Tsukahara.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "etna-crimson",
+    "name_ja": "エトナ クリムソン",
+    "name_en": "Etna Crimson",
+    "debut_at": "2020-08-07T11:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/4e21d893925f4f92a2730c28c71b49dd/liver-face_Etna_Crimson.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "oh-jiyu",
+    "name_ja": "オ ジユ",
+    "name_en": "Oh Jiyu",
+    "debut_at": "2020-10-14T05:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/e738023c6a744910b52baee0f2b4fcb3/liver-face_Jiyu_Oh.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "akira-ray",
+    "name_ja": "明楽レイ",
+    "name_en": "Akira Ray",
+    "debut_at": "2020-08-06T08:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/353657a3d45540098b20eff2112308be/liver-face_Ray_Akira.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "ayumu-senri",
+    "name_ja": "千凛あゆむ",
+    "name_en": "Senri Ayumu",
+    "debut_at": "2026-04-18T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/e44c5e13ac324cd3a1b43196739bea2f/liver-face_Ayumu_Senri.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "rai-galilei",
+    "name_ja": "ライ ガリレイ",
+    "name_en": "Rai Galilei",
+    "debut_at": "2019-12-18T00:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/f8223e6b3b4441bb81ecaf85512b33ca/liver-face_Rai_Galilei.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "gaon",
+    "name_ja": "ガオン",
+    "name_en": "Gaon",
+    "debut_at": "2020-01-24T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/9619eff7b9114d59a6f348a0b82707ab/liver-face_Gaon.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "onotora",
+    "name_ja": "男虎",
+    "name_en": "Onotora",
+    "debut_at": "2026-04-18T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/9b5cbb18f0eb42af9f738683d7551cfa/liver-face_Onotora.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "derem-kado",
+    "name_ja": "デレム カド",
+    "name_en": "Derem Kado",
+    "debut_at": "2020-11-13T06:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/dd96bf7da87140e0933208d93a664cec/liver-face_Derem_Kado.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "iruka-kokonami",
+    "name_ja": "小々波いるか",
+    "name_en": "Kokonami Iruka",
+    "debut_at": "2026-04-18T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/3e5aada39e0f454288790ffa63e4e3f3/liver-face_Iruka_Kokonami.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "eita-kuri",
+    "name_ja": "九里詠太",
+    "name_en": "Kuri Eita",
+    "debut_at": "2026-04-18T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/da61cb3994204a2f8d6e787fca22c134/liver-face_Eita_Kuri.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "ryu-hari",
+    "name_ja": "リュ ハリ",
+    "name_en": "Ryu Hari",
+    "debut_at": "2020-10-14T05:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/07ac1f96aa024d99addc251cec709635/liver-face_Hari_Ryu.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "nagisa-arcinia",
+    "name_ja": "ナギサ アルシニア",
+    "name_en": "Nagisa Arcinia",
+    "debut_at": "2020-11-13T06:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/3cf844c4212f463fa512c1c6c27a02fd/liver-face_Nagisa_Arcinia.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "girimi",
+    "name_ja": "雾深",
+    "name_en": "Girimi",
+    "debut_at": "2022-01-02T15:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/6c6b6d75ff8e447db8a024c7184ad8f4/liver-face_Girimi.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "sybil",
+    "name_ja": "希维",
+    "name_en": "Sybil",
+    "debut_at": "2022-01-02T15:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/5ec4c743af2d45a5bd8a2cdb987c5816/liver-face_Sibil.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "mofu",
+    "name_ja": "犬绒",
+    "name_en": "Mofu",
+    "debut_at": "2025-08-01T15:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/62b38b68564648b492d74bd3f04e9f30/liver-face_Mofu.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "nori",
+    "name_ja": "能能",
+    "name_en": "Nori",
+    "debut_at": "2025-08-01T15:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/64ec8e567fc34e3faa6a7dda24af1c91/liver-face_Nori.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "chiharu",
+    "name_ja": "千春",
+    "name_en": "Chiharu",
+    "debut_at": "2020-07-20T00:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/526768a3844e4c83b29f4df3c2cb6547/liver-face_Chiharu.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "yua",
+    "name_ja": "悠亚",
+    "name_en": "Yua",
+    "debut_at": "2020-09-20T00:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/fac8e617a29042f59c59bd521ccb78d3/liver-face_Yua.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "shaun",
+    "name_ja": "勺",
+    "name_en": "Shaun",
+    "debut_at": "2020-09-20T00:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/04f0e3f8911140028d0fdf7e36ecb063/liver-face_Shaun.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "chiyuu",
+    "name_ja": "千幽",
+    "name_en": "Chiyuu",
+    "debut_at": "2020-12-05T15:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/275a8b92d6e8475c8911978322ebd4db/liver-face_Chiyuu.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "michiya",
+    "name_ja": "未知夜",
+    "name_en": "Michiya",
+    "debut_at": "2023-06-01T15:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/7312205e9eef488ea7d82d300a8e2073/liver-face_Michiya.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "ameki",
+    "name_ja": "雨纪",
+    "name_en": "Ameki",
+    "debut_at": "2023-06-01T15:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/a3e370d5db504b16b761bba379c1a301/liver-face_Ameki.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "mizuki",
+    "name_ja": "弥月",
+    "name_en": "Mizuki",
+    "debut_at": "2023-08-25T15:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/cfac97b19505480dbc73a16aa49f2167/liver-face_Mizuki.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "pako",
+    "name_ja": "帕可",
+    "name_en": "Pako",
+    "debut_at": "2023-11-30T15:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/89a5213170134fedab53532d419cd8c0/liver-face_Pako.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "nagisa",
+    "name_ja": "米汀",
+    "name_en": "Nagisa",
+    "debut_at": "2023-11-30T15:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/052bf04baef045e898900f4a1831d749/liver-face_Nagisa.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "mit3uri",
+    "name_ja": "三理",
+    "name_en": "Mit3uri",
+    "debut_at": "2025-02-28T15:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/b1a90958c8d64ba198749c6d83706f81/liver-face_Mit3uri.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "melody",
+    "name_ja": "泽音",
+    "name_en": "Melody",
+    "debut_at": "2025-01-16T15:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/b56598fb7adb4776a6b4354d6440fd04/liver-face_Melody.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "yog",
+    "name_ja": "尤格",
+    "name_en": "Yog",
+    "debut_at": "2021-09-24T15:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/45205d834d844e84888716570e5d9a7b/liver-face_Yog.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "hunger",
+    "name_ja": "暴食",
+    "name_en": "Hunger",
+    "debut_at": "2021-09-24T15:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/eb8bf7e87e18465ba283cef6d539aede/liver-face_Hunger.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "kiti",
+    "name_ja": "吉吉",
+    "name_en": "Kiti",
+    "debut_at": "2021-05-01T15:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/9ff4528e4f8f4e6a98c1a9e7d4ca54e4/liver-face_Kiti.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "mayumi",
+    "name_ja": "勾檀",
+    "name_en": "Mayumi",
+    "debut_at": "2021-03-04T15:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/44cc258438b744d8b08748669ff24aef/liver-face_Mayumi.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "shiori",
+    "name_ja": "栞栞",
+    "name_en": "Shiori",
+    "debut_at": "2023-01-25T15:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/02067d1eb6b24429aa94c1fafe1e5621/liver-face_Shiori.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "awu",
+    "name_ja": "哎小呜",
+    "name_en": "Awu",
+    "debut_at": "2023-06-01T15:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/07878ae182ac4a339e407972d2ac360e/liver-face_Awu.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "hatsuse",
+    "name_ja": "初濑",
+    "name_en": "Hatsuse",
+    "debut_at": "2023-06-01T15:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/5f9aa5f0376a4d498df3e41b3d68cf4e/liver-face_Hatsuse.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "harei",
+    "name_ja": "花礼",
+    "name_en": "Harei",
+    "debut_at": "2024-07-10T15:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/7f5223d95956498cba7a42bbf6e4bfa7/liver-face_Harei.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "eine",
+    "name_ja": "艾因",
+    "name_en": "Eine",
+    "debut_at": "2019-05-06T00:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/096a6c4a5bef41798cd482bad96ea96a/liver-face_Eine.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "urushiha",
+    "name_ja": "漆羽",
+    "name_en": "Urushiha",
+    "debut_at": "2023-08-25T15:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/d859dea99d294da6b94521ab644fa0ea/liver-face_Urushiha.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "mikoto",
+    "name_ja": "蜜言",
+    "name_en": "Mikoto",
+    "debut_at": "2023-08-25T15:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/6ccbde6d4e6d4d738468b15c8d03509a/liver-face_Mikoto.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "yukisyo",
+    "name_ja": "雪烛",
+    "name_en": "Yukisyo",
+    "debut_at": "2023-11-30T15:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/3f3b14474d77404888506e06703a0479/liver-face_Yukisyo.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "hajime",
+    "name_ja": "晴一",
+    "name_en": "Hajime",
+    "debut_at": "2023-08-25T15:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/d18c05798d734ed4810157b71d2837fa/liver-face_Hajime.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "nanami",
+    "name_ja": "七海",
+    "name_en": "Nanami",
+    "debut_at": "2019-06-11T00:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/261d37057554476aa036967a5a1c5248/liver-face_Nanami.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "kouichi",
+    "name_ja": "光一",
+    "name_en": "Kouichi",
+    "debut_at": "2019-06-11T00:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/4d9a67a52983443f9bafafcece1434c0/liver-face_Kouichi.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "waku",
+    "name_ja": "惑姫",
+    "name_en": "Waku",
+    "debut_at": "2019-09-16T00:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/d66c850d52864249a5c6baeb8265aa8f/liver-face_Waku.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "yagi",
+    "name_ja": "八木迪之",
+    "name_en": "Yagi",
+    "debut_at": "2019-11-20T00:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/542ec9849a1a41f884eede1a5d09ffa1/liver-face_Yagi.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "tabibito",
+    "name_ja": "度人",
+    "name_en": "Tabibito",
+    "debut_at": "2019-11-20T00:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/98d49949f4c3426f99b91b98016b94f9/liver-face_Tabibito.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "aza",
+    "name_ja": "阿萨",
+    "name_en": "Aza",
+    "debut_at": "2019-11-20T00:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/45880475d7fb40a0be425b5f46417643/liver-face_Aza.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "tocci",
+    "name_ja": "桃星",
+    "name_en": "Tocci",
+    "debut_at": "2021-05-01T15:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/c364ec5d83194ad9b4edd033fe89e5dc/liver-face_Tocci.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "ayumi",
+    "name_ja": "入福步",
+    "name_en": "Ayumi",
+    "debut_at": "2023-08-25T15:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/baea4fdc9aa74e82a13794985b7aa8c7/liver-face_Ayumi.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "richi",
+    "name_ja": "离枝",
+    "name_en": "Richi",
+    "debut_at": "2023-08-25T15:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/c3a6ccb936034a8dba31990fd1f5382e/liver-face_Richi.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "kima",
+    "name_ja": "鬼间",
+    "name_en": "Kima",
+    "debut_at": "2024-05-05T15:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/9736984b50b4429fb3e4ea0a307b6cf6/liver-face_Kima.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "rhea",
+    "name_ja": "瑞娅",
+    "name_en": "Rhea",
+    "debut_at": "2021-07-19T15:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/f02de8db255d46c6861066b58f231eaa/liver-face_Rhea.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "saya",
+    "name_ja": "沙夜",
+    "name_en": "Saya",
+    "debut_at": "2020-01-14T00:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/0b49792ba797429b88156fc05bc67b95/liver-face_Saya.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "yukie",
+    "name_ja": "雪绘",
+    "name_en": "Yukie",
+    "debut_at": "2020-01-14T00:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/8448a32ad4c042c182fbe8d885a3dc2c/liver-face_Yukie.png.webp"
+  },
+  {
+    "branch": "JP",
+    "slug": "sui",
+    "name_ja": "岁己",
+    "name_en": "Sui",
+    "debut_at": "2022-08-22T15:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/27ae81af8bbb43ee84867d6e9946eb4a/liver-face_Sui.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "leo",
+    "name_ja": "莱恩",
+    "name_en": "Leo",
+    "debut_at": "2022-08-22T15:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/d3722e05610845849dbaa90822cb6cf4/liver-face_Leo.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "susu",
+    "name_ja": "点酥",
+    "name_en": "Susu",
+    "debut_at": "2024-07-10T15:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/68b2686a13e74e819c071b4e22e7b99b/liver-face_Susu.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "momoka",
+    "name_ja": "桃代",
+    "name_en": "Momoka",
+    "debut_at": "2024-07-10T15:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/6b7be32474cc42108032b448e3bf4273/liver-face_Momoka.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "nimue",
+    "name_ja": "妮慕",
+    "name_en": "Nimue",
+    "debut_at": "2025-02-28T15:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/4c1dd2cc91604aeba58bda7ae597d4f7/liver-face_Nimue.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "kioi",
+    "name_ja": "柚雨",
+    "name_en": "Kioi",
+    "debut_at": "2025-08-01T15:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/dc5f62b8770d48f5837ea451327787c4/liver-face_Kioi.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "meme",
+    "name_ja": "沐毛",
+    "name_en": "Meme",
+    "debut_at": "2025-02-28T15:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/7804960d092e46e48f39b175db9590e6/liver-face_Meme.png"
+  },
+  {
+    "branch": "JP",
+    "slug": "mei",
+    "name_ja": "命依",
+    "name_en": "Mei",
+    "debut_at": "2025-02-28T15:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/39b2caf0e9674f1093f6607ecaf7d97b/liver-face_Mei.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "kuzuha",
+    "name_ja": "葛葉",
+    "name_en": "Kuzuha",
+    "debut_at": "2018-07-29T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/72c4d4d190f14fb2b865a24596118ba2/liver-face_Kuzuha.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "salome-hyakumantenbara",
+    "name_ja": "壱百満天原サロメ",
+    "name_en": "Hyakumantenbara Salome",
+    "debut_at": "2022-05-21T03:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/58a505029c69440699d4e44416bba57d/liver-face_Salome_Hyakumantenbara.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "kanae",
+    "name_ja": "叶",
+    "name_en": "Kanae",
+    "debut_at": "2018-05-01T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/ba94d70307e344b083ca0b50fb733659/liver-face_Kanae.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "mito-tsukino",
+    "name_ja": "月ノ美兎",
+    "name_en": "Tsukino Mito",
+    "debut_at": "2018-01-31T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/bd287ec9cfb8453da4a32161e4e76ce1/liver-face_Mito_Tsukino.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "vox-akuma",
+    "name_ja": "ヴォックス・アクマ",
+    "name_en": "Vox Akuma",
+    "debut_at": "2021-12-19T15:00:00.000Z",
+    "affiliation": [
+      "NIJISANJI EN"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/75bce98aa25943518ae8b1d42ec3dd5d/liver-face_Vox_Akuma.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "toya-kenmochi",
+    "name_ja": "剣持刀也",
+    "name_en": "Kenmochi Toya",
+    "debut_at": "2018-03-14T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/fa185ae5b61e4ed2ab59d3858e29229c/liver-face_Toya_Kenmochi.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "sara-hoshikawa",
+    "name_ja": "星川サラ",
+    "name_en": "Hoshikawa Sara",
+    "debut_at": "2019-10-16T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/ebb66fde318b469a8ef5bff61312730a/liver-face_Sara_Hoshikawa.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "minato-fuwa",
+    "name_ja": "不破湊",
+    "name_en": "Fuwa Minato",
+    "debut_at": "2019-11-27T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/4b3624d691304879ac020c6ada8c7856/liver-face_Minato_Fuwa.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "luca-kaneshiro",
+    "name_ja": "ルカ・カネシロ",
+    "name_en": "Luca Kaneshiro",
+    "debut_at": "2021-12-19T15:00:00.000Z",
+    "affiliation": [
+      "NIJISANJI EN"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/a69e253aceeb4ea2aad124963263d1f3/liver-face_Luca_Kaneshiro.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "kaede-higuchi",
+    "name_ja": "樋口楓",
+    "name_en": "Higuchi Kaede",
+    "debut_at": "2018-01-31T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/a10e6c0587a74e4781e3329c4ae732d6/liver-face_Kaede_Higuchi.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "lauren-iroas",
+    "name_ja": "ローレン・イロアス",
+    "name_en": "Lauren Iroas",
+    "debut_at": "2021-07-21T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/20a7002d409545f68b235f2dbadda706/liver-face_Lauren_Iroas.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "ange-katrina",
+    "name_ja": "アンジュ・カトリーナ",
+    "name_en": "Ange Katrina",
+    "debut_at": "2019-03-21T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/15670f33fae545de9fc5dff585be332c/liver-face_Ange_Katrina.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "lize-helesta",
+    "name_ja": "リゼ・ヘルエスタ",
+    "name_en": "Lize Helesta",
+    "debut_at": "2019-03-21T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/47f33a1d55ff4c40aa815eaff1be3aab/liver-face_Lize_Helesta.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "toko-inui",
+    "name_ja": "戌亥とこ",
+    "name_en": "Inui Toko",
+    "debut_at": "2019-03-21T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/e901f31dd23841438d5ed3113828353b/liver-face_Toko_Inui.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "shu-yamino",
+    "name_ja": "闇ノシュウ",
+    "name_en": "Shu Yamino",
+    "debut_at": "2021-12-19T15:00:00.000Z",
+    "affiliation": [
+      "NIJISANJI EN"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/57f8266ce45a4ace95f272c19e032413/liver-face_ShuYamino.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "saku-sasaki",
+    "name_ja": "笹木咲",
+    "name_en": "Sasaki Saku",
+    "debut_at": "2018-07-05T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/cf45532cb7eb45bdb2789b3d3932f596/liver-face_Saku_Sasaki.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "hayato-kagami",
+    "name_ja": "加賀美ハヤト",
+    "name_en": "Kagami Hayato",
+    "debut_at": "2019-07-02T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/616a31c054da4761ae731bc852f9381b/liver-face_Hayato_Kagami.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "kizuku-yashiro",
+    "name_ja": "社築",
+    "name_en": "Yashiro Kizuku",
+    "debut_at": "2018-06-02T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/ff46243c3787455cb8005023513616ca/liver-face_Kizuku_Yashiro.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "lunlun",
+    "name_ja": "ルンルン",
+    "name_en": "Lunlun",
+    "debut_at": "2024-06-18T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/21cd9392b3c24edcb8de8359286f7839/liver-face_Lunlun.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "ibrahim",
+    "name_ja": "イブラヒム",
+    "name_en": "Ibrahim",
+    "debut_at": "2020-01-29T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/4e6360c6d1994303ba0c0c5b753aa225/liver-face_Ibrahim.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "yuika-shiina",
+    "name_ja": "椎名唯華",
+    "name_en": "Shiina Yuika",
+    "debut_at": "2018-07-29T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/23ba0b2e138d45f6bdb6b94025377dc2/liver-face_Yuika_Shiina.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "ars-almal",
+    "name_ja": "アルス・アルマル",
+    "name_en": "Ars Almal",
+    "debut_at": "2019-07-23T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/663f3aa8834241799f2449e8b393df17/liver-face_Ars_Almal.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "chima-machita",
+    "name_ja": "町田ちま",
+    "name_en": "Machita Chima",
+    "debut_at": "2018-08-30T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/42d168bf6eca48e39031a2bbc6e666c6/liver-face_Chima_Machita.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "furen-e-lustario",
+    "name_ja": "フレン・E・ルスタリオ",
+    "name_en": "Furen E Lustario",
+    "debut_at": "2020-01-29T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/217a9552d9544da2997dd017ac95b0ac/liver-face_Furen_E_Lustario.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "ryushen",
+    "name_ja": "緑仙",
+    "name_en": "Ryushen",
+    "debut_at": "2018-06-02T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/aa5e0be7f66c4c4e902a56f8bb2266b0/liver-face_Ryushen.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "kokoro-amamiya",
+    "name_ja": "天宮こころ",
+    "name_en": "Amamiya Kokoro",
+    "debut_at": "2019-08-07T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/96874bf1074c477198deffe96d64c65e/liver-face_Kokoro_Amamiya.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "himawari-honma",
+    "name_ja": "本間ひまわり",
+    "name_en": "Honma Himawari",
+    "debut_at": "2018-07-05T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/977cdefa720e4035b71e580692316190/liver-face_Himawari_Honma.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "lulu-suzuhara",
+    "name_ja": "鈴原るる",
+    "name_en": "Suzuhara Lulu",
+    "debut_at": "2019-04-28T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/78c0abc6efae46ea9d2bc98070866878/liver-face_Lulu_Suzuhara.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "alban-knox",
+    "name_ja": "アルバーン・ノックス",
+    "name_en": "Alban Knox",
+    "debut_at": "2022-02-26T15:00:00.000Z",
+    "affiliation": [
+      "NIJISANJI EN"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/b55c850f56474b81876f9a678640ce52/liver-face_Alban_Knox.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "akina-saegusa",
+    "name_ja": "三枝明那",
+    "name_en": "Saegusa Akina",
+    "debut_at": "2019-04-01T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/110c847a4d9a4dc389758a66a408370b/liver-face_Akina_Saegusa.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "haru-kaida",
+    "name_ja": "甲斐田晴",
+    "name_en": "Kaida Haru",
+    "debut_at": "2020-04-01T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/f5ac57e32d534ade918207d631b43b63/liver-face_Haru_Kaida.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "elu",
+    "name_ja": "える",
+    "name_en": "Elu",
+    "debut_at": "2018-01-31T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/e749a2e50e1b4005b272260e9393d108/liver-face_Elu.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "meloco-kyoran",
+    "name_ja": "狂蘭 メロコ",
+    "name_en": "Meloco Kyoran",
+    "debut_at": "2022-12-05T15:00:00.000Z",
+    "affiliation": [
+      "NIJISANJI EN"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/51ec419d0e4f4843a5a2385d908dcff8/liver-face_Meloco_Kyoran.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "nui-sociere",
+    "name_ja": "ニュイ・ソシエール",
+    "name_en": "Nui Sociere",
+    "debut_at": "2019-06-18T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/4643fd371d974cdb93f07e9aa80d1fd0/liver-face_Nui_Sociere.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "chigusa-nishizono",
+    "name_ja": "西園チグサ",
+    "name_en": "Nishizono Chigusa",
+    "debut_at": "2020-08-05T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/63c5cc2c1c0546a6a8ea0617c182b849/liver-face_Chigusa_Nishizono.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "uki-violeta",
+    "name_ja": "浮奇・ヴィオレタ",
+    "name_en": "Uki Violeta",
+    "debut_at": "2022-02-26T15:00:00.000Z",
+    "affiliation": [
+      "NIJISANJI EN"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/a3ad52e072e64b8294dee73c0618f00b/liver-face_Uki_Violeta.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "sango-suo",
+    "name_ja": "周央サンゴ",
+    "name_en": "Suo Sango",
+    "debut_at": "2020-08-05T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/1df05d7e85a6468192f664ff258903f8/liver-face_Sango_Suo.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "enna-alouette",
+    "name_ja": "エナー・アールウェット",
+    "name_en": "Enna Alouette",
+    "debut_at": "2021-10-08T15:00:00.000Z",
+    "affiliation": [
+      "NIJISANJI EN"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/0a0aec871e504f5c9eab69144afcd447/liver-face_Enna_Alouette.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "kana-sukoya",
+    "name_ja": "健屋花那",
+    "name_en": "Sukoya Kana",
+    "debut_at": "2019-09-19T16:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/5b67649f6b7b4d84af278e4cce9532c9/liver-face_Kana_Sukoya.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "debidebi-debiru",
+    "name_ja": "でびでび・でびる",
+    "name_en": "Debidebi Debiru",
+    "debut_at": "2018-08-30T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/04f4ba87b763413da8836997ae3cd4c7/liver-face_Debidebi_Debiru.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "ratna-petit",
+    "name_ja": "ラトナ・プティ",
+    "name_en": "Ratna Petit",
+    "debut_at": "2019-08-07T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/cd5fe76cad754bc598421c15c5880c7b/liver-face_Ratna_Petit.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "hibari-watarai",
+    "name_ja": "渡会雲雀",
+    "name_en": "Watarai Hibari",
+    "debut_at": "2022-07-12T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/65aa007678984a8ea3ff49da2c5f3260/liver-face_Hibari_Watarai.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "sister-claire",
+    "name_ja": "シスター・クレア",
+    "name_en": "Sister Claire",
+    "debut_at": "2018-06-02T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/001f88b9145f495fb158d56550628e64/liver-face_Sister_Claire.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "marin-hayama",
+    "name_ja": "葉山舞鈴",
+    "name_en": "Hayama Marin",
+    "debut_at": "2019-06-18T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/f4a21638525f45b398f5b8e73fc558df/liver-face_Marin_Hayama.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "joe-rikiichi",
+    "name_ja": "ジョー・力一",
+    "name_en": "Joe Rikiichi",
+    "debut_at": "2018-08-30T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/4a3b9b71b6574bed8b6d5c08840ecdbe/liver-face_Joe_Rikiichi.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "rena-yorumi",
+    "name_ja": "夜見れな",
+    "name_en": "Yorumi Rena",
+    "debut_at": "2019-07-02T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/b889e7e0017d42d4986258b934978bc0/liver-face_Rena_Yorumi.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "meme-mashiro",
+    "name_ja": "ましろ爻",
+    "name_en": "Mashiro Meme",
+    "debut_at": "2019-12-25T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/df5827d29d5a4bc38b0b8bb8bc79c1e2/liver-face_Meme_Mashiro.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "mikoto-rindou",
+    "name_ja": "竜胆尊",
+    "name_en": "Rindou Mikoto",
+    "debut_at": "2018-08-30T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/1bf138f610fc48dda135b93ab9d93478/liver-face_Mikoto_Rindou.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "makaino-ririmu",
+    "name_ja": "魔界ノりりむ",
+    "name_en": "Makaino Ririmu",
+    "debut_at": "2018-07-29T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/4cdb61c4fc1545b38996ccb2296fc95a/liver-face_Ririmu_Makaino.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "chaika-hanabatake",
+    "name_ja": "花畑チャイカ",
+    "name_en": "Hanabatake Chaika",
+    "debut_at": "2018-06-02T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/e7a6cbdcfc9b40ea8ea8be29199becc7/liver-face_Chaika_Hanabatake.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "ex-albio",
+    "name_ja": "エクス・アルビオ",
+    "name_en": "Ex Albio",
+    "debut_at": "2019-05-17T16:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/623ba1c69fd64308a4eb32efaa4a80d2/liver-face_Ex_Albio.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "rion-takamiya",
+    "name_ja": "鷹宮リオン",
+    "name_en": "Takamiya Rion",
+    "debut_at": "2018-08-08T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/3284cbdeda0e4bd8ad7d5fdfafc4623b/liver-face_Rion_Takamiya.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "sonny-brisko",
+    "name_ja": "サニー・ブリスコー",
+    "name_en": "Sonny Brisko",
+    "debut_at": "2022-02-26T15:00:00.000Z",
+    "affiliation": [
+      "NIJISANJI EN"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/7951b32b19244128a2379a53fb8a9493/liver-face_Sonny_Brisko.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "ren-zotto",
+    "name_ja": "レン ゾット",
+    "name_en": "Ren Zotto",
+    "debut_at": "2022-07-24T15:00:00.000Z",
+    "affiliation": [
+      "NIJISANJI EN"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/deca5e8685ed481f8a618df234e5408c/liver-face_Ren_Zotto.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "kei-nagao",
+    "name_ja": "長尾景",
+    "name_en": "Nagao Kei",
+    "debut_at": "2020-04-01T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/883ad7825d6141f1beb2f50b0a79f542/liver-face_Kei_Nagao.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "elira-pendora",
+    "name_ja": "エリーラ ペンドラ",
+    "name_en": "Elira Pendora",
+    "debut_at": "2021-05-15T15:00:00.000Z",
+    "affiliation": [
+      "NIJISANJI EN"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/3b0f859e100e419aa179bc9def264714/liver-face_Elira_Pendora.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "leos-vincent",
+    "name_ja": "レオス・ヴィンセント",
+    "name_en": "Leos Vincent",
+    "debut_at": "2021-07-21T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/fc61ee728a9949a4936c89be4a922e7c/liver-face_Leos_Vincent.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "petra-gurin",
+    "name_ja": "ペトラ グリン",
+    "name_en": "Petra Gurin",
+    "debut_at": "2021-07-18T00:00:00.000Z",
+    "affiliation": [
+      "NIJISANJI EN"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/c11417fb94b04f27aaca9a698861286e/liver-face_Petra_Gurin.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "belmond-banderas",
+    "name_ja": "ベルモンド・バンデラス",
+    "name_en": "Belmond Banderas",
+    "debut_at": "2018-09-24T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/af124abd3da043268dc7f59162d6e632/liver-face_Belmond_Banderas.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "millie-parfait",
+    "name_ja": "ミリー・パフェ",
+    "name_en": "Millie Parfait",
+    "debut_at": "2021-10-08T15:00:00.000Z",
+    "affiliation": [
+      "NIJISANJI EN"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/fdf4cecc8af14d99a1d2c9f6acd4a6cb/liver-face_Millie_Parfait.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "finana-ryugu",
+    "name_ja": "フィナーナ 竜宮",
+    "name_en": "Finana Ryugu",
+    "debut_at": "2021-05-15T15:00:00.000Z",
+    "affiliation": [
+      "NIJISANJI EN"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/825b3215dd994a998e00c8efcecf49ce/liver-face_Finana_Ryugu.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "akira-shikinagi",
+    "name_ja": "四季凪アキラ",
+    "name_en": "Shikinagi Akira",
+    "debut_at": "2022-07-12T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/de2e34f9584544fe882846f24947226e/liver-face_Akira_Shikinagi.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "fuyuki-hakase",
+    "name_ja": "葉加瀬冬雪",
+    "name_en": "Hakase Fuyuki",
+    "debut_at": "2019-07-02T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/041b493000c24f8d92adcc60ead539fb/liver-face_Fuyuki_Hakase.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "maria-marionette",
+    "name_ja": "マリア マリオネット",
+    "name_en": "Maria Marionette",
+    "debut_at": "2022-07-24T15:00:00.000Z",
+    "affiliation": [
+      "NIJISANJI EN"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/e4d32f8f3a9e4efc852950d38ea4ba57/liver-face_Maria_Marionette.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "rou-koyanagi",
+    "name_ja": "小柳ロウ",
+    "name_en": "Koyanagi Rou",
+    "debut_at": "2023-04-25T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/2222cb2866fe4f3b9c85a45f3689fe53/liver-face_Rou_Koyanagi.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "keisuke-maimoto",
+    "name_ja": "舞元啓介",
+    "name_en": "Maimoto Keisuke",
+    "debut_at": "2018-08-08T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/62cb2dc53c984daaac6cf0d398415364/liver-face_Keisuke_Maimoto.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "tomoe-shirayuki",
+    "name_ja": "白雪巴",
+    "name_en": "Shirayuki Tomoe",
+    "debut_at": "2019-11-27T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/d5a34b5834374e50a289198280aad119/liver-face_Tomoe_Shirayuki.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "lain-paterson",
+    "name_ja": "レイン・パターソン",
+    "name_en": "Lain Paterson",
+    "debut_at": "2021-07-21T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/da6c50863a1247ff92ab8246d88a4145/liver-face_Lain_Paterson.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "ruri-shioriha",
+    "name_ja": "栞葉るり",
+    "name_en": "Shioriha Ruri",
+    "debut_at": "2023-11-20T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/a1334987716b45f0875d3ac8c8dd0593/liver-face_Ruri_Shioriha.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "sho-hoshirube",
+    "name_ja": "星導ショウ",
+    "name_en": "Hoshirube Sho",
+    "debut_at": "2023-04-25T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/4b2b45a06a2a49e3b6c6835087ecc1b2/liver-face_Sho_Hoshirube.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "kou-uzuki",
+    "name_ja": "卯月コウ",
+    "name_en": "Uzuki Kou",
+    "debut_at": "2018-06-02T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/af6b8193430741f8b5633a2ffa4ab9dc/liver-face_Kou_Uzuki.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "tamaki-fumino",
+    "name_ja": "文野環",
+    "name_en": "Fumino Tamaki",
+    "debut_at": "2018-03-14T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/362f946246d049ada0e4e88410ace52e/liver-face_Tamaki_Fumino.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "shellin-burgundy",
+    "name_ja": "シェリン・バーガンディ",
+    "name_en": "Shellin Burgundy",
+    "debut_at": "2019-09-19T16:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/9be70f7ce3534a908efce63118bb7fef/liver-face_Shellin_Burgundy.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "riri-yuhi",
+    "name_ja": "夕陽リリ",
+    "name_en": "Yuhi Riri",
+    "debut_at": "2018-03-14T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/f9bfdda16f1f46159faf7965894c9a1e/liver-face_Riri_Yuuhi.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "rin-shizuka",
+    "name_ja": "静凛",
+    "name_en": "Shizuka Rin",
+    "debut_at": "2018-01-31T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/3e388baf964c4c4a84b27cd709f86ce4/liver-face_Rin_Shizuka.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "seraph-dazzlegarden",
+    "name_ja": "セラフ・ダズルガーデン",
+    "name_en": "Seraph Dazzlegarden",
+    "debut_at": "2022-07-12T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/42fb181000564635aab64bb7cbedb886/liver-face_Seraph_Dazzlegarden.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "kanato-fura",
+    "name_ja": "風楽奏斗",
+    "name_en": "Fura Kanato",
+    "debut_at": "2022-07-12T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/b0151287da7d40e4b3d80ce499838785/liver-face_Kanato_Fura.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "mana-hibachi",
+    "name_ja": "緋八マナ",
+    "name_en": "Hibachi Mana",
+    "debut_at": "2023-03-29T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/c1a94fff322a4796833eca994d9d0bf5/liver-face_Mana_Hibachi.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "tojiro-genzuki",
+    "name_ja": "弦月藤士郎",
+    "name_en": "Genzuki Tojiro",
+    "debut_at": "2020-04-01T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/ee4d153e3ebd4dc8aa7a2d1af6b65a3e/liver-face_Tojiro_Genzuki.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "sophia-valentine",
+    "name_ja": "ソフィア・ヴァレンタイン",
+    "name_en": "Sophia Valentine",
+    "debut_at": "2023-01-15T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/6489a08fe04c4bfc9e77e652f664ac66/liver-face_Sophia_Valentine.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "nozomi-ishigami",
+    "name_ja": "石神のぞみ",
+    "name_en": "Ishigami Nozomi",
+    "debut_at": "2023-01-15T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/e1a09f9b02084889a165541da18a6c14/liver-face_Nozomi_Ishigami.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "rai-inami",
+    "name_ja": "伊波ライ",
+    "name_en": "Inami Rai",
+    "debut_at": "2023-04-25T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/177564c99e734028b8a59f318b333c33/liver-face_Rai_Inami.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "ittetsu-saiki",
+    "name_ja": "佐伯イッテツ",
+    "name_en": "Saiki Ittetsu",
+    "debut_at": "2023-03-29T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/36b63b547d2a4facad876cc40f0736a0/liver-face_Ittetsu_Saiki.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "toru-koshimizu",
+    "name_ja": "小清水透",
+    "name_en": "Koshimizu Toru",
+    "debut_at": "2023-01-15T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/922486712e7140f5abf2ba415c8a574a/liver-face_Toru_Koshimizu.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "kakeru-yumeoi",
+    "name_ja": "夢追翔",
+    "name_en": "Yumeoi Kakeru",
+    "debut_at": "2018-09-24T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/a14d762a2d674b599d530083fcd49447/liver-face_Kakeru_Yumeoi.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "levi-elipha",
+    "name_ja": "レヴィ・エリファ",
+    "name_en": "Levi Elipha",
+    "debut_at": "2019-05-17T16:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/a2d250273e0f4146990ebac2d5d1ce8d/liver-face_Levi_Elipha.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "kagetsu-murakumo",
+    "name_ja": "叢雲カゲツ",
+    "name_en": "Murakumo Kagetsu",
+    "debut_at": "2023-04-25T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/44eb7fa3087b480dad1ae245db21952e/liver-face_Kagetsu_Murakumo.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "dola",
+    "name_ja": "ドーラ",
+    "name_en": "Dola",
+    "debut_at": "2018-06-02T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/2a755bcce89344fbbc50d336af45efd3/liver-face_Dola.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "gaku-fushimi",
+    "name_ja": "伏見ガク",
+    "name_en": "Fushimi Gaku",
+    "debut_at": "2018-03-14T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/4834edc2a7c9472ea9d6fe4ee43c2a04/liver-face_Gaku_Fushimi.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "scarle-yonaguni",
+    "name_ja": "スカーレ ヨナグニ",
+    "name_en": "Scarle Yonaguni",
+    "debut_at": "2022-07-24T15:00:00.000Z",
+    "affiliation": [
+      "NIJISANJI EN"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/a410b878c4f64e9a9d1577097e3e56d9/liver-face_Scarle_Yonaguni.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "oliver-evans",
+    "name_ja": "オリバー・エバンス",
+    "name_en": "Oliver Evans",
+    "debut_at": "2021-07-21T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/ad3beeb99c4a4482a90d1a567648450e/liver-face_Oliver_Evans.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "kaisei",
+    "name_ja": "魁星",
+    "name_en": "Kaisei",
+    "debut_at": "2024-03-11T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/c531381ae7554535b16a266bbb3d3729/liver-face_Kaisei.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "rito-usami",
+    "name_ja": "宇佐美リト",
+    "name_en": "Usami Rito",
+    "debut_at": "2023-03-29T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/b7b9c49fc81440efb0b3fbf29faad4ce/liver-face_Rito_Usami.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "roa-yuzuki",
+    "name_ja": "夢月ロア",
+    "name_en": "Yuzuki Roa",
+    "debut_at": "2019-01-18T16:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/dc2fe6896dcd4b77bfb89f60f4a588e8/liver-face_Roa_Yuzuki.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "kazaki-morinaka",
+    "name_ja": "森中花咲",
+    "name_en": "Morinaka Kazaki",
+    "debut_at": "2018-03-14T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/3e3e5fefe79c47fe8bfb9601fd027376/liver-face_Kazaki_Morinaka.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "ness-sakaki",
+    "name_ja": "榊ネス",
+    "name_en": "Sakaki Ness",
+    "debut_at": "2024-03-11T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/3c3a4035d9a2410481bd59b3d6a99bb9/liver-face_Ness_Sakaki.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "masaru-suzuki",
+    "name_ja": "鈴木勝",
+    "name_en": "Suzuki Masaru",
+    "debut_at": "2018-06-02T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/21a992f2a13c450caa01eed8bf092868/liver-face_Masaru_Suzuki.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "akari-shishido",
+    "name_ja": "獅子堂あかり",
+    "name_en": "Shishido Akari",
+    "debut_at": "2023-01-15T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/e44d14200fec437eb35361aab7e29e76/liver-face_Akari_Shishido.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "wen-akagi",
+    "name_ja": "赤城ウェン",
+    "name_en": "Akagi Wen",
+    "debut_at": "2023-03-29T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/d35a7ec3da38468c8830eaf9f0a51c4c/liver-face_Wen_Akagi.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "rika-igarashi",
+    "name_ja": "五十嵐梨花",
+    "name_en": "Igarashi Rika",
+    "debut_at": "2023-01-15T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/a5dc528f536b4c7eaf06fadca75013d8/liver-face_Rika_Igarashi.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "yang-nari",
+    "name_ja": "ヤン ナリ",
+    "name_en": "Yang Nari",
+    "debut_at": "2020-10-14T05:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/aafac3ee207e439aa4a736c230fac310/liver-face_Yang_Nari.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "hisui-kitakoji",
+    "name_ja": "北小路ヒスイ",
+    "name_en": "Kitakoji Hisui",
+    "debut_at": "2020-08-05T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/b9d1759ea04d47ebb5503f1d4b66688b/liver-face_Hisui_Kitakoji.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "nana-tamanoi",
+    "name_ja": "珠乃井ナナ",
+    "name_en": "Tamanoi Nana",
+    "debut_at": "2024-06-18T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/f76ae3abb42440108fb75605bdd764e7/liver-face_Nana_Tamanoi.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "mao-matsukai",
+    "name_ja": "魔使マオ",
+    "name_en": "Matsukai Mao",
+    "debut_at": "2019-10-31T16:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/247b9af77e04473091ee72acbf259fa4/liver-face_Mao_Matsukai.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "nei-ponto",
+    "name_ja": "先斗寧",
+    "name_en": "Ponto Nei",
+    "debut_at": "2022-03-16T03:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/08a0455940404ccfa11a8c9d6a4538ad/liver-face_Nei_Ponto.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "vantacrow-bringer",
+    "name_ja": "ベンタクロウ ブリンガー",
+    "name_en": "Vantacrow Bringer",
+    "debut_at": "2023-06-21T15:00:00.000Z",
+    "affiliation": [
+      "NIJISANJI EN"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/d35ae95c701a41dfb191ba04f5d6e05f/liver-face_Vantacrow_Bringer.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "shiba-kuroi",
+    "name_ja": "黒井しば",
+    "name_en": "Kuroi Shiba",
+    "debut_at": "2018-09-24T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/63a01a3e31514430b203b973aa97f22e/liver-face_Shiba_Kuroi.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "sou-hayase",
+    "name_ja": "早瀬走",
+    "name_en": "Hayase Sou",
+    "debut_at": "2019-09-19T16:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/79033e0bc6ef4db3b4d24abde3fddcc9/liver-face_Sou_Hayase.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "aia-amare",
+    "name_ja": "アイア アマレ",
+    "name_en": "Aia Amare",
+    "debut_at": "2022-07-24T15:00:00.000Z",
+    "affiliation": [
+      "NIJISANJI EN"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/277243c23e434832abb4d2eb80db5ad9/liver-face_Aia_Amare.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "mugi-ienaga",
+    "name_ja": "家長むぎ",
+    "name_en": "Ienaga Mugi",
+    "debut_at": "2018-03-14T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/7a2a96dda3af40afbb54d5e7af2e5955/liver-face_Mugi_Ienaga.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "karuta-yamagami",
+    "name_ja": "山神カルタ",
+    "name_en": "Yamagami Karuta",
+    "debut_at": "2019-10-16T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/6d5442e6ebd64412ae714901c0669487/liver-face_Karuta_Yamagami.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "hana-macchia",
+    "name_ja": "ハナ マキア",
+    "name_en": "Hana Macchia",
+    "debut_at": "2019-09-13T00:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/fb0035ee1e374daf9f57a6589468dced/liver-face_Hana_Macchia.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "ritsuki-sakura",
+    "name_ja": "桜凛月",
+    "name_en": "Sakura Ritsuki",
+    "debut_at": "2018-08-30T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/3b53416aa270464f994b3a88f65ec79b/liver-face_Ritsuki_Sakura.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "fumi",
+    "name_ja": "フミ",
+    "name_en": "Fumi",
+    "debut_at": "2019-10-16T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/2aecf7a5282e4a349ead29f8f8e525f1/liver-face_Fumi.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "meruto-kuramochi",
+    "name_ja": "倉持めると",
+    "name_en": "Kuramochi Meruto",
+    "debut_at": "2023-01-15T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/6da2c0ebc0e84b3da6c1a410379b8346/liver-face_Meruto_Kuramochi.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "shoichi-kanda",
+    "name_ja": "神田笑一",
+    "name_en": "Kanda Shoichi",
+    "debut_at": "2018-08-08T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/54c64c3432ff45e683af0ada04908535/liver-face_Shoichi_Kanda.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "milan-kestrel",
+    "name_ja": "ミラン・ケストレル",
+    "name_en": "Milan Kestrel",
+    "debut_at": "2023-11-20T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/21f60a123e9d470383170b1ebb85914b/liver-face_Milan_Kestrel.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "yusei-kitami",
+    "name_ja": "北見遊征",
+    "name_en": "Kitami Yusei",
+    "debut_at": "2024-03-11T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/fa69680e8c48481d9d290762430a381d/liver-face_Yusei_Kitami.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "alice-mononobe",
+    "name_ja": "物述有栖",
+    "name_en": "Mononobe Alice",
+    "debut_at": "2018-03-14T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/8b1feefa2107498da11f9c6ec559b415/liver-face_Alice_Mononobe.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "yotsuha-umise",
+    "name_ja": "海妹四葉",
+    "name_en": "Umise Yotsuha",
+    "debut_at": "2022-03-16T03:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/a4633f90873b4427843f95ee84970b8a/liver-face_Yotsuha_Umise.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "suzuna-nanase",
+    "name_ja": "七瀬すず菜",
+    "name_en": "Nanase Suzuna",
+    "debut_at": "2024-08-12T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/df041caab67b41a0b7539c054e10294a/liver-face_Suzuna_Nanase.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "doppio-dropscythe",
+    "name_ja": "ドッピオ ドロップサイト",
+    "name_en": "Doppio Dropscythe",
+    "debut_at": "2022-12-05T15:00:00.000Z",
+    "affiliation": [
+      "NIJISANJI EN"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/44d559377a9649ddb85df12fcab6421e/liver-face_Doppio_Dropscythe.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "natsume-kurusu",
+    "name_ja": "来栖夏芽",
+    "name_en": "Kurusu Natsume",
+    "debut_at": "2019-12-25T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/ef419dca96cd46af9511ee6393562dfe/liver-face_Natsume_Kurusu.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "luis-cammy",
+    "name_ja": "ルイス・キャミー",
+    "name_en": "Luis Cammy",
+    "debut_at": "2019-10-31T16:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/91e3108fec9e4cf4b632c4c76a060c7b/liver-face_Luis_Cammy.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "trout-nagisa",
+    "name_ja": "渚トラウト",
+    "name_en": "Nagisa Trout",
+    "debut_at": "2024-08-12T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/03ab673bb8c0400a9fdce1f51755a7e7/liver-face_Trout_Nagisa.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "berry-saotome",
+    "name_ja": "早乙女ベリー",
+    "name_en": "Saotome Berry",
+    "debut_at": "2024-08-12T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/712d2034f4d24f29ae34ffaf8b55f46a/liver-face_Berry_Saotome.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "roco-kaburaki",
+    "name_ja": "鏑木ろこ",
+    "name_en": "Kaburaki Roco",
+    "debut_at": "2023-01-15T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/c1cec4b0ed294941a115cffa01b0c203/liver-face_Roko_Kaburaki.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "eli-conifer",
+    "name_ja": "エリー・コニファー",
+    "name_en": "Eli Conifer",
+    "debut_at": "2019-08-07T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/40723eda291747c58e4c148334ea95d4/liver-face_Eli_Conifer.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "ver-vermillion",
+    "name_ja": "ヴェール ヴァーミリオン",
+    "name_en": "Ver Vermillion",
+    "debut_at": "2022-12-05T15:00:00.000Z",
+    "affiliation": [
+      "NIJISANJI EN"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/f0b609dfe4e84993ba2960c8c7fca9f5/liver-face_Ver_Vermillion.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "yu-q-wilson",
+    "name_ja": "ユウ Q ウィルソン",
+    "name_en": "Yu Q. Wilson",
+    "debut_at": "2023-06-21T15:00:00.000Z",
+    "affiliation": [
+      "NIJISANJI EN"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/d0ee818c0be94a03836c33a5e54dc091/liver-face_Yu_Q._Wilson.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "seffyna",
+    "name_ja": "セフィナ",
+    "name_en": "Seffyna",
+    "debut_at": "2021-04-30T11:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/b1a1d6c519e94e458d216b027f37ceee/liver-face_Seffyna.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "emma-august",
+    "name_ja": "えま★おうがすと",
+    "name_en": "Emma August",
+    "debut_at": "2019-10-31T16:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/b9ee06612e6647159a40a668b8d602e4/liver-face_Emma_August.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "soma-sakayori",
+    "name_ja": "酒寄颯馬",
+    "name_en": "Sakayori Soma",
+    "debut_at": "2024-08-12T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/9bb7b450ba15434aad0b137ad0b4232f/liver-face_Soma_Sakayori.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "vezalius-bandage",
+    "name_ja": "ヴェザリウス バンデージ",
+    "name_en": "Vezalius Bandage",
+    "debut_at": "2023-06-21T15:00:00.000Z",
+    "affiliation": [
+      "NIJISANJI EN"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/d82003529a8f472c825834942a43c98a/liver-face_Vezalius_Bandage.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "kaelix-debonair",
+    "name_ja": "ケイリクス・デボネア",
+    "name_en": "Kaelix Debonair",
+    "debut_at": "2025-03-12T15:00:00.000Z",
+    "affiliation": [
+      "NIJISANJI EN"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/6d3794aa4a0b46de802ee1dda99dc0df/liver-face_Kaelix_Debonair.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "riko-shiga",
+    "name_ja": "司賀りこ",
+    "name_en": "Shiga Riko",
+    "debut_at": "2024-06-18T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/7a0d6f47b7bc4785b570386b748d1b8e/liver-face_Riko_Shiga.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "sayo-amemori",
+    "name_ja": "雨森小夜",
+    "name_en": "Amemori Sayo",
+    "debut_at": "2018-08-08T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/a6e0e401536542db95ed616a038d5d6f/liver-face_Sayo_Amemori.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "mahiro-yukishiro",
+    "name_ja": "雪城眞尋",
+    "name_en": "Yukishiro Mahiro",
+    "debut_at": "2019-04-28T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/ef95a4f652d644889603b8ddd29f2f0b/liver-face_Mahiro_Yukishiro.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "youko-akabane",
+    "name_ja": "赤羽葉子",
+    "name_en": "Akabane Youko",
+    "debut_at": "2018-05-01T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/c921440e235d419ab515e49a46ec0648/liver-face_Yoko_Akabane.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "kirame-sorahoshi",
+    "name_ja": "空星きらめ",
+    "name_en": "Sorahoshi Kirame",
+    "debut_at": "2020-06-30T17:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/61254e647cfb4edea5bb19a5f1ec90d7/liver-face_Kirame_Sorahoshi.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "ayato-hitotsubashi",
+    "name_ja": "一橋綾人",
+    "name_en": "Hitotsubashi Ayato",
+    "debut_at": "2025-04-10T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/2629dbb7346d4ec8827dec1ee894e5e8/liver-face_Ayato_Hitotsubashi.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "gilzaren-iii",
+    "name_ja": "ギルザレンⅢ世",
+    "name_en": "Gilzaren III",
+    "debut_at": "2018-03-14T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/fc45c528d4ad49ae992ccf99c9e27deb/liver-face_Gilzaren_%E2%85%A2.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "kohaku-todo",
+    "name_ja": "東堂コハク",
+    "name_en": "Todo Kohaku",
+    "debut_at": "2020-08-05T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/4c6791bb45cc4c5087eb2ce96a63fa9a/liver-face_Kohaku_Todo.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "air-harusaki",
+    "name_ja": "春崎エアル",
+    "name_en": "Harusaki Air",
+    "debut_at": "2018-06-07T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/4961a4b80e264badaa2d8bbb699c992e/liver-face_Air_Harusaki.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "kisara",
+    "name_ja": "綺沙良",
+    "name_en": "Kisara",
+    "debut_at": "2024-06-18T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/a5e303fc14b94d74bda56acdb673620b/liver-face_Kisara.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "rine-yaguruma",
+    "name_ja": "矢車りね",
+    "name_en": "Yaguruma Rine",
+    "debut_at": "2018-09-24T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/e11a9833e0224a1e9a17c5f3eacfda5b/liver-face_Rine_Yaguruma.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "ichigo-ushimi",
+    "name_ja": "宇志海いちご",
+    "name_en": "Ushimi Ichigo",
+    "debut_at": "2018-03-14T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/3007bd76572d42f19efd70a1f168ebc4/liver-face_Ichigo_Ushimi.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "freodore",
+    "name_ja": "フリオドール",
+    "name_en": "Freodore",
+    "debut_at": "2025-03-12T15:00:00.000Z",
+    "affiliation": [
+      "NIJISANJI EN"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/e62e2f857c8e46fc98c79bdf9bb848bd/liver-face_Freodore.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "manami-aizono",
+    "name_ja": "愛園愛美",
+    "name_en": "Aizono Manami",
+    "debut_at": "2019-04-01T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/5af8b71bbf0240db97c2345e13ec7f58/liver-face_Manami_Aizono.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "min-suha",
+    "name_ja": "ミン スゥーハ",
+    "name_en": "Min Suha",
+    "debut_at": "2020-01-24T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/5e8e5c93e7fe4d3eb30b14ffe6581ef0/liver-face_Suha_Min.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "zeal-ginjoka",
+    "name_ja": "ジール・ギンジョウカ",
+    "name_en": "Zeal Ginjoka",
+    "debut_at": "2025-03-12T15:00:00.000Z",
+    "affiliation": [
+      "NIJISANJI EN"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/0e8b5902726d43babafc6f2623c76be5/liver-face_Zeal_Ginjoka.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "tamako-kirara",
+    "name_ja": "雲母たまこ",
+    "name_en": "Kirara Tamako",
+    "debut_at": "2024-08-12T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/e3730f9f6b6f4428a0f5d9d135e0b1f8/liver-face_Tamako_Kirara.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "seible",
+    "name_ja": "セイブル",
+    "name_en": "Seible",
+    "debut_at": "2025-03-12T15:00:00.000Z",
+    "affiliation": [
+      "NIJISANJI EN"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/a8766bf970164d168b02dbd7ce635abc/liver-face_Seible.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "toto-tachitsute",
+    "name_ja": "立伝都々",
+    "name_en": "Tachitsute Toto",
+    "debut_at": "2023-11-20T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/bf7e7bc838da450bbe4d875eba2e263e/liver-face_Toto_Tachitsute.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "hajime-shibuya",
+    "name_ja": "渋谷ハジメ",
+    "name_en": "Shibuya Hajime",
+    "debut_at": "2018-01-31T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/48d793b718984df8b9f81ade7f0b8a5a/liver-face_Hajime_Shibuya.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "claude-clawmark",
+    "name_ja": "クロード クローマーク",
+    "name_en": "Claude Clawmark",
+    "debut_at": "2023-10-25T15:00:00.000Z",
+    "affiliation": [
+      "NIJISANJI EN"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/9a3e3897cd36495cb28868a355506527/liver-face_Claude_Clawmark.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "sakyo-itsuki",
+    "name_ja": "五木左京",
+    "name_en": "Itsuki Sakyo",
+    "debut_at": "2025-04-10T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/3e196e23ad234fc39212007f10fa046d/liver-face_Sakyo_Itsuki.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "kyoko-todoroki",
+    "name_ja": "轟京子",
+    "name_en": "Todoroki Kyoko",
+    "debut_at": "2018-06-02T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/72d24f8d5950414294f799c85542681f/liver-face_Kyoko_Todoroki.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "moira",
+    "name_ja": "モイラ",
+    "name_en": "Moira",
+    "debut_at": "2018-01-31T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/ea9f478820c84208840d248d5c6610d1/liver-face_Moira.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "muyu-amagase",
+    "name_ja": "天ヶ瀬むゆ",
+    "name_en": "Amagase Muyu",
+    "debut_at": "2022-03-16T03:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/93ac3fe993a4417987e983c31c972da8/liver-face_Muyu_Amagase.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "mone-kozue",
+    "name_ja": "梢桃音",
+    "name_en": "Kozue Mone",
+    "debut_at": "2024-06-18T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/c2b3cb15c4374087b1e5c2d306326583/liver-face_Mone_Kozue.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "ha-yun",
+    "name_ja": "ハ ユン",
+    "name_en": "Ha Yun",
+    "debut_at": "2021-08-31T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/4a89b0fe3c2a42d1912d6f053a766264/liver-face_Ha_Yun.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "miku-nekoyashiki",
+    "name_ja": "猫屋敷美紅",
+    "name_en": "Nekoyashiki Miku",
+    "debut_at": "2025-08-13T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/365b8ecc7fa74048841d38f4b21a07e6/liver-face_Miku_Nekoyashiki.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "tsumugu-kataribe",
+    "name_ja": "語部紡",
+    "name_en": "Kataribe Tsumugu",
+    "debut_at": "2019-01-27T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/a3ece7130cf946c69697c7a4105b9a77/liver-face_Tsumugu_Kataribe.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "hina-asuka",
+    "name_ja": "飛鳥ひな",
+    "name_en": "Asuka Hina",
+    "debut_at": "2018-08-08T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/d6f703f463bd4882abf19872d5897ea4/liver-face_Hina_Asuka.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "isumi-shirose",
+    "name_ja": "城瀬いすみ",
+    "name_en": "Shirose Isumi",
+    "debut_at": "2025-09-16T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/c359f30b042746be88cd87f76bd49894/liver-face_Isumi_Shirose.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "madoka-minamo",
+    "name_ja": "水面まどか",
+    "name_en": "Minamo Madoka",
+    "debut_at": "2026-01-28T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/4b9fcaf98c0d4b7f91e2c1ab9be7985b/liver-face_Madoka_Minamo.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "lee-roha",
+    "name_ja": "イ ロハ",
+    "name_en": "Lee Roha",
+    "debut_at": "2020-08-06T08:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/0901bc3c2c534410a60d82ac7ad347d1/liver-face_Roha_Lee.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "ayane-shirasa",
+    "name_ja": "白砂あやね",
+    "name_en": "Shirasa Ayane",
+    "debut_at": "2026-01-28T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/d61c28ffcf8a420aafbaca7d0769b07f/liver-face_Ayane_Shirasa.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "reo-sumeragi",
+    "name_ja": "皇れお",
+    "name_en": "Sumeragi Reo",
+    "debut_at": "2025-09-16T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/7965aa35528c4bb2918ce13b44f78ea8/liver-face_Reo_Sumeragi.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "klara-charmwood",
+    "name_ja": "クララ チャームウッド",
+    "name_en": "Klara Charmwood",
+    "debut_at": "2024-05-20T15:00:00.000Z",
+    "affiliation": [
+      "NIJISANJI EN"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/f20391e06870486ca53c6c90b39b4c13/liver-face_Klara_Charmwood.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "mikaru-kadou",
+    "name_ja": "蝸堂みかる",
+    "name_en": "Kadou Mikaru",
+    "debut_at": "2025-08-13T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/2fabd91950cc46d19be06392a8654708/liver-face_Mikaru_Kadou.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "tsubasa-hanakago",
+    "name_ja": "花籠つばさ",
+    "name_en": "Hanakago Tsubasa",
+    "debut_at": "2025-09-16T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/fcd6581ea328412e99cd953e80ae738d/liver-face_Tsubasa_Hanakago.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "nonoha-togawa",
+    "name_ja": "十河ののは",
+    "name_en": "Togawa Nonoha",
+    "debut_at": "2025-08-13T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/da656750c9204df59abf3ba0a84cf56c/liver-face_Nonoha_Togawa.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "yuno-shinomiya",
+    "name_ja": "篠宮ゆの",
+    "name_en": "Shinomiya Yuno",
+    "debut_at": "2025-09-16T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/5fa8e0b57d7c4b8fac7ec953105e0708/liver-face_Yuno_Shinomiya.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "so-nagi",
+    "name_ja": "ソ ナギ",
+    "name_en": "So Nagi",
+    "debut_at": "2020-06-01T10:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/2a11c3b58b16417080e1f408585d4783/liver-face_So_Nagi.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "layla-alstroemeria",
+    "name_ja": "ライラ アルストロエメリア",
+    "name_en": "Layla Alstroemeria",
+    "debut_at": "2020-03-15T00:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/6aacb7c7f40c4d558b3384a026f55402/liver-face_Layla_Alstroemeria.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "ryoma-barrenwort",
+    "name_ja": "凉舞 バレンウォート",
+    "name_en": "Ryoma Barrenwort",
+    "debut_at": "2024-05-20T15:00:00.000Z",
+    "affiliation": [
+      "NIJISANJI EN"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/0576be0e5a0c44c2a44d761f29a4e84c/liver-face_Ryoma_Barrenwort.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "shino-yagyu",
+    "name_ja": "夜牛詩乃",
+    "name_en": "Yagyu Shino",
+    "debut_at": "2025-08-13T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/d712a24a2b8543e0b589ecdfbe7c5ad9/liver-face_Shino_Yagyu.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "rayon",
+    "name_ja": "レヨン",
+    "name_en": "Rayon",
+    "debut_at": "2026-04-18T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/29d0df78c9b241ebbfd6a0dc3f1590ff/liver-face_Rayon.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "na-sera",
+    "name_ja": "ナ セラ",
+    "name_en": "Na Sera",
+    "debut_at": "2021-08-31T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/40bc06403098465284d410b6ee21d3e2/liver-face_Na_Sera%20(1).png"
+  },
+  {
+    "branch": "EN",
+    "slug": "kotone-mikogami",
+    "name_ja": "御子神琴音",
+    "name_en": "Mikogami Kotone",
+    "debut_at": "2026-04-18T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/ea9e654925fe4b5ab70f75ed5c9bec16/liver-face_Kotone_Mikogami.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "reina",
+    "name_ja": "Rei7",
+    "name_en": "Reina",
+    "debut_at": "2026-04-18T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/d52c689962e940d2b422753e0fecd744/liver-face_Rei7.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "daichi-tsukahara",
+    "name_ja": "塚原大地",
+    "name_en": "Tsukahara Daichi",
+    "debut_at": "2026-04-18T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/076a419e60b243f484fdb1f076dae6d3/liver-face_Daichi_Tsukahara.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "etna-crimson",
+    "name_ja": "エトナ クリムソン",
+    "name_en": "Etna Crimson",
+    "debut_at": "2020-08-07T11:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/4e21d893925f4f92a2730c28c71b49dd/liver-face_Etna_Crimson.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "oh-jiyu",
+    "name_ja": "オ ジユ",
+    "name_en": "Oh Jiyu",
+    "debut_at": "2020-10-14T05:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/e738023c6a744910b52baee0f2b4fcb3/liver-face_Jiyu_Oh.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "akira-ray",
+    "name_ja": "明楽レイ",
+    "name_en": "Akira Ray",
+    "debut_at": "2020-08-06T08:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/353657a3d45540098b20eff2112308be/liver-face_Ray_Akira.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "ayumu-senri",
+    "name_ja": "千凛あゆむ",
+    "name_en": "Senri Ayumu",
+    "debut_at": "2026-04-18T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/e44c5e13ac324cd3a1b43196739bea2f/liver-face_Ayumu_Senri.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "rai-galilei",
+    "name_ja": "ライ ガリレイ",
+    "name_en": "Rai Galilei",
+    "debut_at": "2019-12-18T00:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/f8223e6b3b4441bb81ecaf85512b33ca/liver-face_Rai_Galilei.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "gaon",
+    "name_ja": "ガオン",
+    "name_en": "Gaon",
+    "debut_at": "2020-01-24T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/9619eff7b9114d59a6f348a0b82707ab/liver-face_Gaon.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "onotora",
+    "name_ja": "男虎",
+    "name_en": "Onotora",
+    "debut_at": "2026-04-18T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/9b5cbb18f0eb42af9f738683d7551cfa/liver-face_Onotora.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "derem-kado",
+    "name_ja": "デレム カド",
+    "name_en": "Derem Kado",
+    "debut_at": "2020-11-13T06:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/dd96bf7da87140e0933208d93a664cec/liver-face_Derem_Kado.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "iruka-kokonami",
+    "name_ja": "小々波いるか",
+    "name_en": "Kokonami Iruka",
+    "debut_at": "2026-04-18T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/3e5aada39e0f454288790ffa63e4e3f3/liver-face_Iruka_Kokonami.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "eita-kuri",
+    "name_ja": "九里詠太",
+    "name_en": "Kuri Eita",
+    "debut_at": "2026-04-18T15:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/da61cb3994204a2f8d6e787fca22c134/liver-face_Eita_Kuri.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "ryu-hari",
+    "name_ja": "リュ ハリ",
+    "name_en": "Ryu Hari",
+    "debut_at": "2020-10-14T05:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/07ac1f96aa024d99addc251cec709635/liver-face_Hari_Ryu.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "nagisa-arcinia",
+    "name_ja": "ナギサ アルシニア",
+    "name_en": "Nagisa Arcinia",
+    "debut_at": "2020-11-13T06:00:00.000Z",
+    "affiliation": [
+      "にじさんじ"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/3cf844c4212f463fa512c1c6c27a02fd/liver-face_Nagisa_Arcinia.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "girimi",
+    "name_ja": "雾深",
+    "name_en": "Girimi",
+    "debut_at": "2022-01-02T15:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/6c6b6d75ff8e447db8a024c7184ad8f4/liver-face_Girimi.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "sybil",
+    "name_ja": "希维",
+    "name_en": "Sybil",
+    "debut_at": "2022-01-02T15:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/5ec4c743af2d45a5bd8a2cdb987c5816/liver-face_Sibil.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "mofu",
+    "name_ja": "犬绒",
+    "name_en": "Mofu",
+    "debut_at": "2025-08-01T15:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/62b38b68564648b492d74bd3f04e9f30/liver-face_Mofu.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "nori",
+    "name_ja": "能能",
+    "name_en": "Nori",
+    "debut_at": "2025-08-01T15:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/64ec8e567fc34e3faa6a7dda24af1c91/liver-face_Nori.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "chiharu",
+    "name_ja": "千春",
+    "name_en": "Chiharu",
+    "debut_at": "2020-07-20T00:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/526768a3844e4c83b29f4df3c2cb6547/liver-face_Chiharu.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "yua",
+    "name_ja": "悠亚",
+    "name_en": "Yua",
+    "debut_at": "2020-09-20T00:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/fac8e617a29042f59c59bd521ccb78d3/liver-face_Yua.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "shaun",
+    "name_ja": "勺",
+    "name_en": "Shaun",
+    "debut_at": "2020-09-20T00:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/04f0e3f8911140028d0fdf7e36ecb063/liver-face_Shaun.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "chiyuu",
+    "name_ja": "千幽",
+    "name_en": "Chiyuu",
+    "debut_at": "2020-12-05T15:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/275a8b92d6e8475c8911978322ebd4db/liver-face_Chiyuu.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "michiya",
+    "name_ja": "未知夜",
+    "name_en": "Michiya",
+    "debut_at": "2023-06-01T15:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/7312205e9eef488ea7d82d300a8e2073/liver-face_Michiya.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "ameki",
+    "name_ja": "雨纪",
+    "name_en": "Ameki",
+    "debut_at": "2023-06-01T15:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/a3e370d5db504b16b761bba379c1a301/liver-face_Ameki.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "mizuki",
+    "name_ja": "弥月",
+    "name_en": "Mizuki",
+    "debut_at": "2023-08-25T15:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/cfac97b19505480dbc73a16aa49f2167/liver-face_Mizuki.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "pako",
+    "name_ja": "帕可",
+    "name_en": "Pako",
+    "debut_at": "2023-11-30T15:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/89a5213170134fedab53532d419cd8c0/liver-face_Pako.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "nagisa",
+    "name_ja": "米汀",
+    "name_en": "Nagisa",
+    "debut_at": "2023-11-30T15:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/052bf04baef045e898900f4a1831d749/liver-face_Nagisa.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "mit3uri",
+    "name_ja": "三理",
+    "name_en": "Mit3uri",
+    "debut_at": "2025-02-28T15:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/b1a90958c8d64ba198749c6d83706f81/liver-face_Mit3uri.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "melody",
+    "name_ja": "泽音",
+    "name_en": "Melody",
+    "debut_at": "2025-01-16T15:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/b56598fb7adb4776a6b4354d6440fd04/liver-face_Melody.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "yog",
+    "name_ja": "尤格",
+    "name_en": "Yog",
+    "debut_at": "2021-09-24T15:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/45205d834d844e84888716570e5d9a7b/liver-face_Yog.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "hunger",
+    "name_ja": "暴食",
+    "name_en": "Hunger",
+    "debut_at": "2021-09-24T15:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/eb8bf7e87e18465ba283cef6d539aede/liver-face_Hunger.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "kiti",
+    "name_ja": "吉吉",
+    "name_en": "Kiti",
+    "debut_at": "2021-05-01T15:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/9ff4528e4f8f4e6a98c1a9e7d4ca54e4/liver-face_Kiti.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "mayumi",
+    "name_ja": "勾檀",
+    "name_en": "Mayumi",
+    "debut_at": "2021-03-04T15:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/44cc258438b744d8b08748669ff24aef/liver-face_Mayumi.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "shiori",
+    "name_ja": "栞栞",
+    "name_en": "Shiori",
+    "debut_at": "2023-01-25T15:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/02067d1eb6b24429aa94c1fafe1e5621/liver-face_Shiori.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "awu",
+    "name_ja": "哎小呜",
+    "name_en": "Awu",
+    "debut_at": "2023-06-01T15:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/07878ae182ac4a339e407972d2ac360e/liver-face_Awu.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "hatsuse",
+    "name_ja": "初濑",
+    "name_en": "Hatsuse",
+    "debut_at": "2023-06-01T15:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/5f9aa5f0376a4d498df3e41b3d68cf4e/liver-face_Hatsuse.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "harei",
+    "name_ja": "花礼",
+    "name_en": "Harei",
+    "debut_at": "2024-07-10T15:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/7f5223d95956498cba7a42bbf6e4bfa7/liver-face_Harei.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "eine",
+    "name_ja": "艾因",
+    "name_en": "Eine",
+    "debut_at": "2019-05-06T00:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/096a6c4a5bef41798cd482bad96ea96a/liver-face_Eine.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "urushiha",
+    "name_ja": "漆羽",
+    "name_en": "Urushiha",
+    "debut_at": "2023-08-25T15:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/d859dea99d294da6b94521ab644fa0ea/liver-face_Urushiha.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "mikoto",
+    "name_ja": "蜜言",
+    "name_en": "Mikoto",
+    "debut_at": "2023-08-25T15:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/6ccbde6d4e6d4d738468b15c8d03509a/liver-face_Mikoto.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "yukisyo",
+    "name_ja": "雪烛",
+    "name_en": "Yukisyo",
+    "debut_at": "2023-11-30T15:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/3f3b14474d77404888506e06703a0479/liver-face_Yukisyo.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "hajime",
+    "name_ja": "晴一",
+    "name_en": "Hajime",
+    "debut_at": "2023-08-25T15:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/d18c05798d734ed4810157b71d2837fa/liver-face_Hajime.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "nanami",
+    "name_ja": "七海",
+    "name_en": "Nanami",
+    "debut_at": "2019-06-11T00:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/261d37057554476aa036967a5a1c5248/liver-face_Nanami.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "kouichi",
+    "name_ja": "光一",
+    "name_en": "Kouichi",
+    "debut_at": "2019-06-11T00:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/4d9a67a52983443f9bafafcece1434c0/liver-face_Kouichi.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "waku",
+    "name_ja": "惑姫",
+    "name_en": "Waku",
+    "debut_at": "2019-09-16T00:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/d66c850d52864249a5c6baeb8265aa8f/liver-face_Waku.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "yagi",
+    "name_ja": "八木迪之",
+    "name_en": "Yagi",
+    "debut_at": "2019-11-20T00:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/542ec9849a1a41f884eede1a5d09ffa1/liver-face_Yagi.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "tabibito",
+    "name_ja": "度人",
+    "name_en": "Tabibito",
+    "debut_at": "2019-11-20T00:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/98d49949f4c3426f99b91b98016b94f9/liver-face_Tabibito.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "aza",
+    "name_ja": "阿萨",
+    "name_en": "Aza",
+    "debut_at": "2019-11-20T00:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/45880475d7fb40a0be425b5f46417643/liver-face_Aza.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "tocci",
+    "name_ja": "桃星",
+    "name_en": "Tocci",
+    "debut_at": "2021-05-01T15:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/c364ec5d83194ad9b4edd033fe89e5dc/liver-face_Tocci.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "ayumi",
+    "name_ja": "入福步",
+    "name_en": "Ayumi",
+    "debut_at": "2023-08-25T15:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/baea4fdc9aa74e82a13794985b7aa8c7/liver-face_Ayumi.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "richi",
+    "name_ja": "离枝",
+    "name_en": "Richi",
+    "debut_at": "2023-08-25T15:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/c3a6ccb936034a8dba31990fd1f5382e/liver-face_Richi.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "kima",
+    "name_ja": "鬼间",
+    "name_en": "Kima",
+    "debut_at": "2024-05-05T15:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/9736984b50b4429fb3e4ea0a307b6cf6/liver-face_Kima.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "rhea",
+    "name_ja": "瑞娅",
+    "name_en": "Rhea",
+    "debut_at": "2021-07-19T15:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/f02de8db255d46c6861066b58f231eaa/liver-face_Rhea.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "saya",
+    "name_ja": "沙夜",
+    "name_en": "Saya",
+    "debut_at": "2020-01-14T00:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/0b49792ba797429b88156fc05bc67b95/liver-face_Saya.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "yukie",
+    "name_ja": "雪绘",
+    "name_en": "Yukie",
+    "debut_at": "2020-01-14T00:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/8448a32ad4c042c182fbe8d885a3dc2c/liver-face_Yukie.png.webp"
+  },
+  {
+    "branch": "EN",
+    "slug": "sui",
+    "name_ja": "岁己",
+    "name_en": "Sui",
+    "debut_at": "2022-08-22T15:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/27ae81af8bbb43ee84867d6e9946eb4a/liver-face_Sui.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "leo",
+    "name_ja": "莱恩",
+    "name_en": "Leo",
+    "debut_at": "2022-08-22T15:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/d3722e05610845849dbaa90822cb6cf4/liver-face_Leo.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "susu",
+    "name_ja": "点酥",
+    "name_en": "Susu",
+    "debut_at": "2024-07-10T15:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/68b2686a13e74e819c071b4e22e7b99b/liver-face_Susu.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "momoka",
+    "name_ja": "桃代",
+    "name_en": "Momoka",
+    "debut_at": "2024-07-10T15:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/6b7be32474cc42108032b448e3bf4273/liver-face_Momoka.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "nimue",
+    "name_ja": "妮慕",
+    "name_en": "Nimue",
+    "debut_at": "2025-02-28T15:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/4c1dd2cc91604aeba58bda7ae597d4f7/liver-face_Nimue.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "kioi",
+    "name_ja": "柚雨",
+    "name_en": "Kioi",
+    "debut_at": "2025-08-01T15:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/dc5f62b8770d48f5837ea451327787c4/liver-face_Kioi.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "meme",
+    "name_ja": "沐毛",
+    "name_en": "Meme",
+    "debut_at": "2025-02-28T15:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/7804960d092e46e48f39b175db9590e6/liver-face_Meme.png"
+  },
+  {
+    "branch": "EN",
+    "slug": "mei",
+    "name_ja": "命依",
+    "name_en": "Mei",
+    "debut_at": "2025-02-28T15:00:00.000Z",
+    "affiliation": [
+      "VirtuaReal"
+    ],
+    "image_url": "https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/39b2caf0e9674f1093f6607ecaf7d97b/liver-face_Mei.png"
+  }
+]
