@@ -5,7 +5,8 @@ import { notify } from "@/lib/notify";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
-export const maxDuration = 120;
+// Vercel hobby plan 上限 60s；cron 每 6 小時跑一次補缺即可
+export const maxDuration = 60;
 
 function unauthorized() {
   return NextResponse.json({ error: "unauthorized" }, { status: 401 });
@@ -19,8 +20,12 @@ export async function GET(req: NextRequest) {
   const qs = req.nextUrl.searchParams.get("secret") || "";
   if (!secret || (token !== secret && qs !== secret)) return unauthorized();
 
-  const limit = parseInt(req.nextUrl.searchParams.get("limit") || "20", 10);
+  // 每支商品要抓 sitemap + 頁面 + 0.8s 禮貌延遲（~3s 實測）
+  // 限 8 筆避免 60s timeout；缺圖商品會在下一次 cron 繼續補
+  const limit = parseInt(req.nextUrl.searchParams.get("limit") || "8", 10);
   const force = req.nextUrl.searchParams.get("force") === "1";
+  const startedAt = Date.now();
+  const SOFT_DEADLINE_MS = 50_000; // 留 10s buffer 給後續 DB 操作
 
   const sb = supabaseServer();
 
@@ -38,6 +43,10 @@ export async function GET(req: NextRequest) {
 
   for (const p of products ?? []) {
     if (!p.shop_product_code) continue;
+    if (Date.now() - startedAt > SOFT_DEADLINE_MS) {
+      results.push({ id: p.id, code: p.shop_product_code, status: "skipped_deadline" });
+      continue;
+    }
     try {
       const scraped = await scrapeShopProduct(p.shop_product_code, p.name_ja);
       if (!scraped) {
