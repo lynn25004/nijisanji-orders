@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { supabaseServer } from "@/lib/supabase-server";
 import { fetchSheetRows } from "@/lib/parse-sheet";
+import { notify } from "@/lib/notify";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -121,6 +122,24 @@ export async function GET(req: NextRequest) {
     skipped: results.filter((r) => r.status === "skipped").length,
     errors: results.filter((r) => r.status === "error").length
   };
+
+  if (summary.inserted > 0) {
+    const campaigns = results
+      .filter((r) => r.status === "inserted")
+      .map((r) => r.campaign)
+      .filter(Boolean)
+      .slice(0, 5)
+      .join("\n• ");
+    await notify(
+      `📋 <b>跟團 Sheet 新增 ${summary.inserted} 筆</b>\n• ${campaigns}\nhttps://nijisanji-orders.vercel.app`
+    );
+  }
+  if (summary.errors > 0) {
+    const firstErr = results.find((r) => r.status === "error");
+    await notify(
+      `⚠️ <b>sync-sheet 有 ${summary.errors} 筆錯誤</b>\n${firstErr?.reason ?? ""}`
+    );
+  }
 
   return NextResponse.json({ ok: true, summary, results });
 }

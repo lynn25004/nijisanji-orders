@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { supabaseServer } from "@/lib/supabase-server";
 import { scrapeShopProduct } from "@/lib/scrape-shop-product";
+import { notify } from "@/lib/notify";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -106,6 +107,18 @@ export async function GET(req: NextRequest) {
     not_found: results.filter((r) => r.status === "not_found").length,
     errors: results.filter((r) => r.status === "error").length
   };
+
+  if (summary.enriched > 0) {
+    await notify(
+      `🎨 <b>enrich-products 補齊 ${summary.enriched} 筆商品</b>\nhttps://nijisanji-orders.vercel.app`
+    );
+  }
+  if (summary.errors > 0) {
+    const firstErr = results.find((r) => r.status === "error");
+    await notify(
+      `⚠️ <b>enrich-products 有 ${summary.errors} 筆錯誤</b>\n${firstErr?.reason ?? ""}`
+    );
+  }
 
   return NextResponse.json({ ok: true, summary, results });
 }

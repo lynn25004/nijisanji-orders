@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { supabaseServer } from "@/lib/supabase-server";
 import { fetchShopNijisanjiOrderEmails } from "@/lib/gmail-imap";
 import { parseShopNijisanjiOrder } from "@/lib/parse-shop";
+import { notify } from "@/lib/notify";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -164,6 +165,23 @@ export async function GET(req: NextRequest) {
     skipped: results.filter((r) => r.status === "skipped").length,
     errors: results.filter((r) => r.status === "error").length
   };
+
+  if (summary.inserted > 0) {
+    const orderNos = results
+      .filter((r) => r.status === "inserted")
+      .map((r) => r.order_no)
+      .filter(Boolean)
+      .join(", ");
+    await notify(
+      `🛒 <b>shop.nijisanji.jp 新訂單 ${summary.inserted} 筆</b>\n${orderNos}\nhttps://nijisanji-orders.vercel.app`
+    );
+  }
+  if (summary.errors > 0) {
+    const firstErr = results.find((r) => r.status === "error");
+    await notify(
+      `⚠️ <b>sync-shop-nijisanji 有 ${summary.errors} 筆錯誤</b>\n${firstErr?.reason ?? ""}`
+    );
+  }
 
   return NextResponse.json({ ok: true, summary, results });
 }
