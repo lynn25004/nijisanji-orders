@@ -64,30 +64,36 @@ export async function GET(req: NextRequest) {
         await sb.from("products").update(patch).eq("id", p.id);
       }
 
-      // 處理藝人 → talents + product_talents
-      const talentIds: string[] = [];
-      for (const nameJa of scraped.talents_ja) {
-        // 用 limit(1) 而非 maybeSingle()，避免已有重複 row 時誤判為「不存在」而再插一筆
+      // 處理藝人 → talents + product_talents（批次化）
+      const uniqueNames = Array.from(new Set(scraped.talents_ja));
+      const nameToId = new Map<string, string>();
+      if (uniqueNames.length) {
+        // 1) 一次查所有已存在的 talent
         const { data: existingList } = await sb
           .from("talents")
-          .select("id")
-          .eq("name_ja", nameJa)
-          .limit(1);
-        if (existingList && existingList.length > 0) {
-          talentIds.push(existingList[0].id);
-        } else {
+          .select("id, name_ja")
+          .in("name_ja", uniqueNames);
+        for (const row of existingList ?? []) {
+          if (row.name_ja && !nameToId.has(row.name_ja)) nameToId.set(row.name_ja, row.id);
+        }
+        // 2) 一次新增缺的 talent
+        const missing = uniqueNames.filter((n) => !nameToId.has(n));
+        if (missing.length) {
           const { data: created } = await sb
             .from("talents")
-            .insert({ name_ja: nameJa })
-            .select("id")
-            .single();
-          if (created?.id) talentIds.push(created.id);
+            .insert(missing.map((name_ja) => ({ name_ja })))
+            .select("id, name_ja");
+          for (const row of created ?? []) {
+            if (row.name_ja) nameToId.set(row.name_ja, row.id);
+          }
         }
       }
-      for (const tid of talentIds) {
+      // 3) 一次 upsert 所有 product_talents
+      const links = Array.from(nameToId.values()).map((tid) => ({ product_id: p.id, talent_id: tid }));
+      if (links.length) {
         await sb
           .from("product_talents")
-          .upsert({ product_id: p.id, talent_id: tid }, { onConflict: "product_id,talent_id" });
+          .upsert(links, { onConflict: "product_id,talent_id" });
       }
 
       results.push({
