@@ -20,6 +20,7 @@ type Row = {
   unit_price_jpy: number | null;
   group_id: string | null;
   group_name: string | null;
+  talent_ids: string[];
 };
 
 export default function HomePage() {
@@ -42,7 +43,7 @@ export default function HomePage() {
         orders!inner ( id, ordered_at, received_at, proxy_service, proxy_order_no, status, total_jpy, total_twd ),
         products!inner (
           id, name_ja, image_url, release_date,
-          product_talents ( talents ( group_id, groups ( id, name_ja, name_zh ) ) )
+          product_talents ( talents ( id, group_id, groups ( id, name_ja, name_zh ) ) )
         )
       `);
     if (error) {
@@ -51,7 +52,10 @@ export default function HomePage() {
       return;
     }
     const flat: Row[] = (data ?? []).map((r: any) => {
-      const firstGroup = r.products?.product_talents?.[0]?.talents?.groups ?? null;
+      const allTalents = (r.products?.product_talents ?? [])
+        .map((pt: any) => pt.talents)
+        .filter(Boolean);
+      const firstGroup = allTalents[0]?.groups ?? null;
       return {
         order_id: r.orders.id,
         ordered_at: r.orders.ordered_at,
@@ -68,7 +72,8 @@ export default function HomePage() {
         qty: r.qty,
         unit_price_jpy: r.unit_price_jpy,
         group_id: firstGroup?.id ?? null,
-        group_name: firstGroup?.name_zh ?? firstGroup?.name_ja ?? null
+        group_name: firstGroup?.name_zh ?? firstGroup?.name_ja ?? null,
+        talent_ids: allTalents.map((t: any) => t.id).filter(Boolean)
       };
     });
     setRows(flat);
@@ -76,8 +81,33 @@ export default function HomePage() {
   };
 
   useEffect(() => {
+    // 從 URL 還原篩選狀態
+    const sp = new URLSearchParams(window.location.search);
+    setSearchQuery(sp.get("q") ?? "");
+    setGroupFilter(sp.get("group") ?? "");
+    setStatusFilter(sp.get("status") ?? "");
+    setProxyFilter(sp.get("proxy") ?? "");
+    const rec = sp.get("received");
+    if (rec === "yes" || rec === "no" || rec === "all") setReceivedFilter(rec);
+    const sb = sp.get("sort");
+    if (sb === "ordered_at" || sb === "release_date") setSortBy(sb);
     load();
   }, []);
+
+  // 篩選狀態 → URL（不污染歷史）
+  useEffect(() => {
+    if (loading) return;
+    const sp = new URLSearchParams();
+    if (searchQuery) sp.set("q", searchQuery);
+    if (groupFilter) sp.set("group", groupFilter);
+    if (statusFilter) sp.set("status", statusFilter);
+    if (proxyFilter) sp.set("proxy", proxyFilter);
+    if (receivedFilter !== "all") sp.set("received", receivedFilter);
+    if (sortBy !== "ordered_at") sp.set("sort", sortBy);
+    const qs = sp.toString();
+    const url = qs ? `${window.location.pathname}?${qs}` : window.location.pathname;
+    window.history.replaceState({}, "", url);
+  }, [searchQuery, groupFilter, statusFilter, proxyFilter, receivedFilter, sortBy, loading]);
 
   useEffect(() => {
     if (!zoomImg) return;
@@ -100,6 +130,29 @@ export default function HomePage() {
 
   const proxyOptions = useMemo(() => {
     return Array.from(new Set(rows.map((r) => r.proxy_service).filter(Boolean) as string[]));
+  }, [rows]);
+
+  const stats = useMemo(() => {
+    const now = new Date();
+    const thisMonth = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}`;
+    const thisYear = String(now.getFullYear());
+    let monthSpend = 0;
+    let yearSpend = 0;
+    const productIds = new Set<string>();
+    const talentIds = new Set<string>();
+    for (const r of rows) {
+      const amt = (r.unit_price_jpy ?? 0) * r.qty;
+      if (r.ordered_at?.startsWith(thisMonth)) monthSpend += amt;
+      if (r.ordered_at?.startsWith(thisYear)) yearSpend += amt;
+      productIds.add(r.product_id);
+      r.talent_ids?.forEach((id) => talentIds.add(id));
+    }
+    return {
+      monthSpend,
+      yearSpend,
+      productCount: productIds.size,
+      talentCount: talentIds.size
+    };
   }, [rows]);
 
   const filtered = useMemo(() => {
@@ -173,13 +226,68 @@ export default function HomePage() {
     }
   };
 
-  if (loading) return <p>載入中…</p>;
+  if (loading) {
+    return (
+      <div className="space-y-4">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+          {Array.from({ length: 4 }).map((_, i) => (
+            <div key={i} className="border border-neutral-200 dark:border-neutral-800 rounded-lg p-3">
+              <div className="h-3 w-16 bg-neutral-200 dark:bg-neutral-800 rounded animate-pulse" />
+              <div className="h-6 w-24 bg-neutral-200 dark:bg-neutral-800 rounded animate-pulse mt-2" />
+            </div>
+          ))}
+        </div>
+        <div className="h-9 bg-neutral-200 dark:bg-neutral-800 rounded animate-pulse" />
+        <div className="h-7 w-2/3 bg-neutral-200 dark:bg-neutral-800 rounded animate-pulse" />
+        <ul className="grid gap-3 sm:grid-cols-2">
+          {Array.from({ length: 6 }).map((_, i) => (
+            <li
+              key={i}
+              className="border border-neutral-200 dark:border-neutral-800 rounded-lg p-3 flex gap-3"
+            >
+              <div className="w-20 h-20 bg-neutral-200 dark:bg-neutral-800 rounded animate-pulse" />
+              <div className="flex-1 space-y-2">
+                <div className="h-4 bg-neutral-200 dark:bg-neutral-800 rounded animate-pulse" />
+                <div className="h-3 w-2/3 bg-neutral-200 dark:bg-neutral-800 rounded animate-pulse" />
+                <div className="h-3 w-1/2 bg-neutral-200 dark:bg-neutral-800 rounded animate-pulse" />
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
+  }
 
   const totalOrders = new Set(rows.map((r) => r.order_id)).size;
   const receivedOrders = new Set(rows.filter((r) => r.received_at).map((r) => r.order_id)).size;
 
   return (
     <div className="space-y-4">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+        <div className="border border-neutral-200 dark:border-neutral-800 rounded-lg p-3 bg-white dark:bg-neutral-900">
+          <div className="text-xs text-neutral-500">本月支出</div>
+          <div className="text-xl font-bold mt-0.5">¥{stats.monthSpend.toLocaleString()}</div>
+        </div>
+        <div className="border border-neutral-200 dark:border-neutral-800 rounded-lg p-3 bg-white dark:bg-neutral-900">
+          <div className="text-xs text-neutral-500">今年累積</div>
+          <div className="text-xl font-bold mt-0.5">¥{stats.yearSpend.toLocaleString()}</div>
+        </div>
+        <div className="border border-neutral-200 dark:border-neutral-800 rounded-lg p-3 bg-white dark:bg-neutral-900">
+          <div className="text-xs text-neutral-500">商品數</div>
+          <div className="text-xl font-bold mt-0.5">
+            {stats.productCount}
+            <span className="text-xs text-neutral-500 font-normal ml-1">件</span>
+          </div>
+        </div>
+        <div className="border border-neutral-200 dark:border-neutral-800 rounded-lg p-3 bg-white dark:bg-neutral-900">
+          <div className="text-xs text-neutral-500">涵蓋成員</div>
+          <div className="text-xl font-bold mt-0.5">
+            {stats.talentCount}
+            <span className="text-xs text-neutral-500 font-normal ml-1">位</span>
+          </div>
+        </div>
+      </div>
+
       <div className="space-y-2">
         <div className="flex flex-wrap gap-2 items-center">
           <input
