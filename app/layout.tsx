@@ -4,7 +4,18 @@ import type { ReactNode } from "react";
 
 export const metadata = {
   title: "我買",
-  description: "我的彩虹社周邊訂單記錄"
+  description: "我的彩虹社周邊訂單記錄",
+  appleWebApp: {
+    capable: true,
+    title: "我買",
+    statusBarStyle: "black-translucent" as const
+  }
+};
+
+export const viewport = {
+  themeColor: "#1f2937",
+  width: "device-width",
+  initialScale: 1
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
