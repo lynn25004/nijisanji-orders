@@ -26,7 +26,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <nav className="max-w-5xl mx-auto px-4 py-3 flex items-center gap-4">
             <Link href="/" className="font-bold text-lg">🛍️ 我買</Link>
             <div className="ml-auto flex gap-3 text-sm">
-              <Link href="/" className="hover:underline">訂單列表</Link>
+              <Link href="/" className="hover:underline">訂單</Link>
+              <Link href="/wishlist" className="hover:underline">想買</Link>
               <Link href="/talents" className="hover:underline">成員</Link>
               <Link href="/new" className="hover:underline">+ 新增</Link>
             </div>
