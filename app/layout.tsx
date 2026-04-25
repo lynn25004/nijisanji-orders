@@ -29,6 +29,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               <Link href="/" className="hover:underline">訂單</Link>
               <Link href="/wishlist" className="hover:underline">想買</Link>
               <Link href="/talents" className="hover:underline">成員</Link>
+              <Link href={`/wrap/${new Date().getFullYear()}`} className="hover:underline">回顧</Link>
               <Link href="/new" className="hover:underline">+ 新增</Link>
             </div>
           </nav>
