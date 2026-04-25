@@ -27,6 +27,9 @@ export default function HomePage() {
   const [loading, setLoading] = useState(true);
   const [groupFilter, setGroupFilter] = useState<string>("");
   const [receivedFilter, setReceivedFilter] = useState<"all" | "yes" | "no">("all");
+  const [statusFilter, setStatusFilter] = useState<string>("");
+  const [proxyFilter, setProxyFilter] = useState<string>("");
+  const [searchQuery, setSearchQuery] = useState<string>("");
   const [sortBy, setSortBy] = useState<"ordered_at" | "release_date">("ordered_at");
   const [toggling, setToggling] = useState<string | null>(null);
   const [zoomImg, setZoomImg] = useState<string | null>(null);
@@ -91,18 +94,60 @@ export default function HomePage() {
     return Array.from(m, ([id, name]) => ({ id, name }));
   }, [rows]);
 
+  const statusOptions = useMemo(() => {
+    return Array.from(new Set(rows.map((r) => r.status).filter(Boolean)));
+  }, [rows]);
+
+  const proxyOptions = useMemo(() => {
+    return Array.from(new Set(rows.map((r) => r.proxy_service).filter(Boolean) as string[]));
+  }, [rows]);
+
   const filtered = useMemo(() => {
     let list = rows;
     if (groupFilter) list = list.filter((r) => r.group_id === groupFilter);
     if (receivedFilter === "yes") list = list.filter((r) => r.received_at);
     if (receivedFilter === "no") list = list.filter((r) => !r.received_at);
+    if (statusFilter) list = list.filter((r) => r.status === statusFilter);
+    if (proxyFilter) list = list.filter((r) => r.proxy_service === proxyFilter);
+    if (searchQuery.trim()) {
+      const q = searchQuery.trim().toLowerCase();
+      list = list.filter(
+        (r) =>
+          r.product_name?.toLowerCase().includes(q) ||
+          r.group_name?.toLowerCase().includes(q) ||
+          r.proxy_order_no?.toLowerCase().includes(q)
+      );
+    }
     list = [...list].sort((a, b) => {
       const av = a[sortBy] ?? "";
       const bv = b[sortBy] ?? "";
       return av < bv ? 1 : av > bv ? -1 : 0;
     });
     return list;
-  }, [rows, groupFilter, receivedFilter, sortBy]);
+  }, [rows, groupFilter, receivedFilter, statusFilter, proxyFilter, searchQuery, sortBy]);
+
+  // 顏色語意：依狀態 + 是否漏領
+  const getStatusStyle = (r: Row) => {
+    const status = r.status || "";
+    if (status.includes("退款")) {
+      return { border: "border-l-4 border-l-neutral-400", strike: true, dot: "bg-neutral-400", label: "已退款" };
+    }
+    if (status.includes("入庫")) {
+      return { border: "border-l-4 border-l-blue-500", strike: false, dot: "bg-blue-500", label: status };
+    }
+    // 未收到 + 上架日已過 30 天 → 紅色提醒
+    if (!r.received_at && r.release_date) {
+      const released = new Date(r.release_date);
+      const daysSince = (Date.now() - released.getTime()) / 86400000;
+      if (daysSince > 30) {
+        return { border: "border-l-4 border-l-red-500", strike: false, dot: "bg-red-500", label: "可能漏領" };
+      }
+    }
+    if (!r.received_at) {
+      return { border: "border-l-4 border-l-amber-400", strike: false, dot: "bg-amber-400", label: status || "待發貨" };
+    }
+    return { border: "border-l-4 border-l-green-500", strike: false, dot: "bg-green-500", label: "已收到" };
+  };
 
   const toggleReceived = async (order_id: string) => {
     setToggling(order_id);
@@ -135,62 +180,103 @@ export default function HomePage() {
 
   return (
     <div className="space-y-4">
-      <div className="flex flex-wrap gap-3 items-center text-sm">
-        <label>
-          團體：
-          <select
-            className="ml-2 border rounded px-2 py-1 bg-transparent"
-            value={groupFilter}
-            onChange={(e) => setGroupFilter(e.target.value)}
+      <div className="space-y-2">
+        <div className="flex flex-wrap gap-2 items-center">
+          <input
+            type="search"
+            placeholder="🔍 搜商品名 / 成員 / 訂單號"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="flex-1 min-w-[200px] border rounded px-3 py-1.5 text-sm bg-transparent"
+          />
+          <Link
+            href="/new"
+            className="bg-black text-white dark:bg-white dark:text-black rounded px-3 py-1.5 text-sm whitespace-nowrap"
           >
-            <option value="">全部</option>
-            {groupOptions.map((g) => (
-              <option key={g.id} value={g.id}>{g.name}</option>
-            ))}
-          </select>
-        </label>
-        <label>
-          收件：
-          <select
-            className="ml-2 border rounded px-2 py-1 bg-transparent"
-            value={receivedFilter}
-            onChange={(e) => setReceivedFilter(e.target.value as any)}
-          >
-            <option value="all">全部</option>
-            <option value="no">未收到</option>
-            <option value="yes">已收到</option>
-          </select>
-        </label>
-        <label>
-          排序：
-          <select
-            className="ml-2 border rounded px-2 py-1 bg-transparent"
-            value={sortBy}
-            onChange={(e) => setSortBy(e.target.value as any)}
-          >
-            <option value="ordered_at">下單日期</option>
-            <option value="release_date">上架日期</option>
-          </select>
-        </label>
-        <span className="text-neutral-500">
-          {receivedOrders}/{totalOrders} 訂單已收到
-        </span>
-        <Link
-          href="/new"
-          className="ml-auto bg-black text-white dark:bg-white dark:text-black rounded px-3 py-1.5"
-        >
-          + 新增訂單
-        </Link>
+            + 新增訂單
+          </Link>
+        </div>
+        <div className="flex flex-wrap gap-3 items-center text-sm">
+          <label>
+            團體：
+            <select
+              className="ml-1 border rounded px-2 py-1 bg-transparent"
+              value={groupFilter}
+              onChange={(e) => setGroupFilter(e.target.value)}
+            >
+              <option value="">全部</option>
+              {groupOptions.map((g) => (
+                <option key={g.id} value={g.id}>{g.name}</option>
+              ))}
+            </select>
+          </label>
+          <label>
+            收件：
+            <select
+              className="ml-1 border rounded px-2 py-1 bg-transparent"
+              value={receivedFilter}
+              onChange={(e) => setReceivedFilter(e.target.value as any)}
+            >
+              <option value="all">全部</option>
+              <option value="no">未收到</option>
+              <option value="yes">已收到</option>
+            </select>
+          </label>
+          <label>
+            狀態：
+            <select
+              className="ml-1 border rounded px-2 py-1 bg-transparent"
+              value={statusFilter}
+              onChange={(e) => setStatusFilter(e.target.value)}
+            >
+              <option value="">全部</option>
+              {statusOptions.map((s) => (
+                <option key={s} value={s}>{s}</option>
+              ))}
+            </select>
+          </label>
+          <label>
+            代購：
+            <select
+              className="ml-1 border rounded px-2 py-1 bg-transparent"
+              value={proxyFilter}
+              onChange={(e) => setProxyFilter(e.target.value)}
+            >
+              <option value="">全部</option>
+              {proxyOptions.map((s) => (
+                <option key={s} value={s}>{s}</option>
+              ))}
+            </select>
+          </label>
+          <label>
+            排序：
+            <select
+              className="ml-1 border rounded px-2 py-1 bg-transparent"
+              value={sortBy}
+              onChange={(e) => setSortBy(e.target.value as any)}
+            >
+              <option value="ordered_at">下單日期</option>
+              <option value="release_date">上架日期</option>
+            </select>
+          </label>
+          <span className="text-neutral-500 ml-auto">
+            {filtered.length === rows.length
+              ? `${receivedOrders}/${totalOrders} 訂單已收到`
+              : `符合條件 ${filtered.length} 件 · ${receivedOrders}/${totalOrders} 已收到`}
+          </span>
+        </div>
       </div>
 
       {filtered.length === 0 ? (
         <p className="text-neutral-500 text-sm">沒有符合條件的訂單。</p>
       ) : (
         <ul className="grid gap-3 sm:grid-cols-2">
-          {filtered.map((r, i) => (
+          {filtered.map((r, i) => {
+            const sty = getStatusStyle(r);
+            return (
             <li
               key={`${r.order_id}-${r.product_id}-${i}`}
-              className="border border-neutral-200 dark:border-neutral-800 rounded-lg bg-white dark:bg-neutral-900 overflow-hidden"
+              className={`border border-neutral-200 dark:border-neutral-800 rounded-lg bg-white dark:bg-neutral-900 overflow-hidden ${sty.border}`}
             >
               <div className="p-3 flex gap-3">
                 {r.image_url ? (
@@ -217,7 +303,7 @@ export default function HomePage() {
                   className="flex-1 min-w-0 hover:bg-neutral-50 dark:hover:bg-neutral-800 -m-1 p-1 rounded transition-colors"
                 >
                   <div className="flex items-start gap-2">
-                    <div className="font-medium truncate flex-1">{r.product_name}</div>
+                    <div className={`font-medium truncate flex-1 ${sty.strike ? "line-through text-neutral-400" : ""}`}>{r.product_name}</div>
                     <button
                       onClick={(e) => { e.preventDefault(); e.stopPropagation(); toggleReceived(r.order_id); }}
                       disabled={toggling === r.order_id}
@@ -241,14 +327,17 @@ export default function HomePage() {
                     下單 {r.ordered_at} · 數量 {r.qty}
                     {r.unit_price_jpy ? ` · ¥${r.unit_price_jpy}` : ""}
                   </div>
-                  <div className="text-xs text-neutral-500 mt-0.5">
-                    {r.proxy_service ?? "（代購未填）"} · {r.status}
-                    {r.received_at && ` · 收到於 ${r.received_at}`}
+                  <div className="text-xs text-neutral-500 mt-0.5 flex items-center gap-1.5">
+                    <span className={`inline-block w-1.5 h-1.5 rounded-full ${sty.dot}`} aria-hidden />
+                    <span>{sty.label}</span>
+                    <span>· {r.proxy_service ?? "（代購未填）"}</span>
+                    {r.received_at && <span>· 收到於 {r.received_at}</span>}
                   </div>
                 </Link>
               </div>
             </li>
-          ))}
+            );
+          })}
         </ul>
       )}
 
