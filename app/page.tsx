@@ -34,6 +34,7 @@ export default function HomePage() {
   const [sortBy, setSortBy] = useState<"ordered_at" | "release_date">("ordered_at");
   const [toggling, setToggling] = useState<string | null>(null);
   const [zoomImg, setZoomImg] = useState<string | null>(null);
+  const [jpyToTwd, setJpyToTwd] = useState<number>(0.21); // 後備值，會被 API 覆蓋
 
   const load = async () => {
     const { data, error } = await supabase
@@ -92,6 +93,28 @@ export default function HomePage() {
     const sb = sp.get("sort");
     if (sb === "ordered_at" || sb === "release_date") setSortBy(sb);
     load();
+    // 抓今日 JPY→TWD 匯率（24h 內快取）
+    (async () => {
+      try {
+        const cached = localStorage.getItem("jpyToTwd");
+        if (cached) {
+          const { rate, ts } = JSON.parse(cached);
+          if (Date.now() - ts < 86400000) {
+            setJpyToTwd(rate);
+            return;
+          }
+        }
+        const res = await fetch("https://open.er-api.com/v6/latest/JPY");
+        const j = await res.json();
+        const rate = j?.rates?.TWD;
+        if (typeof rate === "number") {
+          setJpyToTwd(rate);
+          localStorage.setItem("jpyToTwd", JSON.stringify({ rate, ts: Date.now() }));
+        }
+      } catch (e) {
+        // 失敗就用後備值
+      }
+    })();
   }, []);
 
   // 篩選狀態 → URL（不污染歷史）
@@ -267,10 +290,12 @@ export default function HomePage() {
         <div className="border border-neutral-200 dark:border-neutral-800 rounded-lg p-3 bg-white dark:bg-neutral-900">
           <div className="text-xs text-neutral-500">本月支出</div>
           <div className="text-xl font-bold mt-0.5">¥{stats.monthSpend.toLocaleString()}</div>
+          <div className="text-xs text-neutral-500 mt-0.5">≈ NT${Math.round(stats.monthSpend * jpyToTwd).toLocaleString()}</div>
         </div>
         <div className="border border-neutral-200 dark:border-neutral-800 rounded-lg p-3 bg-white dark:bg-neutral-900">
           <div className="text-xs text-neutral-500">今年累積</div>
           <div className="text-xl font-bold mt-0.5">¥{stats.yearSpend.toLocaleString()}</div>
+          <div className="text-xs text-neutral-500 mt-0.5">≈ NT${Math.round(stats.yearSpend * jpyToTwd).toLocaleString()}</div>
         </div>
         <div className="border border-neutral-200 dark:border-neutral-800 rounded-lg p-3 bg-white dark:bg-neutral-900">
           <div className="text-xs text-neutral-500">商品數</div>
