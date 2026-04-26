@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { supabase } from "@/lib/supabase";
 
 type Wish = {
@@ -31,10 +31,12 @@ function extractCode(url: string): string | null {
 
 export default function WishlistPage() {
   const [items, setItems] = useState<Wish[]>([]);
+  const [talentNeedles, setTalentNeedles] = useState<string[]>([]);
   const [loading, setLoading] = useState(true);
   const [showOrdered, setShowOrdered] = useState(false);
   const [adding, setAdding] = useState(false);
   const [editingId, setEditingId] = useState<string | null>(null);
+  const [scope, setScope] = useState<"all" | "niji" | "other">("all");
 
   // form state
   const [fName, setFName] = useState("");
@@ -62,7 +64,49 @@ export default function WishlistPage() {
 
   useEffect(() => {
     load();
+    // 抓 talents 名稱（含中點拆分子片段）做名字比對
+    (async () => {
+      const { data } = await supabase.from("talents").select("name_ja");
+      const set = new Set<string>();
+      (data ?? []).forEach((t: any) => {
+        if (t.name_ja && t.name_ja.length >= 2) set.add(t.name_ja);
+        if (t.name_ja) {
+          t.name_ja
+            .split(/[・·•]/)
+            .map((s: string) => s.trim())
+            .filter((s: string) => s.length >= 2)
+            .forEach((s: string) => set.add(s));
+        }
+      });
+      setTalentNeedles(Array.from(set));
+    })();
   }, []);
+
+  const isNiji = (w: Wish): boolean => {
+    if (w.talent_ids && w.talent_ids.length > 0) return true;
+    if (w.shop_url && /nijisanji/i.test(w.shop_url)) return true;
+    if (w.name_ja && talentNeedles.some((n) => w.name_ja.includes(n))) return true;
+    return false;
+  };
+
+  const scoped = useMemo(
+    () =>
+      items.filter((w) => {
+        if (scope === "niji") return isNiji(w);
+        if (scope === "other") return !isNiji(w);
+        return true;
+      }),
+    [items, scope, talentNeedles]
+  );
+
+  const scopeCounts = useMemo(() => {
+    let niji = 0, other = 0;
+    for (const w of items) {
+      if (isNiji(w)) niji++;
+      else other++;
+    }
+    return { all: items.length, niji, other };
+  }, [items, talentNeedles]);
 
   const resetForm = () => {
     setFName("");
@@ -161,9 +205,9 @@ export default function WishlistPage() {
     );
   }
 
-  const visible = items.filter((w) => (showOrdered ? !!w.ordered_at : !w.ordered_at));
-  const activeCount = items.filter((w) => !w.ordered_at).length;
-  const orderedCount = items.filter((w) => !!w.ordered_at).length;
+  const visible = scoped.filter((w) => (showOrdered ? !!w.ordered_at : !w.ordered_at));
+  const activeCount = scoped.filter((w) => !w.ordered_at).length;
+  const orderedCount = scoped.filter((w) => !!w.ordered_at).length;
 
   return (
     <div className="space-y-4">
@@ -178,6 +222,29 @@ export default function WishlistPage() {
         >
           + 加入想買
         </button>
+      </div>
+
+      {/* 範圍切換 */}
+      <div className="flex gap-1.5 text-sm">
+        {(
+          [
+            ["all", "全部", scopeCounts.all],
+            ["niji", "🌈 彩虹社", scopeCounts.niji],
+            ["other", "其他", scopeCounts.other]
+          ] as Array<["all" | "niji" | "other", string, number]>
+        ).map(([key, label, count]) => (
+          <button
+            key={key}
+            onClick={() => setScope(key)}
+            className={`px-3 py-1.5 rounded-full border transition-colors ${
+              scope === key
+                ? "bg-black text-white dark:bg-white dark:text-black border-black dark:border-white"
+                : "border-neutral-300 dark:border-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-800"
+            }`}
+          >
+            {label} <span className="opacity-60">{count}</span>
+          </button>
+        ))}
       </div>
 
       <div className="flex gap-1.5 text-xs">

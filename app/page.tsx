@@ -37,6 +37,7 @@ export default function HomePage() {
   const [jpyToTwd, setJpyToTwd] = useState<number>(0.21); // 後備值，會被 API 覆蓋
   const [viewMode, setViewMode] = useState<"list" | "gallery">("list");
   const [activeChip, setActiveChip] = useState<string>("");
+  const [scope, setScope] = useState<"all" | "niji" | "other">("all");
 
   const load = async () => {
     const { data, error } = await supabase
@@ -98,6 +99,8 @@ export default function HomePage() {
     if (vm === "list" || vm === "gallery") setViewMode(vm);
     const ch = sp.get("chip");
     if (ch) setActiveChip(ch);
+    const sc = sp.get("scope");
+    if (sc === "niji" || sc === "other" || sc === "all") setScope(sc);
     load();
     // 抓今日 JPY→TWD 匯率（24h 內快取）
     (async () => {
@@ -135,10 +138,11 @@ export default function HomePage() {
     if (sortBy !== "ordered_at") sp.set("sort", sortBy);
     if (viewMode !== "list") sp.set("view", viewMode);
     if (activeChip) sp.set("chip", activeChip);
+    if (scope !== "all") sp.set("scope", scope);
     const qs = sp.toString();
     const url = qs ? `${window.location.pathname}?${qs}` : window.location.pathname;
     window.history.replaceState({}, "", url);
-  }, [searchQuery, groupFilter, statusFilter, proxyFilter, receivedFilter, sortBy, viewMode, activeChip, loading]);
+  }, [searchQuery, groupFilter, statusFilter, proxyFilter, receivedFilter, sortBy, viewMode, activeChip, scope, loading]);
 
   useEffect(() => {
     if (!zoomImg) return;
@@ -147,27 +151,43 @@ export default function HomePage() {
     return () => window.removeEventListener("keydown", onKey);
   }, [zoomImg]);
 
+  // 範圍：彩虹社（有對到 talents）vs 其他（沒對到任何成員）
+  const scopedRows = useMemo(() => {
+    if (scope === "niji") return rows.filter((r) => r.talent_ids.length > 0);
+    if (scope === "other") return rows.filter((r) => r.talent_ids.length === 0);
+    return rows;
+  }, [rows, scope]);
+
+  const scopeCounts = useMemo(() => {
+    let niji = 0, other = 0;
+    for (const r of rows) {
+      if (r.talent_ids.length > 0) niji++;
+      else other++;
+    }
+    return { all: rows.length, niji, other };
+  }, [rows]);
+
   const groupOptions = useMemo(() => {
     const m = new Map<string, string>();
-    rows.forEach((r) => {
+    scopedRows.forEach((r) => {
       if (r.group_id && r.group_name) m.set(r.group_id, r.group_name);
     });
     return Array.from(m, ([id, name]) => ({ id, name }));
-  }, [rows]);
+  }, [scopedRows]);
 
   const statusOptions = useMemo(() => {
-    return Array.from(new Set(rows.map((r) => r.status).filter(Boolean)));
-  }, [rows]);
+    return Array.from(new Set(scopedRows.map((r) => r.status).filter(Boolean)));
+  }, [scopedRows]);
 
   const proxyOptions = useMemo(() => {
-    return Array.from(new Set(rows.map((r) => r.proxy_service).filter(Boolean) as string[]));
-  }, [rows]);
+    return Array.from(new Set(scopedRows.map((r) => r.proxy_service).filter(Boolean) as string[]));
+  }, [scopedRows]);
 
   // 即將上架（已下單未收到 + release_date 還沒到）
   const upcoming = useMemo(() => {
     const todayStr = new Date().toISOString().slice(0, 10);
     const seen = new Set<string>();
-    return rows
+    return scopedRows
       .filter((r) => !r.received_at && r.release_date && r.release_date >= todayStr)
       .filter((r) => {
         if (seen.has(r.product_id)) return false;
@@ -176,12 +196,12 @@ export default function HomePage() {
       })
       .sort((a, b) => (a.release_date! < b.release_date! ? -1 : 1))
       .slice(0, 12);
-  }, [rows]);
+  }, [scopedRows]);
 
   // 用最近 12 件商品圖做 hero collage 背景
   const heroImages = useMemo(() => {
     const seen = new Set<string>();
-    return rows
+    return scopedRows
       .slice()
       .sort((a, b) => (a.ordered_at < b.ordered_at ? 1 : -1))
       .filter((r) => {
@@ -191,7 +211,7 @@ export default function HomePage() {
       })
       .slice(0, 12)
       .map((r) => r.image_url!);
-  }, [rows]);
+  }, [scopedRows]);
 
   const daysUntil = (dateStr: string) => {
     const d = new Date(dateStr);
@@ -206,7 +226,7 @@ export default function HomePage() {
     let yearSpend = 0;
     const productIds = new Set<string>();
     const talentIds = new Set<string>();
-    for (const r of rows) {
+    for (const r of scopedRows) {
       const amt = (r.unit_price_jpy ?? 0) * r.qty;
       if (r.ordered_at?.startsWith(thisMonth)) monthSpend += amt;
       if (r.ordered_at?.startsWith(thisYear)) yearSpend += amt;
@@ -219,10 +239,10 @@ export default function HomePage() {
       productCount: productIds.size,
       talentCount: talentIds.size
     };
-  }, [rows]);
+  }, [scopedRows]);
 
   const filtered = useMemo(() => {
-    let list = rows;
+    let list = scopedRows;
     if (groupFilter) list = list.filter((r) => r.group_id === groupFilter);
     if (receivedFilter === "yes") list = list.filter((r) => r.received_at);
     if (receivedFilter === "no") list = list.filter((r) => !r.received_at);
@@ -256,7 +276,7 @@ export default function HomePage() {
       return av < bv ? 1 : av > bv ? -1 : 0;
     });
     return list;
-  }, [rows, groupFilter, receivedFilter, statusFilter, proxyFilter, searchQuery, sortBy, activeChip]);
+  }, [scopedRows, groupFilter, receivedFilter, statusFilter, proxyFilter, searchQuery, sortBy, activeChip]);
 
   // 快捷 chip 數字
   const chipCounts = useMemo(() => {
@@ -266,7 +286,7 @@ export default function HomePage() {
     let unreceived = 0,
       thisMonth = 0,
       missing = 0;
-    for (const r of rows) {
+    for (const r of scopedRows) {
       if (!r.received_at) unreceived++;
       if (r.ordered_at?.startsWith(m)) thisMonth++;
       if (!r.received_at && r.release_date) {
@@ -275,7 +295,7 @@ export default function HomePage() {
       }
     }
     return { unreceived, thisMonth, missing };
-  }, [rows]);
+  }, [scopedRows]);
 
   // 顏色語意：依狀態 + 是否漏領
   const getStatusStyle = (r: Row) => {
@@ -356,8 +376,8 @@ export default function HomePage() {
     );
   }
 
-  const totalOrders = new Set(rows.map((r) => r.order_id)).size;
-  const receivedOrders = new Set(rows.filter((r) => r.received_at).map((r) => r.order_id)).size;
+  const totalOrders = new Set(scopedRows.map((r) => r.order_id)).size;
+  const receivedOrders = new Set(scopedRows.filter((r) => r.received_at).map((r) => r.order_id)).size;
 
   return (
     <div className="space-y-4">
@@ -372,13 +392,38 @@ export default function HomePage() {
           </div>
           <div className="absolute inset-0 bg-gradient-to-b from-white/30 via-white/60 to-white dark:from-black/30 dark:via-black/60 dark:to-black" />
           <div className="relative h-full flex flex-col justify-end p-4">
-            <h1 className="text-2xl sm:text-3xl font-bold drop-shadow-sm">🛍️ 我的彩虹社</h1>
+            <h1 className="text-2xl sm:text-3xl font-bold drop-shadow-sm">
+              🛍️ {scope === "other" ? "其他周邊" : scope === "niji" ? "我的彩虹社" : "我的收藏"}
+            </h1>
             <p className="text-xs sm:text-sm text-neutral-600 dark:text-neutral-300">
               {stats.productCount} 件 · {stats.talentCount} 位推 · 今年花了 ¥{stats.yearSpend.toLocaleString()}
             </p>
           </div>
         </div>
       )}
+
+      {/* 範圍切換：彩虹社 / 其他 */}
+      <div className="flex gap-1.5 text-sm">
+        {(
+          [
+            ["all", "全部", scopeCounts.all],
+            ["niji", "🌈 彩虹社", scopeCounts.niji],
+            ["other", "其他", scopeCounts.other]
+          ] as Array<["all" | "niji" | "other", string, number]>
+        ).map(([key, label, count]) => (
+          <button
+            key={key}
+            onClick={() => setScope(key)}
+            className={`px-3 py-1.5 rounded-full border transition-colors ${
+              scope === key
+                ? "bg-black text-white dark:bg-white dark:text-black border-black dark:border-white"
+                : "border-neutral-300 dark:border-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-800"
+            }`}
+          >
+            {label} <span className="opacity-60">{count}</span>
+          </button>
+        ))}
+      </div>
 
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
         <div className="border border-neutral-200 dark:border-neutral-800 rounded-lg p-3 bg-white dark:bg-neutral-900">
@@ -447,7 +492,7 @@ export default function HomePage() {
       {/* 快捷篩選 chip */}
       <div className="flex flex-wrap gap-1.5 text-xs">
         {[
-          { key: "", label: "全部", count: rows.length },
+          { key: "", label: "全部", count: scopedRows.length },
           { key: "unreceived", label: "未收到", count: chipCounts.unreceived },
           { key: "this_month", label: "本月", count: chipCounts.thisMonth },
           { key: "missing", label: "可能漏領", count: chipCounts.missing }
@@ -569,7 +614,7 @@ export default function HomePage() {
             </select>
           </label>
           <span className="text-neutral-500 ml-auto">
-            {filtered.length === rows.length
+            {filtered.length === scopedRows.length
               ? `${receivedOrders}/${totalOrders} 訂單已收到`
               : `符合條件 ${filtered.length} 件 · ${receivedOrders}/${totalOrders} 已收到`}
           </span>
