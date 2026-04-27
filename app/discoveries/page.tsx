@@ -25,26 +25,58 @@ export default function DiscoveriesPage() {
   const [rows, setRows] = useState<Discovery[]>([]);
   const [talents, setTalents] = useState<Talent[]>([]);
   const [subscribed, setSubscribed] = useState<Set<string>>(new Set());
+  const [wishedCodes, setWishedCodes] = useState<Set<string>>(new Set());
+  const [adding, setAdding] = useState<string | null>(null);
   const [filter, setFilter] = useState<Filter>("subscribed");
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     (async () => {
-      const [{ data: d }, { data: t }, { data: pt }] = await Promise.all([
-        supabase
-          .from("discovered_products")
-          .select("*")
-          .order("discovered_at", { ascending: false })
-          .limit(200),
-        supabase.from("talents").select("id, name_ja, name_en"),
-        supabase.from("product_talents").select("talent_id")
-      ]);
+      const [{ data: d }, { data: t }, { data: pt }, { data: w }] =
+        await Promise.all([
+          supabase
+            .from("discovered_products")
+            .select("*")
+            .order("discovered_at", { ascending: false })
+            .limit(200),
+          supabase.from("talents").select("id, name_ja, name_en"),
+          supabase.from("product_talents").select("talent_id"),
+          supabase
+            .from("wishlist")
+            .select("shop_product_code")
+            .is("ordered_at", null)
+        ]);
       setRows((d || []) as Discovery[]);
       setTalents((t || []) as Talent[]);
       setSubscribed(new Set((pt || []).map((r: any) => r.talent_id)));
+      setWishedCodes(
+        new Set(
+          (w || [])
+            .map((r: any) => r.shop_product_code)
+            .filter(Boolean) as string[]
+        )
+      );
       setLoading(false);
     })();
   }, []);
+
+  const addToWishlist = async (r: Discovery) => {
+    setAdding(r.id);
+    const { error } = await supabase.from("wishlist").insert({
+      name_ja: r.name_ja,
+      shop_product_code: r.shop_product_code,
+      shop_url: r.shop_url,
+      image_url: r.image_url,
+      talent_ids: r.talent_ids,
+      priority: 2
+    });
+    setAdding(null);
+    if (error) {
+      alert("加入失敗：" + error.message);
+      return;
+    }
+    setWishedCodes((prev) => new Set(prev).add(r.shop_product_code));
+  };
 
   const talentMap = useMemo(() => {
     const m = new Map<string, string>();
@@ -129,17 +161,21 @@ export default function DiscoveriesPage() {
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
           {filtered.map((r) => {
             const isHit = r.talent_ids.some((id) => subscribed.has(id));
+            const wished = wishedCodes.has(r.shop_product_code);
             const ageDays = Math.floor(
               (Date.now() - new Date(r.discovered_at).getTime()) / 86400_000
             );
             return (
-              <a
+              <div
                 key={r.id}
-                href={r.shop_url || undefined}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group block rounded-lg overflow-hidden border border-neutral-200 dark:border-neutral-800 hover:shadow-lg transition bg-white dark:bg-neutral-900"
+                className="group block rounded-lg overflow-hidden border border-neutral-200 dark:border-neutral-800 hover:shadow-lg transition bg-white dark:bg-neutral-900 flex flex-col"
               >
+                <a
+                  href={r.shop_url || undefined}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block"
+                >
                 <div className="aspect-square bg-neutral-100 dark:bg-neutral-800 relative">
                   {r.image_url ? (
                     // eslint-disable-next-line @next/next/no-img-element
@@ -149,7 +185,7 @@ export default function DiscoveriesPage() {
                       className="w-full h-full object-cover group-hover:scale-105 transition"
                     />
                   ) : null}
-                  <div className="absolute top-1 left-1 flex gap-1">
+                  <div className="absolute top-1 left-1 flex gap-1 flex-wrap">
                     {ageDays <= 1 && (
                       <span className="px-1.5 py-0.5 text-[10px] bg-red-600 text-white rounded">
                         NEW
@@ -165,9 +201,15 @@ export default function DiscoveriesPage() {
                         已買
                       </span>
                     )}
+                    {wished && (
+                      <span className="px-1.5 py-0.5 text-[10px] bg-amber-500 text-white rounded">
+                        想買中
+                      </span>
+                    )}
                   </div>
                 </div>
-                <div className="p-2 space-y-1">
+                </a>
+                <div className="p-2 space-y-1 flex-1 flex flex-col">
                   <div className="text-xs line-clamp-2 leading-snug min-h-[2.4em]">
                     {r.name_ja}
                   </div>
@@ -200,8 +242,31 @@ export default function DiscoveriesPage() {
                       ))}
                     </div>
                   )}
+                  <button
+                    type="button"
+                    onClick={() => addToWishlist(r)}
+                    disabled={wished || adding === r.id || r.has_order}
+                    className={
+                      "mt-auto text-xs py-1 rounded border transition " +
+                      (wished
+                        ? "bg-amber-100 text-amber-700 border-amber-300 dark:bg-amber-900/30 dark:text-amber-200 cursor-default"
+                        : r.has_order
+                        ? "bg-emerald-100 text-emerald-700 border-emerald-300 dark:bg-emerald-900/30 dark:text-emerald-200 cursor-default"
+                        : adding === r.id
+                        ? "opacity-50 border-neutral-300"
+                        : "border-neutral-300 dark:border-neutral-700 hover:bg-pink-50 hover:border-pink-300 dark:hover:bg-pink-950")
+                    }
+                  >
+                    {wished
+                      ? "✓ 想買中"
+                      : r.has_order
+                      ? "✓ 已買"
+                      : adding === r.id
+                      ? "加入中…"
+                      : "+ 加進想買"}
+                  </button>
                 </div>
-              </a>
+              </div>
             );
           })}
         </div>

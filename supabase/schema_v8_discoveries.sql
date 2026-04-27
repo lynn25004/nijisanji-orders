@@ -21,4 +21,11 @@ create table if not exists discovered_products (
 create index if not exists idx_discovered_recent on discovered_products(discovered_at desc);
 create index if not exists idx_discovered_pending on discovered_products(notified_at) where notified_at is null;
 
+-- 關 RLS（與其他表一致，讓 anon key 可寫）
 alter table discovered_products disable row level security;
+alter table wishlist disable row level security;
+
+-- 驗證：以下三個表的 rowsecurity 應該都是 false
+select tablename, rowsecurity
+from pg_tables
+where tablename in ('discovered_products','wishlist','orders');
