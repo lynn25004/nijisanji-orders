@@ -208,7 +208,17 @@ function expandUnits(tags: string[], groupMap: Map<string, string[]>): string[] 
 function isPageRelevant(scraped: ScrapedProduct, orderName: string | null): boolean {
   if (!orderName) return true;
   if (scraped.talents_ja.length === 0) return true;
-  return scraped.talents_ja.some((t) => orderName.includes(t));
+  // 1) 任一人名出現在 orderName → 相關
+  if (scraped.talents_ja.some((t) => orderName.includes(t))) return true;
+  // 2) orderName 跟 title 共享 4+ 字前綴（去除空白） → 相關
+  //    例：「On-Deck!\u3000通常盤」 vs 「On-Deck! 通常盤」
+  const co = orderName.replace(/[\s　]+/g, "").toLowerCase();
+  const ct = (scraped.title_ja || "").replace(/[\s　]+/g, "").toLowerCase();
+  if (co && ct) {
+    const minLen = Math.min(co.length, ct.length, 6);
+    if (minLen >= 4 && co.slice(0, minLen) === ct.slice(0, minLen)) return true;
+  }
+  return false;
 }
 
 function allCandidates(query: string): string[] {
