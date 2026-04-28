@@ -280,7 +280,7 @@ export async function scrapeShopProduct(
       ) {
         if (process.env.NODE_ENV !== "production") {
           console.log(
-            `[scrape] ${code}: liver=${fromLiver.length} var=${fromVariations.length} units=${unitTags.join(",")} expanded=${fromUnits.length} merged=${merged.size}`
+            `[scrape] ${code}: liver=${fromLiver.length} units=${unitTags.join(",")} expanded=${fromUnits.length} merged=${merged.size}`
           );
         }
         return scraped;
