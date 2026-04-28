@@ -3,6 +3,8 @@
 // 訂單品番常帶 SKU 後綴（dig-00065_KV_set1），shop 上對應的是 dig-00065_KV.html
 // 策略：先載 sitemap，做「最長 prefix match」找對應的 parent 頁
 
+import { supabaseServer } from "./supabase-server";
+
 export type ScrapedProduct = {
   url: string;
   title_ja: string;
@@ -17,12 +19,16 @@ const UA =
 
 const SITEMAP_URLS = [
   `${BASE}/sitemap_0-product.xml`,
-  `${BASE}/sitemap_1-product.xml`
+  `${BASE}/sitemap_1-product.xml`,
 ];
 
-// 記憶體快取 sitemap（同一個 serverless 實例會 reuse）
+// 記憶體快取
 let _sitemapCache: { codes: string[]; at: number } | null = null;
-const SITEMAP_TTL_MS = 6 * 60 * 60 * 1000; // 6 小時
+const SITEMAP_TTL_MS = 6 * 60 * 60 * 1000;
+
+// 群組成員快取（unit name -> 成員 name_ja[]）
+let _groupMembersCache: { map: Map<string, string[]>; at: number } | null = null;
+const GROUP_TTL_MS = 30 * 60 * 1000; // 30 分鐘
 
 function decode(s: string): string {
   return s
@@ -51,7 +57,7 @@ function matchMeta(html: string, prop: string): string | null {
 async function fetchText(url: string): Promise<{ status: number; text: string }> {
   const res = await fetch(url, {
     headers: { "User-Agent": UA, "Accept-Language": "ja" },
-    redirect: "follow"
+    redirect: "follow",
   });
   const text = await res.text();
   return { status: res.status, text };
@@ -78,14 +84,55 @@ async function loadSitemapCodes(): Promise<string[]> {
   return arr;
 }
 
-// 最長 prefix match：在 sitemap 中找「是 query prefix 且最長」的 code
-// 也允許完全相等（這是最理想的情況）
+// 載入 groups + 成員 map：把 unit/group name (含羅馬字) 映射到 talent name_ja 列表
+async function loadGroupMembers(): Promise<Map<string, string[]>> {
+  if (_groupMembersCache && Date.now() - _groupMembersCache.at < GROUP_TTL_MS) {
+    return _groupMembersCache.map;
+  }
+  const map = new Map<string, string[]>();
+  try {
+    const sb = supabaseServer();
+    // groups 有 name_ja / name_en / aliases；talents 有 group_id / name_ja
+    const { data: groups } = await sb
+      .from("groups")
+      .select("id, name_ja, name_en, aliases");
+    const { data: talents } = await sb
+      .from("talents")
+      .select("name_ja, group_id");
+
+    if (groups && talents) {
+      const byGroup = new Map<string, string[]>();
+      for (const t of talents) {
+        if (!t.group_id || !t.name_ja) continue;
+        const arr = byGroup.get(t.group_id) || [];
+        arr.push(t.name_ja);
+        byGroup.set(t.group_id, arr);
+      }
+      for (const g of groups) {
+        const members = byGroup.get(g.id) || [];
+        if (members.length === 0) continue;
+        const keys = new Set<string>();
+        if (g.name_ja) keys.add(g.name_ja);
+        if (g.name_en) keys.add(g.name_en);
+        if (Array.isArray(g.aliases)) {
+          for (const a of g.aliases) if (a) keys.add(a);
+        }
+        for (const k of keys) {
+          map.set(k.toLowerCase(), members);
+        }
+      }
+    }
+  } catch (e) {
+    console.warn("[scrape] loadGroupMembers failed:", e);
+  }
+  _groupMembersCache = { map, at: Date.now() };
+  return map;
+}
+
 function findBestMatch(query: string, sitemapCodes: string[]): string | null {
   let best: string | null = null;
   for (const code of sitemapCodes) {
     if (code === query || query.startsWith(code + "_") || query.startsWith(code)) {
-      // 只要 code 是 query 的前綴（或完全相等）
-      // 防止誤配：code 不能比 query 短太多（差 >= 15 字元可能是錯配）
       if (query.length - code.length > 15) continue;
       if (!best || code.length > best.length) best = code;
     }
@@ -93,22 +140,77 @@ function findBestMatch(query: string, sitemapCodes: string[]): string | null {
   return best;
 }
 
-function extractTalents(html: string): string[] {
-  const idx = html.search(/ライバー<\/[A-Za-z0-9]+>/);
-  if (idx < 0) return [];
-  const segment = html.substring(idx, idx + 3000);
+// 從 ライバー 區塊抓 <a href="/數字">名字</a>
+function extractTalentsFromLiverSection(html: string): string[] {
   const names = new Set<string>();
-  const re = /<a[^>]+href=["']\/\d{3,5}["'][^>]*>([^<]+)<\/a>/g;
+  // 找所有「ライバー」標題後面的 <ul> 或下一段
+  const headerRe = /ライバー\s*<\/[A-Za-z0-9]+>/g;
+  let hm: RegExpExecArray | null;
+  while ((hm = headerRe.exec(html))) {
+    const segment = html.substring(hm.index, hm.index + 5000);
+    // 找 link-list-liver 容器（更精準）
+    const containerMatch = segment.match(
+      /<ul[^>]*link-list-liver[^>]*>([\s\S]*?)<\/ul>/
+    );
+    const target = containerMatch ? containerMatch[1] : segment;
+    const aRe = /<a[^>]+href=["']\/(\d{3,5})["'][^>]*>([\s\S]*?)<\/a>/g;
+    let m: RegExpExecArray | null;
+    while ((m = aRe.exec(target))) {
+      // 名字裡可能含 <span>，剝掉所有 tag
+      const raw = m[2].replace(/<[^>]+>/g, "");
+      const name = decode(raw).trim();
+      if (name && name.length <= 40) names.add(name);
+    }
+  }
+  return Array.from(names);
+}
+
+// 從變體選單抓（On-Deck! 那種有多人特典的多變體商品）
+function extractTalentsFromVariations(html: string): string[] {
+  const names = new Set<string>();
+  // <span class="button-select-title">伊波ライ</span>
+  const re = /<span[^>]+button-select-title[^>]*>([^<]+)<\/span>/g;
   let m: RegExpExecArray | null;
-  while ((m = re.exec(segment))) {
+  while ((m = re.exec(html))) {
     const name = decode(m[1]).trim();
     if (name && name.length <= 40) names.add(name);
   }
   return Array.from(names);
 }
 
-// 產生候選 code 列表：完整 → 逐步 strip 一個 _xxx 後綴
-// 下限：第一個 _ 前的基礎 ID（如 dig-00065）
+// 從關連標籤抓 unit/group 名（＃ROF-MAO、＃Nornis 等）
+function extractUnitTags(html: string): string[] {
+  const tags = new Set<string>();
+  // <a href="/TAG_xxx" class="tag">＃ROF-MAO</a>
+  const re = /<a[^>]+href=["']\/TAG_\d+["'][^>]*>([^<]+)<\/a>/g;
+  let m: RegExpExecArray | null;
+  while ((m = re.exec(html))) {
+    const raw = decode(m[1]).trim();
+    // 去掉開頭的 ＃ / # 符號
+    const tag = raw.replace(/^[＃#]+/, "").trim();
+    if (tag && tag.length <= 30) tags.add(tag);
+  }
+  return Array.from(tags);
+}
+
+// 把 unit tag 展開成成員列表
+function expandUnits(tags: string[], groupMap: Map<string, string[]>): string[] {
+  const out = new Set<string>();
+  for (const tag of tags) {
+    const members = groupMap.get(tag.toLowerCase());
+    if (members) {
+      for (const m of members) out.add(m);
+    }
+  }
+  return Array.from(out);
+}
+
+function isPageRelevant(scraped: ScrapedProduct, orderName: string | null): boolean {
+  if (!orderName) return true;
+  if (scraped.talents_ja.length === 0) return true;
+  return scraped.talents_ja.some((t) => orderName.includes(t));
+}
+
 function allCandidates(query: string): string[] {
   const out = [query];
   let cur = query;
@@ -119,30 +221,22 @@ function allCandidates(query: string): string[] {
   return out;
 }
 
-// Sanity check：scraped 頁面的 liver 名字是否出現在訂單商品名裡
-// 這可以避開「dig-00077_KV_set1 → dig-00077」這種 ID 相同但商品不同的誤配
-function isPageRelevant(scraped: ScrapedProduct, orderName: string | null): boolean {
-  if (!orderName) return true; // 無參考資料就信任
-  if (scraped.talents_ja.length === 0) return true; // 沒抓到藝人就信任（可能商品頁格式不同）
-  // 只要有一個 scraped liver 名字出現在訂單名就算相關
-  return scraped.talents_ja.some((t) => orderName.includes(t));
-}
-
 export async function scrapeShopProduct(
   shopProductCode: string,
   orderName?: string | null
 ): Promise<ScrapedProduct | null> {
-  const sitemap = await loadSitemapCodes();
+  const [sitemap, groupMap] = await Promise.all([
+    loadSitemapCodes(),
+    loadGroupMembers(),
+  ]);
 
-  // 先用 sitemap 挑最長 prefix match；若 404 再試其他候選
   const best = findBestMatch(shopProductCode, sitemap);
-  // tryList 每項標記是否來自 sitemap 最長 prefix match（高信心）
   const tryList: { code: string; fromSitemap: boolean }[] = best
     ? [
         { code: best, fromSitemap: true },
         ...allCandidates(shopProductCode)
           .filter((c) => c !== best)
-          .map((code) => ({ code, fromSitemap: false }))
+          .map((code) => ({ code, fromSitemap: false })),
       ]
     : allCandidates(shopProductCode).map((code) => ({ code, fromSitemap: false }));
 
@@ -164,21 +258,36 @@ export async function scrapeShopProduct(
       const title = ogTitle.replace(/｜にじさんじオフィシャルストア$/, "").trim();
       if (!title) continue;
 
+      // 三路抓取 → 合併
+      const fromLiver = extractTalentsFromLiverSection(html);
+      const fromVariations = extractTalentsFromVariations(html);
+      const unitTags = extractUnitTags(html);
+      const fromUnits = expandUnits(unitTags, groupMap);
+
+      const merged = new Set<string>([
+        ...fromLiver,
+        ...fromVariations,
+        ...fromUnits,
+      ]);
+
       const scraped: ScrapedProduct = {
         url,
         title_ja: title,
         image_url: ogImage,
         description: ogDesc,
-        talents_ja: extractTalents(html)
+        talents_ja: Array.from(merged),
       };
 
-      // 信任來源：精確 code 命中 / sitemap 最長 prefix match
-      // 只對 allCandidates 降級才套用 liver sanity check
       if (
         code === shopProductCode ||
         fromSitemap ||
         isPageRelevant(scraped, orderName ?? null)
       ) {
+        if (process.env.NODE_ENV !== "production") {
+          console.log(
+            `[scrape] ${code}: liver=${fromLiver.length} var=${fromVariations.length} units=${unitTags.join(",")} expanded=${fromUnits.length} merged=${merged.size}`
+          );
+        }
         return scraped;
       }
     } catch {
