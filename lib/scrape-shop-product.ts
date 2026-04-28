@@ -165,19 +165,6 @@ function extractTalentsFromLiverSection(html: string): string[] {
   return Array.from(names);
 }
 
-// 從變體選單抓（On-Deck! 那種有多人特典的多變體商品）
-function extractTalentsFromVariations(html: string): string[] {
-  const names = new Set<string>();
-  // <span class="button-select-title">伊波ライ</span>
-  const re = /<span[^>]+button-select-title[^>]*>([^<]+)<\/span>/g;
-  let m: RegExpExecArray | null;
-  while ((m = re.exec(html))) {
-    const name = decode(m[1]).trim();
-    if (name && name.length <= 40) names.add(name);
-  }
-  return Array.from(names);
-}
-
 // 從關連標籤抓 unit/group 名（＃ROF-MAO、＃Nornis 等）
 function extractUnitTags(html: string): string[] {
   const tags = new Set<string>();
@@ -268,17 +255,15 @@ export async function scrapeShopProduct(
       const title = ogTitle.replace(/｜にじさんじオフィシャルストア$/, "").trim();
       if (!title) continue;
 
-      // 三路抓取 → 合併
+      // 主路：主商品的 ライバー 列表
       const fromLiver = extractTalentsFromLiverSection(html);
-      const fromVariations = extractTalentsFromVariations(html);
+      // 補充：關連標籤 (如 ＃ROF-MAO) 展開為成員
+      // 但只在 ライバー 区塊是空的時才用，避免授權個人商品變成中召整個 unit
       const unitTags = extractUnitTags(html);
-      const fromUnits = expandUnits(unitTags, groupMap);
+      const fromUnits =
+        fromLiver.length === 0 ? expandUnits(unitTags, groupMap) : [];
 
-      const merged = new Set<string>([
-        ...fromLiver,
-        ...fromVariations,
-        ...fromUnits,
-      ]);
+      const merged = new Set<string>([...fromLiver, ...fromUnits]);
 
       const scraped: ScrapedProduct = {
         url,
