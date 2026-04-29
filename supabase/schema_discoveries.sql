@@ -1,6 +1,4 @@
--- v8: 自動偵測 shop.nijisanji.jp 上架商品
--- 每天 cron 抓 /M01 列表，把新品存進來，比對使用者過去買過的成員，
--- 命中就 Telegram 提醒「你常買的 X 出新品了」
+-- 上架雷達：cron 抓 shop.nijisanji.jp 新品 + 比對訂閱成員推 Telegram
 
 create table if not exists discovered_products (
   id uuid primary key default gen_random_uuid(),
@@ -18,14 +16,7 @@ create table if not exists discovered_products (
   notified_at timestamptz
 );
 
-create index if not exists idx_discovered_recent on discovered_products(discovered_at desc);
+create index if not exists idx_discovered_recent  on discovered_products(discovered_at desc);
 create index if not exists idx_discovered_pending on discovered_products(notified_at) where notified_at is null;
 
--- 關 RLS（與其他表一致，讓 anon key 可寫）
 alter table discovered_products disable row level security;
-alter table wishlist disable row level security;
-
--- 驗證：以下三個表的 rowsecurity 應該都是 false
-select tablename, rowsecurity
-from pg_tables
-where tablename in ('discovered_products','wishlist','orders');

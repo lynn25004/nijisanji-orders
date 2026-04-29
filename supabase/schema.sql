@@ -1,9 +1,9 @@
 -- ============================================================
--- Nijisanji Orders — Supabase schema
--- 貼到 Supabase Dashboard -> SQL Editor -> Run
+-- Nijisanji Orders — 主 schema（fresh install 一鍵建庫）
+-- 已整合舊 v1~v6 全部 alter / index
+-- 全部 idempotent，重跑安全
 -- ============================================================
 
--- 啟用 uuid 產生器
 create extension if not exists "uuid-ossp";
 
 -- ------------------------------------------------------------
@@ -13,11 +13,15 @@ create table if not exists groups (
   id           uuid primary key default uuid_generate_v4(),
   name_ja      text not null,
   name_zh      text,
+  name_en      text,
+  kind         text,                       -- 'batch' | 'unit' | 'branch'
   sort_order   int default 0,
   created_at   timestamptz default now()
 );
 
--- 預灌幾個常見團體（自由增減）
+alter table groups add column if not exists name_en text;
+alter table groups add column if not exists kind text;
+
 insert into groups (name_ja, name_zh, sort_order) values
   ('にじさんじ',            'NIJISANJI 本家',      10),
   ('NIJISANJI EN',         'NIJISANJI EN',        20),
@@ -39,31 +43,53 @@ create table if not exists talents (
   id           uuid primary key default uuid_generate_v4(),
   name_ja      text not null,
   name_zh      text,
+  name_en      text,
+  aliases      text[],
   group_id     uuid references groups(id) on delete set null,
+  debut_at     timestamptz,
+  image_url    text,
+  slug         text,
   created_at   timestamptz default now()
 );
 
+alter table talents add column if not exists name_en text;
+alter table talents add column if not exists aliases text[];
+alter table talents add column if not exists debut_at timestamptz;
+alter table talents add column if not exists image_url text;
+alter table talents add column if not exists slug text;
+
 create index if not exists idx_talents_group on talents(group_id);
+create index if not exists idx_talents_name_ja on talents(name_ja);
+create index if not exists idx_talents_debut_at on talents(debut_at);
+create index if not exists idx_talents_slug on talents(slug);
 
 -- ------------------------------------------------------------
 -- products: 商品（每個 shop.nijisanji.jp 商品唯一）
 -- ------------------------------------------------------------
 create table if not exists products (
-  id              uuid primary key default uuid_generate_v4(),
-  shop_url        text unique,                  -- 原始 shop.nijisanji.jp 連結
-  name_ja         text not null,
-  name_zh         text,
-  image_url       text,
-  release_date    date,                          -- 上架日
-  list_price_jpy  int,                           -- 官方定價（日圓含稅）
-  created_at      timestamptz default now(),
-  updated_at      timestamptz default now()
+  id                 uuid primary key default uuid_generate_v4(),
+  shop_url           text unique,
+  shop_product_code  text,
+  name_ja            text not null,
+  name_zh            text,
+  image_url          text,
+  release_date       date,
+  list_price_jpy     int,
+  auto_tagged_at     timestamptz,
+  created_at         timestamptz default now(),
+  updated_at         timestamptz default now()
 );
 
+alter table products add column if not exists shop_product_code text;
+alter table products add column if not exists auto_tagged_at timestamptz;
+
 create index if not exists idx_products_release on products(release_date desc);
+create unique index if not exists idx_products_code on products(shop_product_code) where shop_product_code is not null;
+create index if not exists idx_products_shop_product_code on products(shop_product_code);
+create index if not exists idx_products_auto_tagged on products(auto_tagged_at);
 
 -- ------------------------------------------------------------
--- product_talents: 商品 ↔ 藝人（多對多；一個商品可含多位藝人）
+-- product_talents: 商品 ↔ 藝人（多對多）
 -- ------------------------------------------------------------
 create table if not exists product_talents (
   product_id   uuid references products(id) on delete cascade,
@@ -71,26 +97,37 @@ create table if not exists product_talents (
   primary key (product_id, talent_id)
 );
 
+create unique index if not exists uq_product_talents on product_talents(product_id, talent_id);
+create index if not exists idx_product_talents_talent on product_talents(talent_id);
+
 -- ------------------------------------------------------------
 -- orders: 代購訂單
 -- ------------------------------------------------------------
 create table if not exists orders (
   id                 uuid primary key default uuid_generate_v4(),
-  proxy_service      text,                       -- 代購商名稱（Buyee、Tenso、樂一番...）
-  proxy_order_no     text,                       -- 代購單號
+  proxy_service      text,
+  proxy_order_no     text,
+  source_email_id    text unique,                 -- 防重複匯入
   ordered_at         date not null default current_date,
-  status             text default 'ordered',     -- ordered/paid/shipped/delivered/cancelled
-  total_jpy          int,                        -- 商品總額（日圓）
-  proxy_fee_jpy      int default 0,              -- 代購手續費（日圓）
-  shipping_jpy       int default 0,              -- 國際運費（日圓）
-  total_twd          int,                        -- 實付台幣
-  exchange_rate      numeric(6,4),               -- 當時匯率（JPY → TWD）
+  received_at        date,                        -- 已收到商品的日期
+  status             text default 'ordered',      -- ordered/paid/shipped/delivered/cancelled
+  total_jpy          int,
+  proxy_fee_jpy      int default 0,
+  shipping_jpy       int default 0,
+  total_twd          int,
+  exchange_rate      numeric(6,4),
   notes              text,
   created_at         timestamptz default now(),
   updated_at         timestamptz default now()
 );
 
+alter table orders add column if not exists source_email_id text;
+alter table orders add column if not exists received_at date;
+
 create index if not exists idx_orders_ordered_at on orders(ordered_at desc);
+create index if not exists idx_orders_source_email on orders(source_email_id);
+create index if not exists idx_orders_source_email_id on orders(source_email_id);
+create index if not exists idx_orders_received_at on orders(received_at);
 
 -- ------------------------------------------------------------
 -- order_items: 訂單項目
@@ -100,7 +137,7 @@ create table if not exists order_items (
   order_id        uuid references orders(id)   on delete cascade,
   product_id      uuid references products(id) on delete restrict,
   qty             int  not null default 1,
-  unit_price_jpy  int,                           -- 下單當下單價
+  unit_price_jpy  int,
   created_at      timestamptz default now()
 );
 
@@ -129,7 +166,7 @@ create trigger trg_orders_updated
   for each row execute function set_updated_at();
 
 -- ------------------------------------------------------------
--- RLS：目前給自己用，全開（未來要多人再鎖）
+-- RLS：自己用，全關
 -- ------------------------------------------------------------
 alter table groups          disable row level security;
 alter table talents         disable row level security;
@@ -139,7 +176,7 @@ alter table orders          disable row level security;
 alter table order_items     disable row level security;
 
 -- ------------------------------------------------------------
--- 常用查詢 view：訂單概覽
+-- 訂單概覽 view
 -- ------------------------------------------------------------
 create or replace view v_orders_overview as
 select
