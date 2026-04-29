@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { supabaseServer } from "@/lib/supabase-server";
 import { notify } from "@/lib/notify";
+import { scrapeShopProduct } from "@/lib/scrape-shop-product";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -8,6 +9,10 @@ export const maxDuration = 60;
 
 const SHOP_BASE = "https://shop.nijisanji.jp";
 const SOFT_DEADLINE_MS = 25_000;
+// 對成員名 + 團名都沒命中的卡片，最多深掃 N 筆商品頁找 ライバー
+const MAX_DEEPSCAN_PER_RUN = 6;
+// 哪些代碼前綴屬於 shop.nijisanji.jp 的真商品（不是雅虎拍賣 / Mercari）
+const DEEPSCAN_CODE_RE = /^(SSZS|ACN|SAL|dig|TOL|NIJ|VTL|VOL|NJSJ)/i;
 
 function unauthorized() {
   return NextResponse.json({ error: "unauthorized" }, { status: 401 });
@@ -122,6 +127,12 @@ export async function GET(req: NextRequest) {
     })
     .filter((x) => x.needles.length > 0);
 
+  // talent name_ja -> id（給 deep-scan scraper 回傳的 talents_ja 對映用）
+  const talentNameToId = new Map<string, string>();
+  for (const t of talents || []) {
+    if (t.name_ja) talentNameToId.set(t.name_ja, t.id);
+  }
+
   // 2. 抓「使用者買過誰」當訂閱清單
   const { data: ownedRows } = await sb
     .from("product_talents")
@@ -235,6 +246,7 @@ export async function GET(req: NextRequest) {
     card: ParsedCard;
     queries: string[];
   }> = [];
+  let deepScanCount = 0;
 
   for (const c of newCards) {
     const talentIdSet = new Set<string>();
@@ -247,6 +259,26 @@ export async function GET(req: NextRequest) {
         if (c.name.includes(g.name)) {
           for (const id of g.talentIds) talentIdSet.add(id);
         }
+      }
+    }
+    // 名 + 團都沒命中 + 是 shop 真商品代碼 → 深掃商品頁抓 ライバー
+    if (
+      talentIdSet.size === 0 &&
+      DEEPSCAN_CODE_RE.test(c.code) &&
+      deepScanCount < MAX_DEEPSCAN_PER_RUN &&
+      Date.now() - start < SOFT_DEADLINE_MS
+    ) {
+      deepScanCount++;
+      try {
+        const scraped = await scrapeShopProduct(c.code, c.name);
+        if (scraped) {
+          for (const tName of scraped.talents_ja) {
+            const id = talentNameToId.get(tName);
+            if (id) talentIdSet.add(id);
+          }
+        }
+      } catch {
+        // 單筆深掃失敗不影響整體
       }
     }
     const talentIds = Array.from(talentIdSet);
@@ -336,6 +368,7 @@ export async function GET(req: NextRequest) {
       inserted: newCards.length,
       subscribed_hits: subscribedHits.length,
       keyword_hits: keywordOnlyHits.length,
+      deep_scanned: deepScanCount,
       notified,
       elapsed_ms: Date.now() - start
     }
