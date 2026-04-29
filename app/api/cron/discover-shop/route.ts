@@ -56,6 +56,20 @@ function decodeEntities(s: string): string {
     .replace(/&yen;/g, "¥");
 }
 
+async function fetchSearch(q: string): Promise<string> {
+  const url = `${SHOP_BASE}/search?q=${encodeURIComponent(q)}&start=0&sz=24`;
+  const r = await fetch(url, {
+    headers: {
+      "User-Agent":
+        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36",
+      "Accept-Language": "ja"
+    },
+    cache: "no-store"
+  });
+  if (!r.ok) throw new Error(`shop search "${q}" failed: ${r.status}`);
+  return r.text();
+}
+
 async function fetchPage(start: number): Promise<string> {
   const url =
     start === 0
@@ -129,6 +143,33 @@ export async function GET(req: NextRequest) {
     }
   }
 
+  // 3b. 抓搜尋紀錄關鍵字（最近 30 天搜過 ≥ 2 次的）
+  const keywordHits = new Map<string, string[]>(); // code -> [matched queries]
+  const cutoff = new Date(Date.now() - 30 * 86400_000).toISOString();
+  const { data: queries } = await sb
+    .from("search_history")
+    .select("query")
+    .gte("last_searched_at", cutoff)
+    .gte("hit_count", 2)
+    .order("last_searched_at", { ascending: false })
+    .limit(10);
+
+  for (const row of (queries || []) as Array<{ query: string }>) {
+    if (Date.now() - start > SOFT_DEADLINE_MS) break;
+    try {
+      const html = await fetchSearch(row.query);
+      const found = parseCards(html);
+      for (const c of found) {
+        allCards.push(c);
+        const arr = keywordHits.get(c.code) || [];
+        if (!arr.includes(row.query)) arr.push(row.query);
+        keywordHits.set(c.code, arr);
+      }
+    } catch {
+      // 單個關鍵字失敗不影響整體
+    }
+  }
+
   // 去重
   const dedup = new Map<string, ParsedCard>();
   for (const c of allCards) if (!dedup.has(c.code)) dedup.set(c.code, c);
@@ -167,6 +208,10 @@ export async function GET(req: NextRequest) {
     card: ParsedCard;
     talentIds: string[];
   }> = [];
+  const keywordOnlyHits: Array<{
+    card: ParsedCard;
+    queries: string[];
+  }> = [];
 
   for (const c of newCards) {
     const talentIds: string[] = [];
@@ -174,6 +219,7 @@ export async function GET(req: NextRequest) {
       if (t.needles.some((n) => c.name.includes(n))) talentIds.push(t.id);
     }
     const matchSubscribed = talentIds.some((id) => subscribed.has(id));
+    const matchedQueries = keywordHits.get(c.code) || [];
 
     await sb.from("discovered_products").insert({
       shop_product_code: c.code,
@@ -187,6 +233,8 @@ export async function GET(req: NextRequest) {
 
     if (matchSubscribed) {
       subscribedHits.push({ card: c, talentIds });
+    } else if (matchedQueries.length > 0) {
+      keywordOnlyHits.push({ card: c, queries: matchedQueries });
     }
   }
 
@@ -228,12 +276,34 @@ export async function GET(req: NextRequest) {
     notified = subscribedHits.length;
   }
 
+  // 6b. 推 Telegram（關鍵字命中、且不是訂閱命中）
+  if (keywordOnlyHits.length > 0) {
+    const lines = keywordOnlyHits.slice(0, 8).map(({ card, queries }) => {
+      const price = card.price ? ` ¥${card.price.toLocaleString()}` : "";
+      return `• <a href="${card.url}">${escapeHtml(card.name)}</a>${price}\n  詞：${escapeHtml(queries.join(", "))}`;
+    });
+    const more =
+      keywordOnlyHits.length > 8
+        ? `\n…還有 ${keywordOnlyHits.length - 8} 筆`
+        : "";
+    await notify(
+      `🔍 <b>shop.nijisanji.jp 新品（你的搜尋詞）</b>\n${lines.join("\n")}${more}\nhttps://nijisanji-orders.vercel.app/discoveries`
+    );
+    const hitCodes = keywordOnlyHits.map((h) => h.card.code);
+    await sb
+      .from("discovered_products")
+      .update({ notified_at: new Date().toISOString() })
+      .in("shop_product_code", hitCodes);
+    notified += keywordOnlyHits.length;
+  }
+
   return NextResponse.json({
     ok: true,
     summary: {
       fetched: cards.length,
       inserted: newCards.length,
       subscribed_hits: subscribedHits.length,
+      keyword_hits: keywordOnlyHits.length,
       notified,
       elapsed_ms: Date.now() - start
     }

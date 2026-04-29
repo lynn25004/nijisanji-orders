@@ -47,31 +47,48 @@ export default function TalentsPage() {
           groups: t.groups,
           product_count: (t.product_talents ?? []).length
         }))
-        .filter((t) => t.product_count > 0)
-        .sort((a, b) => {
-          if (!a.debut_at && !b.debut_at) return 0;
-          if (!a.debut_at) return 1;
-          if (!b.debut_at) return -1;
-          return a.debut_at.localeCompare(b.debut_at);
-        });
+        .filter((t) => t.product_count > 0);
       setTalents(list);
       setLoading(false);
     })();
   }, []);
 
+  // 依團體分組；團體間用「該團體最早出道日」排序，團體內依出道日排序
   const grouped = useMemo(() => {
-    const byYear = new Map<string, Talent[]>();
+    const byGroup = new Map<string, Talent[]>();
     for (const t of talents) {
-      const year = t.debut_at ? t.debut_at.slice(0, 4) : "未知";
-      const arr = byYear.get(year) ?? [];
+      const key = t.groups?.name_zh || t.groups?.name_ja || "未分類";
+      const arr = byGroup.get(key) ?? [];
       arr.push(t);
-      byYear.set(year, arr);
+      byGroup.set(key, arr);
     }
-    return [...byYear.entries()].sort((a, b) => {
-      if (a[0] === "未知") return 1;
-      if (b[0] === "未知") return -1;
-      return a[0].localeCompare(b[0]);
-    });
+    const earliestOf = (list: Talent[]) => {
+      let min: string | null = null;
+      for (const t of list) {
+        if (t.debut_at && (!min || t.debut_at < min)) min = t.debut_at;
+      }
+      return min;
+    };
+    const sortByDebut = (a: Talent, b: Talent) => {
+      if (!a.debut_at && !b.debut_at) return a.name_ja.localeCompare(b.name_ja);
+      if (!a.debut_at) return 1;
+      if (!b.debut_at) return -1;
+      return a.debut_at.localeCompare(b.debut_at);
+    };
+    return [...byGroup.entries()]
+      .map(([k, list]) => ({
+        key: k,
+        list: [...list].sort(sortByDebut),
+        earliest: earliestOf(list)
+      }))
+      .sort((a, b) => {
+        if (a.key === "未分類") return 1;
+        if (b.key === "未分類") return -1;
+        if (!a.earliest && !b.earliest) return a.key.localeCompare(b.key);
+        if (!a.earliest) return 1;
+        if (!b.earliest) return -1;
+        return a.earliest.localeCompare(b.earliest);
+      });
   }, [talents]);
 
   if (loading) return <p>載入中…</p>;
@@ -81,18 +98,21 @@ export default function TalentsPage() {
       <div className="flex items-baseline gap-3">
         <h1 className="text-xl font-bold">我買過的成員</h1>
         <span className="text-sm text-neutral-500">
-          共 {talents.length} 位，依出道日期排序
+          共 {talents.length} 位，依團體 + 出道順序
         </span>
       </div>
 
       {talents.length === 0 ? (
         <p className="text-neutral-500 text-sm">還沒有任何有關聯藝人的商品。</p>
       ) : (
-        grouped.map(([year, list]) => (
-          <section key={year} className="space-y-2">
+        grouped.map(({ key, list, earliest }) => (
+          <section key={key} className="space-y-2">
             <h2 className="text-sm font-semibold text-neutral-500 border-b border-neutral-200 dark:border-neutral-800 pb-1">
-              {year === "未知" ? "出道日期未知" : `${year} 年出道`}
-              <span className="ml-2 text-xs text-neutral-400">({list.length})</span>
+              #{key}
+              <span className="ml-2 text-xs text-neutral-400">
+                ({list.length}
+                {earliest ? ` · ${earliest.slice(0, 4)}~` : ""})
+              </span>
             </h2>
             <ul className="grid gap-3 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
               {list.map((t) => (

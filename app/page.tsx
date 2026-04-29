@@ -278,6 +278,33 @@ export default function HomePage() {
     return list;
   }, [scopedRows, groupFilter, receivedFilter, statusFilter, proxyFilter, searchQuery, sortBy, activeChip]);
 
+  // 搜尋紀錄：debounce 1s，命中 ≥1 件且字長 ≥ 2 才寫入
+  useEffect(() => {
+    const q = searchQuery.trim();
+    if (q.length < 2 || filtered.length === 0) return;
+    const t = setTimeout(async () => {
+      const { data: existing } = await supabase
+        .from("search_history")
+        .select("id, hit_count")
+        .eq("query", q)
+        .maybeSingle();
+      if (existing) {
+        await supabase
+          .from("search_history")
+          .update({
+            hit_count: (existing.hit_count ?? 1) + 1,
+            last_searched_at: new Date().toISOString()
+          })
+          .eq("id", existing.id);
+      } else {
+        await supabase
+          .from("search_history")
+          .insert({ query: q, hit_count: 1 });
+      }
+    }, 1500);
+    return () => clearTimeout(t);
+  }, [searchQuery, filtered.length]);
+
   // 快捷 chip 數字
   const chipCounts = useMemo(() => {
     const todayStr = new Date().toISOString().slice(0, 10);

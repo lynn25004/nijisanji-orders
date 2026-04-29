@@ -29,6 +29,30 @@ function extractCode(url: string): string | null {
   return m ? m[1] : null;
 }
 
+const LETAO_BASE = "https://mall.letaofun.com/static/html/pc.html";
+
+async function openLetao(code: string | null, url: string | null) {
+  let target: string;
+  if (code) {
+    target =
+      LETAO_BASE +
+      "#/subPackages/pagesOther/goods_details/template?id=" +
+      encodeURIComponent(code) +
+      "&siteValue=NIJISANJI";
+  } else if (url) {
+    target =
+      LETAO_BASE +
+      "#/subPackages/pages/purchasingAgent/fill_in_info/index?url=" +
+      encodeURIComponent(url);
+    try {
+      await navigator.clipboard.writeText(url);
+    } catch {}
+  } else {
+    target = LETAO_BASE + "#/subPackages/pagesOther/template_based/index";
+  }
+  window.open(target, "_blank", "noopener,noreferrer");
+}
+
 export default function WishlistPage() {
   const [items, setItems] = useState<Wish[]>([]);
   const [talentNeedles, setTalentNeedles] = useState<string[]>([]);
@@ -316,28 +340,35 @@ export default function WishlistPage() {
                     {w.preorder_start && <span>預訂 {w.preorder_start}</span>}
                   </div>
                   {w.notes && <div className="text-xs text-neutral-600 dark:text-neutral-400 truncate">{w.notes}</div>}
-                  <div className="flex gap-1.5 pt-1 text-xs">
+                  <div className="flex flex-wrap gap-1.5 pt-1 text-xs">
                     {w.shop_url && (
                       <a
                         href={w.shop_url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="px-2 py-0.5 border rounded hover:bg-neutral-100 dark:hover:bg-neutral-800"
+                        className="px-2 py-1 border rounded whitespace-nowrap hover:bg-neutral-100 dark:hover:bg-neutral-800"
                       >
                         🔗 商店
                       </a>
                     )}
+                    <button
+                      onClick={() => openLetao(w.shop_product_code, w.shop_url)}
+                      title="複製連結並開樂淘代購單"
+                      className="px-2 py-1 border rounded whitespace-nowrap hover:bg-sky-50 hover:border-sky-300 dark:hover:bg-sky-950"
+                    >
+                      🛒 樂淘
+                    </button>
                     {!w.ordered_at && (
                       <>
                         <button
                           onClick={() => markOrdered(w.id)}
-                          className="px-2 py-0.5 border rounded hover:bg-green-100 dark:hover:bg-green-900"
+                          className="px-2 py-1 border rounded whitespace-nowrap hover:bg-green-100 dark:hover:bg-green-900"
                         >
                           ✅ 已下單
                         </button>
                         <button
                           onClick={() => openEdit(w)}
-                          className="px-2 py-0.5 border rounded hover:bg-neutral-100 dark:hover:bg-neutral-800"
+                          className="px-2 py-1 border rounded whitespace-nowrap hover:bg-neutral-100 dark:hover:bg-neutral-800"
                         >
                           ✏️ 編輯
                         </button>
@@ -346,14 +377,14 @@ export default function WishlistPage() {
                     {w.ordered_at && (
                       <button
                         onClick={() => restore(w.id)}
-                        className="px-2 py-0.5 border rounded hover:bg-neutral-100 dark:hover:bg-neutral-800"
+                        className="px-2 py-1 border rounded whitespace-nowrap hover:bg-neutral-100 dark:hover:bg-neutral-800"
                       >
                         ↩ 復原
                       </button>
                     )}
                     <button
                       onClick={() => remove(w.id)}
-                      className="px-2 py-0.5 border rounded text-red-600 hover:bg-red-50 dark:hover:bg-red-950 ml-auto"
+                      className="px-2 py-1 border rounded whitespace-nowrap text-red-600 hover:bg-red-50 dark:hover:bg-red-950 ml-auto"
                     >
                       🗑
                     </button>
