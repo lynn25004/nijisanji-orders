@@ -103,7 +103,7 @@ export async function GET(req: NextRequest) {
   // 1. 抓 talents（給名稱比對用）
   const { data: talents } = await sb
     .from("talents")
-    .select("id, name_ja, name_en");
+    .select("id, name_ja, name_en, group_id");
   const talentMatchers: Array<{ id: string; needles: string[] }> = (
     talents || []
   )
@@ -129,6 +129,29 @@ export async function GET(req: NextRequest) {
   const subscribed = new Set<string>(
     (ownedRows || []).map((r: any) => r.talent_id)
   );
+
+  // 1b. 建 group → 成員 map（用於商品名只寫團名時展開）
+  // 黑名單：太通用的 group 名（避免「にじさんじ」當關鍵字爆炸命中）
+  const GROUP_BLACKLIST = new Set([
+    "にじさんじ",
+    "NIJISANJI EN",
+    "NIJISANJI ID",
+    "NIJISANJI KR",
+    "その他",
+    "二期生",
+    "一期生"
+  ]);
+  const { data: groups } = await sb.from("groups").select("id, name_ja");
+  const groupMatchers: Array<{ name: string; talentIds: string[] }> = [];
+  for (const g of groups || []) {
+    if (!g.name_ja || g.name_ja.length < 3) continue;
+    if (GROUP_BLACKLIST.has(g.name_ja)) continue;
+    const members = (talents || [])
+      .filter((t: any) => t.group_id === g.id)
+      .map((t: any) => t.id);
+    if (members.length === 0) continue;
+    groupMatchers.push({ name: g.name_ja, talentIds: members });
+  }
 
   // 3. 抓 shop 前 3 頁
   const allCards: ParsedCard[] = [];
@@ -214,10 +237,19 @@ export async function GET(req: NextRequest) {
   }> = [];
 
   for (const c of newCards) {
-    const talentIds: string[] = [];
+    const talentIdSet = new Set<string>();
     for (const t of talentMatchers) {
-      if (t.needles.some((n) => c.name.includes(n))) talentIds.push(t.id);
+      if (t.needles.some((n) => c.name.includes(n))) talentIdSet.add(t.id);
     }
+    // 商品名只寫團名（如「【Dytica 3rd】xxx」）→ 展開到該團全員
+    if (talentIdSet.size === 0) {
+      for (const g of groupMatchers) {
+        if (c.name.includes(g.name)) {
+          for (const id of g.talentIds) talentIdSet.add(id);
+        }
+      }
+    }
+    const talentIds = Array.from(talentIdSet);
     const matchSubscribed = talentIds.some((id) => subscribed.has(id));
     const matchedQueries = keywordHits.get(c.code) || [];
 
