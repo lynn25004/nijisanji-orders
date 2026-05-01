@@ -6,6 +6,7 @@ import { notify } from "@/lib/notify";
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 export const maxDuration = 60;
+export const preferredRegion = "hnd1";
 
 const PROXY_SERVICE = "樂淘一番";
 
@@ -59,7 +60,11 @@ export async function GET(req: NextRequest) {
     }
   } catch (e: any) {
     const msg = e?.message || String(e);
-    await notify(`⚠️ <b>Letao API 失敗（可能 token 過期）</b>\n${msg}\n到 Vercel 更新 LETAO_AUTH_TOKEN`);
+    const isAuth = /code=401|code=403|token|unauth/i.test(msg);
+    const hint = isAuth
+      ? "⚠️ <b>Letao token 失效</b>\n到 Vercel 更新 LETAO_AUTH_TOKEN"
+      : `⚠️ <b>Letao API 連線失敗（網路問題，token 可能仍有效）</b>\n${msg}\n下次 cron 會自動重試`;
+    await notify(hint);
     return NextResponse.json({ error: msg }, { status: 500 });
   }
 
