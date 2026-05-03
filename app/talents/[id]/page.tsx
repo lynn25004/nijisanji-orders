@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
 import { supabase } from "@/lib/supabase";
+import SocialLinks from "@/components/SocialLinks";
 
 type TalentDetail = {
   id: string;
@@ -130,6 +131,7 @@ export default function TalentDetailPage() {
             {t.group_name && <span>#{t.group_name}</span>}
             {t.debut_at && <span>出道 {t.debut_at.slice(0, 10)}</span>}
           </div>
+          <SocialLinks slug={t.slug} />
           <div className="text-sm pt-2">
             共 <b>{products.length}</b> 筆商品記錄
             {totalQty > 0 && <>・總數量 <b>{totalQty}</b></>}
