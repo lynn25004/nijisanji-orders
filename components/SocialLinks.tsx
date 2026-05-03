@@ -29,7 +29,7 @@ export default function SocialLinks({ slug }: { slug: string | null | undefined 
           className={`${base} hover:border-red-500 hover:text-red-500`}
           title="YouTube 頻道"
         >
-          ▶️ YouTube
+          <span className="text-red-600">▶</span> YouTube
         </a>
       )}
       {s?.twitter && (
