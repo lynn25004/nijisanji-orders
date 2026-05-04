@@ -2,6 +2,7 @@
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { supabase } from "@/lib/supabase";
+import { BudgetCard, MonthlyTrend } from "@/components/BudgetCards";
 
 type Row = {
   order_id: string;
@@ -222,24 +223,53 @@ export default function HomePage() {
     const now = new Date();
     const thisMonth = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}`;
     const thisYear = String(now.getFullYear());
+    // 上個月 (處理跨年)
+    const lm = new Date(now.getFullYear(), now.getMonth() - 1, 1);
+    const lastMonth = `${lm.getFullYear()}-${String(lm.getMonth() + 1).padStart(2, "0")}`;
+    // 過去 6 個月（含本月）
+    const monthlyMap: Record<string, number> = {};
+    for (let i = 5; i >= 0; i--) {
+      const d = new Date(now.getFullYear(), now.getMonth() - i, 1);
+      const k = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}`;
+      monthlyMap[k] = 0;
+    }
     let monthSpend = 0;
+    let lastMonthSpend = 0;
     let yearSpend = 0;
     const productIds = new Set<string>();
     const talentIds = new Set<string>();
     for (const r of scopedRows) {
       const amt = (r.unit_price_jpy ?? 0) * r.qty;
       if (r.ordered_at?.startsWith(thisMonth)) monthSpend += amt;
+      if (r.ordered_at?.startsWith(lastMonth)) lastMonthSpend += amt;
       if (r.ordered_at?.startsWith(thisYear)) yearSpend += amt;
+      const ymKey = r.ordered_at?.slice(0, 7);
+      if (ymKey && ymKey in monthlyMap) monthlyMap[ymKey] += amt;
       productIds.add(r.product_id);
       r.talent_ids?.forEach((id) => talentIds.add(id));
     }
+    const monthlyHistory = Object.entries(monthlyMap).map(([ym, v]) => ({ ym, jpy: v }));
     return {
       monthSpend,
+      lastMonthSpend,
       yearSpend,
       productCount: productIds.size,
-      talentCount: talentIds.size
+      talentCount: talentIds.size,
+      monthlyHistory
     };
   }, [scopedRows]);
+
+  // 月預算（localStorage 儲存，per browser）
+  const [monthlyBudget, setMonthlyBudget] = useState<number>(0);
+  useEffect(() => {
+    const v = localStorage.getItem("monthlyBudgetJpy");
+    if (v) setMonthlyBudget(Number(v) || 0);
+  }, []);
+  const setBudget = (n: number) => {
+    setMonthlyBudget(n);
+    if (n > 0) localStorage.setItem("monthlyBudgetJpy", String(n));
+    else localStorage.removeItem("monthlyBudgetJpy");
+  };
 
   const filtered = useMemo(() => {
     let list = scopedRows;
@@ -453,11 +483,13 @@ export default function HomePage() {
       </div>
 
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-        <div className="border border-neutral-200 dark:border-neutral-800 rounded-lg p-3 bg-white dark:bg-neutral-900">
-          <div className="text-xs text-neutral-500">本月支出</div>
-          <div className="text-xl font-bold mt-0.5">¥{stats.monthSpend.toLocaleString()}</div>
-          <div className="text-xs text-neutral-500 mt-0.5">≈ NT${Math.round(stats.monthSpend * jpyToTwd).toLocaleString()}</div>
-        </div>
+        <BudgetCard
+          monthSpend={stats.monthSpend}
+          lastMonthSpend={stats.lastMonthSpend}
+          jpyToTwd={jpyToTwd}
+          budget={monthlyBudget}
+          onSetBudget={setBudget}
+        />
         <div className="border border-neutral-200 dark:border-neutral-800 rounded-lg p-3 bg-white dark:bg-neutral-900">
           <div className="text-xs text-neutral-500">今年累積</div>
           <div className="text-xl font-bold mt-0.5">¥{stats.yearSpend.toLocaleString()}</div>
@@ -478,6 +510,8 @@ export default function HomePage() {
           </div>
         </div>
       </div>
+
+      <MonthlyTrend history={stats.monthlyHistory} jpyToTwd={jpyToTwd} />
 
       {upcoming.length > 0 && (
         <section className="space-y-2">
