@@ -1,0 +1,61 @@
+name: Cron jobs (呼叫 API endpoints)
+
+# 每個 schedule 各自觸發一次 job，靠 github.event.schedule 判斷要打哪個 endpoint
+on:
+  schedule:
+    - cron: "*/30 * * * *"   # sync-letao：每 30 分（樂淘新訂單）
+    - cron: "13 * * * *"     # sync-shop-nijisanji：每小時 :13（Gmail 訂單信）
+    - cron: "23 */2 * * *"   # discover-shop：每 2 小時 :23（雷達掃新品）
+    - cron: "47 */6 * * *"   # sync-sheet：每 6 小時 :47（Google Sheet）
+    - cron: "33 1 * * *"     # enrich-products：每天 09:33 (Taipei) 補商品 metadata
+    - cron: "53 1 * * *"     # auto-tag-products：每天 09:53 (Taipei) 自動標 talents
+  workflow_dispatch:
+    inputs:
+      endpoint:
+        description: 手動觸發哪個 endpoint
+        type: choice
+        options:
+          - sync-letao
+          - sync-shop-nijisanji
+          - discover-shop
+          - sync-sheet
+          - enrich-products
+          - auto-tag-products
+
+jobs:
+  call:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 決定要打哪個 endpoint
+        id: pick
+        run: |
+          if [ -n "${{ inputs.endpoint }}" ]; then
+            EP="${{ inputs.endpoint }}"
+          else
+            case "${{ github.event.schedule }}" in
+              "*/30 * * * *") EP="sync-letao" ;;
+              "13 * * * *")   EP="sync-shop-nijisanji" ;;
+              "23 */2 * * *") EP="discover-shop" ;;
+              "47 */6 * * *") EP="sync-sheet" ;;
+              "33 1 * * *")   EP="enrich-products" ;;
+              "53 1 * * *")   EP="auto-tag-products" ;;
+              *) echo "未知 schedule: ${{ github.event.schedule }}"; exit 1 ;;
+            esac
+          fi
+          echo "endpoint=$EP" >> $GITHUB_OUTPUT
+          echo "🎯 呼叫: $EP"
+      - name: 呼叫 ${{ steps.pick.outputs.endpoint }}
+        env:
+          CRON_SECRET: ${{ secrets.CRON_SECRET }}
+        run: |
+          set -e
+          EP="${{ steps.pick.outputs.endpoint }}"
+          URL="https://nijisanji-orders.vercel.app/api/cron/$EP"
+          # Vercel function timeout 60s + 留 30s buffer
+          BODY=$(curl -sS --max-time 90 -w "\n___HTTP___%{http_code}" \
+            -H "Authorization: Bearer $CRON_SECRET" "$URL")
+          CODE=$(echo "$BODY" | tail -1 | cut -d_ -f7)
+          echo "$BODY" | sed '$d'
+          echo ""
+          echo "HTTP: $CODE"
+          [ "$CODE" = "200" ] || exit 1
