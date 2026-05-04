@@ -20,7 +20,9 @@ let _cache: Promise<SocialData | null> | null = null;
 
 export function loadSocial(): Promise<SocialData | null> {
   if (_cache) return _cache;
-  _cache = fetch(SOCIAL_URL, { cache: "force-cache" })
+  // 加 timestamp（每天換一個）規避瀏覽器舊快取，但同一天內仍能 reuse
+  const t = Math.floor(Date.now() / 86400000);
+  _cache = fetch(`${SOCIAL_URL}?t=${t}`, { cache: "no-cache" })
     .then((r) => (r.ok ? r.json() : null))
     .catch(() => null);
   return _cache;
