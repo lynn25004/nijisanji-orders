@@ -77,14 +77,19 @@ export async function GET(req: NextRequest) {
 
   // 批次撈「已存在訂單」：58 次 round-trip 改 1 次
   const dedupKeys = allOrders.map((o) => `letao:${o.orderId}`);
-  const existingMap = new Map<string, { id: string; status: string }>();
+  const existingMap = new Map<string, { id: string; status: string; warehouse_status: string | null; refund_status: number | null }>();
   if (dedupKeys.length) {
     const { data: existingRows } = await sb
       .from("orders")
-      .select("id, status, source_email_id")
+      .select("id, status, source_email_id, warehouse_status, refund_status")
       .in("source_email_id", dedupKeys);
     for (const row of existingRows ?? []) {
-      if (row.source_email_id) existingMap.set(row.source_email_id, { id: row.id, status: row.status });
+      if (row.source_email_id) existingMap.set(row.source_email_id, {
+        id: row.id,
+        status: row.status,
+        warehouse_status: (row as any).warehouse_status ?? null,
+        refund_status: (row as any).refund_status ?? null,
+      });
     }
   }
 
@@ -120,10 +125,18 @@ export async function GET(req: NextRequest) {
       const existing = existingMap.get(dedupKey);
 
       if (existing) {
-        // 更新狀態
-        if (existing.status !== o.orderStatus) {
-          await sb.from("orders").update({ status: o.orderStatus }).eq("id", existing.id);
-          results.push({ orderId: o.orderId, status: "updated", new_status: o.orderStatus });
+        // 整理樂淘最新欄位（取訂單下任一 item 的 warehouse 狀態，多 item 用同一個）
+        const firstItem = o.orderInfoList?.[0];
+        const newWh = firstItem?.warehousePackagesStatusDesc ?? null;
+        const newRefund = (o as any).refundStatus ?? null;
+        const patch: Record<string, any> = {};
+        if (existing.status !== o.orderStatus) patch.status = o.orderStatus;
+        if (existing.warehouse_status !== newWh) patch.warehouse_status = newWh;
+        if (existing.refund_status !== newRefund) patch.refund_status = newRefund;
+        if (Object.keys(patch).length > 0) {
+          patch.updated_at = new Date().toISOString();
+          await sb.from("orders").update(patch).eq("id", existing.id);
+          results.push({ orderId: o.orderId, status: "updated", changed: Object.keys(patch).filter(k => k !== "updated_at") });
         } else {
           results.push({ orderId: o.orderId, status: "unchanged" });
         }
@@ -131,6 +144,7 @@ export async function GET(req: NextRequest) {
       }
 
       // 新增訂單
+      const firstItemForInsert = o.orderInfoList?.[0];
       const { data: newOrder, error: oe } = await sb
         .from("orders")
         .insert({
@@ -139,6 +153,8 @@ export async function GET(req: NextRequest) {
           proxy_order_no: o.orderId,
           ordered_at: orderedAt,
           status: o.orderStatus,
+          warehouse_status: firstItemForInsert?.warehousePackagesStatusDesc ?? null,
+          refund_status: (o as any).refundStatus ?? null,
           total_jpy: money(o.payPrice),
           shipping_jpy: money(o.payPostage) ?? 0,
           notes: null

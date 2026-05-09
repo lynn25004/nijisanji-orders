@@ -11,6 +11,8 @@ type Row = {
   proxy_service: string | null;
   proxy_order_no: string | null;
   status: string;
+  warehouse_status: string | null;
+  refund_status: number | null;
   total_jpy: number | null;
   total_twd: number | null;
   product_id: string;
@@ -45,7 +47,7 @@ export default function HomePage() {
       .from("order_items")
       .select(`
         qty, unit_price_jpy,
-        orders!inner ( id, ordered_at, received_at, proxy_service, proxy_order_no, status, total_jpy, total_twd ),
+        orders!inner ( id, ordered_at, received_at, proxy_service, proxy_order_no, status, warehouse_status, refund_status, total_jpy, total_twd ),
         products!inner (
           id, name_ja, image_url, release_date,
           product_talents ( talents ( id, group_id, groups ( id, name_ja, name_zh ) ) )
@@ -68,6 +70,8 @@ export default function HomePage() {
         proxy_service: r.orders.proxy_service,
         proxy_order_no: r.orders.proxy_order_no,
         status: r.orders.status,
+        warehouse_status: r.orders.warehouse_status ?? null,
+        refund_status: r.orders.refund_status ?? null,
         total_jpy: r.orders.total_jpy,
         total_twd: r.orders.total_twd,
         product_id: r.products.id,
@@ -773,9 +777,19 @@ export default function HomePage() {
                     下單 {r.ordered_at} · 數量 {r.qty}
                     {r.unit_price_jpy ? ` · ¥${r.unit_price_jpy}` : ""}
                   </div>
-                  <div className="text-xs text-neutral-500 mt-0.5 flex items-center gap-1.5">
+                  <div className="text-xs text-neutral-500 mt-0.5 flex items-center gap-1.5 flex-wrap">
                     <span className={`inline-block w-1.5 h-1.5 rounded-full ${sty.dot}`} aria-hidden />
                     <span>{sty.label}</span>
+                    {r.warehouse_status && (
+                      <span className="bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 px-1.5 py-0.5 rounded text-[10px]">
+                        📦 {r.warehouse_status}
+                      </span>
+                    )}
+                    {r.refund_status ? (
+                      <span className="bg-amber-100 dark:bg-amber-900/40 text-amber-700 dark:text-amber-300 px-1.5 py-0.5 rounded text-[10px]">
+                        💸 退款中
+                      </span>
+                    ) : null}
                     <span>· {r.proxy_service ?? "（代購未填）"}</span>
                     {r.received_at && <span>· 收到於 {r.received_at}</span>}
                   </div>
