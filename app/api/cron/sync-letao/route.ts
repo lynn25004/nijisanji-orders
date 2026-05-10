@@ -77,11 +77,11 @@ export async function GET(req: NextRequest) {
 
   // 批次撈「已存在訂單」：58 次 round-trip 改 1 次
   const dedupKeys = allOrders.map((o) => `letao:${o.orderId}`);
-  const existingMap = new Map<string, { id: string; status: string; warehouse_status: string | null; refund_status: number | null }>();
+  const existingMap = new Map<string, { id: string; status: string; warehouse_status: string | null; refund_status: number | null; received_at: string | null }>();
   if (dedupKeys.length) {
     const { data: existingRows } = await sb
       .from("orders")
-      .select("id, status, source_email_id, warehouse_status, refund_status")
+      .select("id, status, source_email_id, warehouse_status, refund_status, received_at")
       .in("source_email_id", dedupKeys);
     for (const row of existingRows ?? []) {
       if (row.source_email_id) existingMap.set(row.source_email_id, {
@@ -89,6 +89,7 @@ export async function GET(req: NextRequest) {
         status: row.status,
         warehouse_status: (row as any).warehouse_status ?? null,
         refund_status: (row as any).refund_status ?? null,
+        received_at: (row as any).received_at ?? null,
       });
     }
   }
@@ -125,21 +126,31 @@ export async function GET(req: NextRequest) {
       const existing = existingMap.get(dedupKey);
 
       if (existing) {
-        // 整理樂淘最新欄位（取訂單下任一 item 的 warehouse 狀態，多 item 用同一個）
         const firstItem = o.orderInfoList?.[0];
         const newWh = firstItem?.warehousePackagesStatusDesc ?? null;
         const newRefund = (o as any).refundStatus ?? null;
+        const newStatus = o.orderStatus;
         const patch: Record<string, any> = {};
-        if (existing.status !== o.orderStatus) patch.status = o.orderStatus;
+        if (existing.status !== newStatus) patch.status = newStatus;
         if (existing.warehouse_status !== newWh) patch.warehouse_status = newWh;
         if (existing.refund_status !== newRefund) patch.refund_status = newRefund;
-        if (Object.keys(patch).length > 0) {
+        // 自動勾「已收到」：樂淘狀態變成「已完成 / 已收貨」且尚未手動標記時，自動設今天
+        const looksReceived = /已完成|已收貨|交易完成/.test(newStatus);
+        if (looksReceived && !existing.received_at) {
+          patch.received_at = new Date().toISOString().slice(0, 10);
+          results.push({ orderId: o.orderId, status: "updated", changed: [...Object.keys(patch).filter(k=>k!=='updated_at'), '🆕auto_received'] });
+        } else if (Object.keys(patch).length > 0) {
           patch.updated_at = new Date().toISOString();
           await sb.from("orders").update(patch).eq("id", existing.id);
           results.push({ orderId: o.orderId, status: "updated", changed: Object.keys(patch).filter(k => k !== "updated_at") });
+          continue;
         } else {
           results.push({ orderId: o.orderId, status: "unchanged" });
+          continue;
         }
+        // 含 received_at 的更新
+        patch.updated_at = new Date().toISOString();
+        await sb.from("orders").update(patch).eq("id", existing.id);
         continue;
       }
 
