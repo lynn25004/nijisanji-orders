@@ -45,17 +45,36 @@ export async function GET(req: NextRequest) {
 
   let allOrders: LetaoOrder[] = [];
   try {
-    // type=8 回傳全部。一次抓 100 筆（使用者目前才 58 筆，未來爆量才分頁）
-    const first = await fetchLetaoOrders(letaoToken, { type: 8, page: 1, limit: 100 });
-    allOrders = first.list;
-    if (first.total > allOrders.length) {
-      // 分頁撈剩下的
-      let page = 2;
-      while (allOrders.length < first.total && page < 20) {
-        const next = await fetchLetaoOrders(letaoToken, { type: 8, page, limit: 100 });
-        if (!next.list.length) break;
-        allOrders = allOrders.concat(next.list);
-        page++;
+    // type=8 實際只回「進行中」訂單（已完成/已收貨會掉出列表 → 沒辦法自動勾收到）
+    // 同時抓 type=8 + type=4（已完成）+ type=3（待收貨）合併去重
+    const seenIds = new Set<string>();
+    for (const t of [8, 4, 3, 0]) {
+      try {
+        const r = await fetchLetaoOrders(letaoToken, { type: t, page: 1, limit: 100 });
+        for (const o of r.list) {
+          if (!seenIds.has(o.orderId)) {
+            seenIds.add(o.orderId);
+            allOrders.push(o);
+          }
+        }
+        // 分頁
+        if (r.total > r.list.length) {
+          let page = 2;
+          while (page < 10) {
+            const nx = await fetchLetaoOrders(letaoToken, { type: t, page, limit: 100 });
+            if (!nx.list.length) break;
+            for (const o of nx.list) {
+              if (!seenIds.has(o.orderId)) {
+                seenIds.add(o.orderId);
+                allOrders.push(o);
+              }
+            }
+            if (nx.list.length < 100) break;
+            page++;
+          }
+        }
+      } catch (e) {
+        // type 不支援就跳過
       }
     }
   } catch (e: any) {
