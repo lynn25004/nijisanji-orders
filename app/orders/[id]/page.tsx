@@ -60,6 +60,9 @@ export default function EditOrderPage({ params }: { params: { id: string } }) {
   const [newTalentGroup, setNewTalentGroup] = useState<Record<string, string>>({});
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
   const [openSections, setOpenSections] = useState<{order: boolean; items: boolean}>({order: true, items: true});
+  const [savedToast, setSavedToast] = useState(false);
+  const [deletingItemIdx, setDeletingItemIdx] = useState<number | null>(null);
+  const [talentSearch, setTalentSearch] = useState<Record<string, string>>({});
 
   useEffect(() => {
     (async () => {
@@ -215,8 +218,11 @@ export default function EditOrderPage({ params }: { params: { id: string } }) {
         if (ei) throw ei;
       }
 
-      router.push("/");
-      router.refresh();
+      setSavedToast(true);
+      setTimeout(() => {
+        router.push("/");
+        router.refresh();
+      }, 700);
     } catch (e: any) {
       setErr(e.message ?? String(e));
     } finally {
@@ -226,10 +232,10 @@ export default function EditOrderPage({ params }: { params: { id: string } }) {
 
   const onDeleteItem = async (idx: number) => {
     const it = items[idx];
-    if (!confirm(`確定刪除「${it.name_ja}」這一項？`)) return;
     const { error } = await supabase.from("order_items").delete().eq("id", it.item_id);
-    if (error) { setErr(error.message); return; }
+    if (error) { setErr(error.message); setDeletingItemIdx(null); return; }
     setItems((arr) => arr.filter((_, i) => i !== idx));
+    setDeletingItemIdx(null);
   };
 
   const onDeleteOrder = async () => {
@@ -241,7 +247,7 @@ export default function EditOrderPage({ params }: { params: { id: string } }) {
     router.refresh();
   };
 
-  // Esc 關閉刪除確認 modal + 鎖背景滾動
+  // Esc 關閉刪除確認 modal + 鎖背景滾動（整張訂單）
   useEffect(() => {
     if (!showDeleteConfirm) return;
     const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setShowDeleteConfirm(false); };
@@ -250,6 +256,16 @@ export default function EditOrderPage({ params }: { params: { id: string } }) {
     window.addEventListener("keydown", onKey);
     return () => { document.body.style.overflow = prev; window.removeEventListener("keydown", onKey); };
   }, [showDeleteConfirm]);
+
+  // Esc 關閉刪單一商品 modal + 鎖滾動
+  useEffect(() => {
+    if (deletingItemIdx === null) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setDeletingItemIdx(null); };
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", onKey);
+    return () => { document.body.style.overflow = prev; window.removeEventListener("keydown", onKey); };
+  }, [deletingItemIdx]);
 
   if (loading) {
     return (
@@ -332,7 +348,7 @@ export default function EditOrderPage({ params }: { params: { id: string } }) {
               <span className="text-xs text-neutral-500">第 {idx + 1} 件</span>
               <button
                 type="button"
-                onClick={() => onDeleteItem(idx)}
+                onClick={() => setDeletingItemIdx(idx)}
                 className="text-xs text-red-600 hover:underline"
               >
                 刪除這件
@@ -376,34 +392,41 @@ export default function EditOrderPage({ params }: { params: { id: string } }) {
                     </span>
                   );
                 })}
-                <select
-                  className="text-xs border rounded px-1 py-0.5 bg-transparent"
-                  value=""
-                  onChange={(e) => linkTalent(it.item_id, it.product_id, e.target.value)}
-                >
-                  <option value="">+ 加藝人</option>
-                  {groups.map((g) => {
-                    const ts = talents.filter((t) => t.group_id === g.id && !(itemTalents[it.item_id] || []).includes(t.id));
-                    if (!ts.length) return null;
-                    return (
-                      <optgroup key={g.id} label={g.name_zh ?? g.name_ja}>
-                        {ts.map((t) => (
-                          <option key={t.id} value={t.id}>{t.name_ja}</option>
-                        ))}
-                      </optgroup>
-                    );
-                  })}
-                  {(() => {
-                    const nog = talents.filter((t) => !t.group_id && !(itemTalents[it.item_id] || []).includes(t.id));
-                    return nog.length ? (
-                      <optgroup label="（未分團）">
-                        {nog.map((t) => (
-                          <option key={t.id} value={t.id}>{t.name_ja}</option>
-                        ))}
-                      </optgroup>
-                    ) : null;
-                  })()}
-                </select>
+                {(() => {
+                  const linkedIds = new Set(itemTalents[it.item_id] || []);
+                  const datalistId = `talent-options-${it.item_id}`;
+                  const query = talentSearch[it.item_id] || "";
+                  return (
+                    <>
+                      <input
+                        list={datalistId}
+                        type="search"
+                        placeholder="🔍 打字找藝人加入…"
+                        value={query}
+                        onChange={(e) => {
+                          const v = e.target.value;
+                          setTalentSearch((m) => ({ ...m, [it.item_id]: v }));
+                          // 完全比對到一個 talent 就自動加入
+                          const matched = talents.find((t) => !linkedIds.has(t.id) && (t.name_ja === v || (t.name_zh && t.name_zh === v)));
+                          if (matched) {
+                            linkTalent(it.item_id, it.product_id, matched.id);
+                            setTalentSearch((m) => ({ ...m, [it.item_id]: "" }));
+                          }
+                        }}
+                        className="text-xs border rounded px-2 py-0.5 bg-transparent flex-1 min-w-[140px]"
+                      />
+                      <datalist id={datalistId}>
+                        {talents
+                          .filter((t) => !linkedIds.has(t.id))
+                          .map((t) => {
+                            const g = groups.find((x) => x.id === t.group_id);
+                            const label = g ? `${t.name_ja} · ${g.name_zh ?? g.name_ja}` : t.name_ja;
+                            return <option key={t.id} value={t.name_ja}>{label}</option>;
+                          })}
+                      </datalist>
+                    </>
+                  );
+                })()}
               </div>
               <div className="flex flex-wrap gap-1 items-center">
                 <input
@@ -455,6 +478,51 @@ export default function EditOrderPage({ params }: { params: { id: string } }) {
           刪除整張訂單
         </button>
       </div>
+
+      {deletingItemIdx !== null && items[deletingItemIdx] && (
+        <div
+          className="fixed inset-0 z-50 bg-black/60 flex items-end sm:items-center justify-center p-4"
+          onClick={() => setDeletingItemIdx(null)}
+          role="dialog"
+          aria-modal="true"
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="bg-white dark:bg-neutral-900 rounded-lg w-full sm:max-w-md p-5 space-y-3"
+          >
+            <h2 className="text-lg font-bold">刪除這件商品？</h2>
+            <p className="text-sm text-neutral-600 dark:text-neutral-400">
+              <b>{items[deletingItemIdx].name_ja || "（未命名）"}</b>
+              <br />刪除後此項商品從訂單中移除，<span className="text-red-600">不可還原</span>。
+            </p>
+            <div className="flex gap-2 pt-2">
+              <button
+                onClick={() => setDeletingItemIdx(null)}
+                className="flex-1 border rounded px-3 py-2 hover:bg-neutral-100 dark:hover:bg-neutral-800"
+                autoFocus
+              >
+                取消
+              </button>
+              <button
+                onClick={() => onDeleteItem(deletingItemIdx)}
+                className="flex-1 bg-red-600 text-white rounded px-3 py-2 hover:bg-red-700"
+              >
+                確認刪除
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {savedToast && (
+        <div
+          className="fixed left-1/2 bottom-8 -translate-x-1/2 z-50 bg-green-600 text-white rounded-full px-4 py-2 text-sm shadow-lg"
+          role="status"
+          aria-live="polite"
+        >
+          ✅ 已儲存，前往列表…
+        </div>
+      )}
 
       {showDeleteConfirm && (
         <div
