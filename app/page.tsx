@@ -89,6 +89,21 @@ export default function HomePage() {
     setLoading(false);
   };
 
+  // Esc 關閉圖片 modal + modal 開啟時鎖 body 滾動
+  useEffect(() => {
+    if (!zoomImg) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setZoomImg(null);
+    };
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", onKey);
+    return () => {
+      document.body.style.overflow = prev;
+      window.removeEventListener("keydown", onKey);
+    };
+  }, [zoomImg]);
+
   useEffect(() => {
     // 從 URL 還原篩選狀態
     const sp = new URLSearchParams(window.location.search);
@@ -570,9 +585,12 @@ export default function HomePage() {
                 if (c.key === "unreceived") {
                   setActiveChip("");
                   setReceivedFilter("no");
+                } else if (c.key === "") {
+                  setActiveChip("");
+                  setReceivedFilter("all");
                 } else {
                   setActiveChip(c.key);
-                  if (c.key === "") setReceivedFilter("all");
+                  setReceivedFilter("all");
                 }
               }}
               className={`px-2.5 py-1 rounded-full border transition-colors ${
@@ -711,8 +729,13 @@ export default function HomePage() {
                 <span
                   className={`absolute top-1 right-1 w-2.5 h-2.5 rounded-full ring-2 ring-white dark:ring-neutral-900 ${sty.dot}`}
                   title={sty.label}
+                  aria-label={sty.label}
                 />
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-1.5 opacity-0 group-hover:opacity-100 transition-opacity">
+                {/* mobile：始終顯示一個迷你狀態 chip（hover 不可用）；sm+：hover 才顯示完整標題 */}
+                <span className={`sm:hidden absolute bottom-1 left-1 text-[9px] px-1.5 py-0.5 rounded text-white ${sty.dot} bg-opacity-90`}>
+                  {sty.label}
+                </span>
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-1.5 opacity-0 group-hover:opacity-100 transition-opacity hidden sm:block">
                   <div className="text-white text-xs truncate">{r.product_name}</div>
                 </div>
               </li>
@@ -780,7 +803,7 @@ export default function HomePage() {
                   <div className="text-xs text-neutral-500 mt-0.5 flex items-center gap-1.5 flex-wrap">
                     <span className={`inline-block w-1.5 h-1.5 rounded-full ${sty.dot}`} aria-hidden />
                     <span>{sty.label}</span>
-                    {r.warehouse_status && (
+                    {r.warehouse_status && !r.received_at && (
                       <span className="bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 px-1.5 py-0.5 rounded text-[10px]">
                         📦 {r.warehouse_status}
                       </span>
