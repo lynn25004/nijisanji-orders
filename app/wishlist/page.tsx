@@ -61,6 +61,7 @@ export default function WishlistPage() {
   const [adding, setAdding] = useState(false);
   const [editingId, setEditingId] = useState<string | null>(null);
   const [scope, setScope] = useState<"all" | "niji" | "other">("all");
+  const [openMenu, setOpenMenu] = useState<string | null>(null);
 
   // form state
   const [fName, setFName] = useState("");
@@ -85,6 +86,24 @@ export default function WishlistPage() {
     setItems(data ?? []);
     setLoading(false);
   };
+
+  // Esc 關 modal + 鎖背景滾動
+  useEffect(() => {
+    if (!adding) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setAdding(false); };
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", onKey);
+    return () => { document.body.style.overflow = prev; window.removeEventListener("keydown", onKey); };
+  }, [adding]);
+
+  // 點外面關閉操作選單
+  useEffect(() => {
+    if (!openMenu) return;
+    const onClick = () => setOpenMenu(null);
+    window.addEventListener("click", onClick);
+    return () => window.removeEventListener("click", onClick);
+  }, [openMenu]);
 
   useEffect(() => {
     load();
@@ -340,41 +359,15 @@ export default function WishlistPage() {
                     {w.preorder_start && <span>預訂 {w.preorder_start}</span>}
                   </div>
                   {w.notes && <div className="text-xs text-neutral-600 dark:text-neutral-400 truncate">{w.notes}</div>}
-                  <div className="flex flex-wrap gap-1.5 pt-1 text-xs">
-                    {w.shop_url && (
-                      <a
-                        href={w.shop_url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="px-2 py-1 border rounded whitespace-nowrap hover:bg-neutral-100 dark:hover:bg-neutral-800"
+                  <div className="flex flex-wrap gap-1.5 pt-1 text-xs items-center">
+                    {!w.ordered_at ? (
+                      <button
+                        onClick={() => markOrdered(w.id)}
+                        className="px-2 py-1 border rounded whitespace-nowrap hover:bg-green-100 dark:hover:bg-green-900"
                       >
-                        🔗 商店
-                      </a>
-                    )}
-                    <button
-                      onClick={() => openLetao(w.shop_product_code, w.shop_url)}
-                      title="複製連結並開樂淘代購單"
-                      className="px-2 py-1 border rounded whitespace-nowrap hover:bg-sky-50 hover:border-sky-300 dark:hover:bg-sky-950"
-                    >
-                      🛒 樂淘
-                    </button>
-                    {!w.ordered_at && (
-                      <>
-                        <button
-                          onClick={() => markOrdered(w.id)}
-                          className="px-2 py-1 border rounded whitespace-nowrap hover:bg-green-100 dark:hover:bg-green-900"
-                        >
-                          ✅ 已下單
-                        </button>
-                        <button
-                          onClick={() => openEdit(w)}
-                          className="px-2 py-1 border rounded whitespace-nowrap hover:bg-neutral-100 dark:hover:bg-neutral-800"
-                        >
-                          ✏️ 編輯
-                        </button>
-                      </>
-                    )}
-                    {w.ordered_at && (
+                        ✅ 已下單
+                      </button>
+                    ) : (
                       <button
                         onClick={() => restore(w.id)}
                         className="px-2 py-1 border rounded whitespace-nowrap hover:bg-neutral-100 dark:hover:bg-neutral-800"
@@ -383,11 +376,55 @@ export default function WishlistPage() {
                       </button>
                     )}
                     <button
-                      onClick={() => remove(w.id)}
-                      className="px-2 py-1 border rounded whitespace-nowrap text-red-600 hover:bg-red-50 dark:hover:bg-red-950 ml-auto"
+                      onClick={() => openLetao(w.shop_product_code, w.shop_url)}
+                      title="複製連結並開樂淘代購單"
+                      aria-label="開樂淘代購"
+                      className="px-2 py-1 border rounded whitespace-nowrap hover:bg-sky-50 hover:border-sky-300 dark:hover:bg-sky-950"
                     >
-                      🗑
+                      🛒 樂淘
                     </button>
+                    <div className="relative ml-auto">
+                      <button
+                        onClick={(e) => { e.stopPropagation(); setOpenMenu(openMenu === w.id ? null : w.id); }}
+                        aria-label="更多操作"
+                        title="更多操作"
+                        className="px-2 py-1 border rounded hover:bg-neutral-100 dark:hover:bg-neutral-800"
+                      >
+                        ⋯
+                      </button>
+                      {openMenu === w.id && (
+                        <div
+                          onClick={(e) => e.stopPropagation()}
+                          className="absolute right-0 top-full mt-1 z-20 min-w-[140px] bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-700 rounded shadow-lg py-1"
+                        >
+                          {w.shop_url && (
+                            <a
+                              href={w.shop_url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              onClick={() => setOpenMenu(null)}
+                              className="block px-3 py-1.5 hover:bg-neutral-100 dark:hover:bg-neutral-800"
+                            >
+                              🔗 開官方商店
+                            </a>
+                          )}
+                          {!w.ordered_at && (
+                            <button
+                              onClick={() => { setOpenMenu(null); openEdit(w); }}
+                              className="block w-full text-left px-3 py-1.5 hover:bg-neutral-100 dark:hover:bg-neutral-800"
+                            >
+                              ✏️ 編輯
+                            </button>
+                          )}
+                          <button
+                            onClick={() => { setOpenMenu(null); remove(w.id); }}
+                            className="block w-full text-left px-3 py-1.5 text-red-600 hover:bg-red-50 dark:hover:bg-red-950"
+                          >
+                            🗑 刪除
+                          </button>
+                        </div>
+                      )}
+                    </div>
                   </div>
                 </div>
               </li>

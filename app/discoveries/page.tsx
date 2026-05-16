@@ -174,7 +174,23 @@ export default function DiscoveriesPage() {
     return (
       <div className="space-y-4">
         <h1 className="text-xl font-bold">🆕 上架雷達</h1>
-        <p className="text-sm text-neutral-500">載入中…</p>
+        <div className="flex gap-2 flex-wrap">
+          {Array.from({ length: 3 }).map((_, i) => (
+            <div key={i} className="h-7 w-24 bg-neutral-200 dark:bg-neutral-800 rounded-full animate-pulse" />
+          ))}
+        </div>
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+          {Array.from({ length: 8 }).map((_, i) => (
+            <div key={i} className="rounded-lg border border-neutral-200 dark:border-neutral-800 overflow-hidden">
+              <div className="aspect-square bg-neutral-200 dark:bg-neutral-800 animate-pulse" />
+              <div className="p-2 space-y-1.5">
+                <div className="h-3 bg-neutral-200 dark:bg-neutral-800 rounded animate-pulse" />
+                <div className="h-3 w-2/3 bg-neutral-200 dark:bg-neutral-800 rounded animate-pulse" />
+                <div className="h-4 bg-neutral-200 dark:bg-neutral-800 rounded animate-pulse" />
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     );
   }
@@ -227,6 +243,7 @@ export default function DiscoveriesPage() {
                   type="button"
                   onClick={() => openLetaoSearch(s.query)}
                   title="樂淘搜尋這個詞"
+                  aria-label={`到樂淘搜尋「${s.query}」`}
                   className="px-1 hover:text-sky-600"
                 >
                   🛒
@@ -235,6 +252,7 @@ export default function DiscoveriesPage() {
                   type="button"
                   onClick={() => removeSearchHist(s.id)}
                   title="從紀錄移除"
+                  aria-label={`從搜尋紀錄移除「${s.query}」`}
                   className="px-1 text-neutral-400 hover:text-red-500"
                 >
                   ✕

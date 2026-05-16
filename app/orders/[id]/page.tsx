@@ -58,6 +58,8 @@ export default function EditOrderPage({ params }: { params: { id: string } }) {
   const [itemTalents, setItemTalents] = useState<Record<string, string[]>>({});
   const [newTalentName, setNewTalentName] = useState<Record<string, string>>({});
   const [newTalentGroup, setNewTalentGroup] = useState<Record<string, string>>({});
+  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
+  const [openSections, setOpenSections] = useState<{order: boolean; items: boolean}>({order: true, items: true});
 
   useEffect(() => {
     (async () => {
@@ -231,16 +233,46 @@ export default function EditOrderPage({ params }: { params: { id: string } }) {
   };
 
   const onDeleteOrder = async () => {
-    if (!confirm("確定刪除整張訂單？此操作不可還原。")) return;
     // 先刪 order_items（cascade 應該會自動，但保險起見）
     await supabase.from("order_items").delete().eq("order_id", params.id);
     const { error } = await supabase.from("orders").delete().eq("id", params.id);
-    if (error) { setErr(error.message); return; }
+    if (error) { setErr(error.message); setShowDeleteConfirm(false); return; }
     router.push("/");
     router.refresh();
   };
 
-  if (loading) return <p>載入中…</p>;
+  // Esc 關閉刪除確認 modal + 鎖背景滾動
+  useEffect(() => {
+    if (!showDeleteConfirm) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setShowDeleteConfirm(false); };
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", onKey);
+    return () => { document.body.style.overflow = prev; window.removeEventListener("keydown", onKey); };
+  }, [showDeleteConfirm]);
+
+  if (loading) {
+    return (
+      <div className="space-y-6 max-w-3xl">
+        <div className="flex items-center justify-between">
+          <div className="h-6 w-28 bg-neutral-200 dark:bg-neutral-800 rounded animate-pulse" />
+          <div className="h-4 w-20 bg-neutral-200 dark:bg-neutral-800 rounded animate-pulse" />
+        </div>
+        <div className="border border-neutral-300 dark:border-neutral-700 rounded-lg p-4 space-y-3">
+          <div className="h-4 w-24 bg-neutral-200 dark:bg-neutral-800 rounded animate-pulse" />
+          <div className="grid sm:grid-cols-2 gap-3">
+            {Array.from({ length: 8 }).map((_, i) => (
+              <div key={i} className="h-9 bg-neutral-200 dark:bg-neutral-800 rounded animate-pulse" />
+            ))}
+          </div>
+        </div>
+        <div className="border border-neutral-300 dark:border-neutral-700 rounded-lg p-4 space-y-3">
+          <div className="h-4 w-32 bg-neutral-200 dark:bg-neutral-800 rounded animate-pulse" />
+          <div className="h-32 bg-neutral-200 dark:bg-neutral-800 rounded animate-pulse" />
+        </div>
+      </div>
+    );
+  }
   if (err && !order) return <p className="text-red-600">錯誤：{err}</p>;
   if (!order) return null;
 
@@ -252,7 +284,13 @@ export default function EditOrderPage({ params }: { params: { id: string } }) {
       </div>
 
       <fieldset className="space-y-3 border border-neutral-300 dark:border-neutral-700 rounded-lg p-4">
-        <legend className="font-semibold">訂單資訊</legend>
+        <legend className="font-semibold">
+          <button type="button" onClick={() => setOpenSections(s => ({...s, order: !s.order}))} className="flex items-center gap-1.5 hover:underline">
+            <span className="inline-block w-3 text-xs">{openSections.order ? "▼" : "▶"}</span>
+            訂單資訊
+          </button>
+        </legend>
+        {openSections.order && (
         <div className="grid sm:grid-cols-2 gap-3">
           <Field label="代購商" v={order.proxy_service} onChange={(v) => setO("proxy_service", v)} />
           <Field label="代購單號" v={order.proxy_order_no} onChange={(v) => setO("proxy_order_no", v)} />
@@ -265,6 +303,8 @@ export default function EditOrderPage({ params }: { params: { id: string } }) {
           <Field label="國際運費 JPY" v={order.shipping_jpy} onChange={(v) => setO("shipping_jpy", v)} />
           <Field label="實付台幣 TWD" v={order.total_twd} onChange={(v) => setO("total_twd", v)} />
         </div>
+        )}
+        {openSections.order && (
         <label className="block text-sm">
           <span className="block mb-1">備註</span>
           <textarea
@@ -273,10 +313,18 @@ export default function EditOrderPage({ params }: { params: { id: string } }) {
             onChange={(e) => setO("notes", e.target.value)}
           />
         </label>
+        )}
       </fieldset>
 
       <fieldset className="space-y-4 border border-neutral-300 dark:border-neutral-700 rounded-lg p-4">
-        <legend className="font-semibold">商品（{items.length} 項）</legend>
+        <legend className="font-semibold">
+          <button type="button" onClick={() => setOpenSections(s => ({...s, items: !s.items}))} className="flex items-center gap-1.5 hover:underline">
+            <span className="inline-block w-3 text-xs">{openSections.items ? "▼" : "▶"}</span>
+            商品（{items.length} 項）
+          </button>
+        </legend>
+        {openSections.items && (<>
+
         {items.length === 0 && <p className="text-sm text-neutral-500">此訂單沒有商品項目</p>}
         {items.map((it, idx) => (
           <div key={it.item_id} className="border border-neutral-200 dark:border-neutral-800 rounded p-3 space-y-2">
@@ -385,6 +433,7 @@ export default function EditOrderPage({ params }: { params: { id: string } }) {
             </div>
           </div>
         ))}
+        </>)}
       </fieldset>
 
       {err && <p className="text-red-600 text-sm whitespace-pre-wrap">{err}</p>}
@@ -400,12 +449,47 @@ export default function EditOrderPage({ params }: { params: { id: string } }) {
         </button>
         <button
           type="button"
-          onClick={onDeleteOrder}
+          onClick={() => setShowDeleteConfirm(true)}
           className="border border-red-500 text-red-600 rounded px-4 py-2 hover:bg-red-50 dark:hover:bg-red-950"
         >
           刪除整張訂單
         </button>
       </div>
+
+      {showDeleteConfirm && (
+        <div
+          className="fixed inset-0 z-50 bg-black/60 flex items-end sm:items-center justify-center p-4"
+          onClick={() => setShowDeleteConfirm(false)}
+          role="dialog"
+          aria-modal="true"
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="bg-white dark:bg-neutral-900 rounded-lg w-full sm:max-w-md p-5 space-y-3"
+          >
+            <h2 className="text-lg font-bold">確定刪除整張訂單？</h2>
+            <p className="text-sm text-neutral-600 dark:text-neutral-400">
+              這會一併移除 <b>{items.length}</b> 件商品紀錄，<span className="text-red-600">不可還原</span>。
+              {order?.proxy_service && (<><br />代購商：{order.proxy_service}{order.proxy_order_no && ` · ${order.proxy_order_no}`}</>)}
+            </p>
+            <div className="flex gap-2 pt-2">
+              <button
+                onClick={() => setShowDeleteConfirm(false)}
+                className="flex-1 border rounded px-3 py-2 hover:bg-neutral-100 dark:hover:bg-neutral-800"
+                autoFocus
+              >
+                取消
+              </button>
+              <button
+                onClick={onDeleteOrder}
+                className="flex-1 bg-red-600 text-white rounded px-3 py-2 hover:bg-red-700"
+              >
+                確認刪除
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       <p className="text-xs text-neutral-500">
         ⚠️ 注意：自動同步來源（Gmail/Sheet/letaofun）會在下次同步時覆蓋某些欄位（狀態、備註、金額），如果想永久改動請直接到來源（Sheet / letaofun 後台）改。
