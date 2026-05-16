@@ -100,7 +100,32 @@ export default function TalentDetailPage() {
     return () => window.removeEventListener("keydown", onKey);
   }, [zoomImg]);
 
-  if (loading) return <p>載入中…</p>;
+  if (loading) {
+    return (
+      <div className="space-y-5">
+        <div className="h-4 w-16 bg-neutral-200 dark:bg-neutral-800 rounded animate-pulse" />
+        <div className="flex flex-col sm:flex-row gap-4 items-start">
+          <div className="w-48 h-48 bg-neutral-200 dark:bg-neutral-800 rounded-lg animate-pulse shrink-0" />
+          <div className="space-y-2 flex-1">
+            <div className="h-7 w-40 bg-neutral-200 dark:bg-neutral-800 rounded animate-pulse" />
+            <div className="h-4 w-24 bg-neutral-200 dark:bg-neutral-800 rounded animate-pulse" />
+            <div className="h-4 w-32 bg-neutral-200 dark:bg-neutral-800 rounded animate-pulse" />
+          </div>
+        </div>
+        <ul className="grid gap-3 sm:grid-cols-2">
+          {Array.from({ length: 4 }).map((_, i) => (
+            <li key={i} className="border border-neutral-200 dark:border-neutral-800 rounded-lg overflow-hidden flex">
+              <div className="w-24 h-24 bg-neutral-200 dark:bg-neutral-800 animate-pulse shrink-0" />
+              <div className="flex-1 p-2 space-y-2">
+                <div className="h-4 bg-neutral-200 dark:bg-neutral-800 rounded animate-pulse" />
+                <div className="h-3 w-2/3 bg-neutral-200 dark:bg-neutral-800 rounded animate-pulse" />
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
+  }
   if (!t) return <p>找不到這位成員。<Link href="/talents" className="underline">回列表</Link></p>;
 
   const totalQty = products.reduce((a, b) => a + b.qty, 0);

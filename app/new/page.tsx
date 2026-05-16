@@ -9,6 +9,7 @@ export default function NewOrderPage() {
   const [groups, setGroups] = useState<Group[]>([]);
   const [saving, setSaving] = useState(false);
   const [err, setErr] = useState<string | null>(null);
+  const [savedToast, setSavedToast] = useState(false);
 
   const [form, setForm] = useState({
     proxy_service: "Buyee",
@@ -120,7 +121,8 @@ export default function NewOrderPage() {
       });
       if (ei) throw ei;
 
-      router.push("/");
+      setSavedToast(true);
+      setTimeout(() => router.push("/"), 800);
     } catch (e: any) {
       setErr(e.message ?? String(e));
     } finally {
@@ -180,11 +182,21 @@ export default function NewOrderPage() {
 
       <button
         type="submit"
-        disabled={saving}
+        disabled={saving || savedToast}
         className="bg-black text-white dark:bg-white dark:text-black rounded px-4 py-2 disabled:opacity-50"
       >
-        {saving ? "儲存中…" : "儲存訂單"}
+        {savedToast ? "✅ 已儲存，前往列表…" : saving ? "儲存中…" : "儲存訂單"}
       </button>
+
+      {savedToast && (
+        <div
+          className="fixed left-1/2 bottom-8 -translate-x-1/2 z-50 bg-green-600 text-white rounded-full px-4 py-2 text-sm shadow-lg"
+          role="status"
+          aria-live="polite"
+        >
+          ✅ 訂單已新增
+        </div>
+      )}
     </form>
   );
 }

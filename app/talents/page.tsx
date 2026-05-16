@@ -19,6 +19,7 @@ type Talent = {
 export default function TalentsPage() {
   const [talents, setTalents] = useState<Talent[]>([]);
   const [loading, setLoading] = useState(true);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     (async () => {
@@ -53,10 +54,20 @@ export default function TalentsPage() {
     })();
   }, []);
 
+  const visibleTalents = useMemo(() => {
+    const q = search.trim().toLowerCase();
+    if (!q) return talents;
+    return talents.filter((t) =>
+      [t.name_ja, t.name_zh, t.name_en, t.groups?.name_ja, t.groups?.name_zh]
+        .filter(Boolean)
+        .some((s) => s!.toLowerCase().includes(q))
+    );
+  }, [talents, search]);
+
   // 依團體分組；團體間用「該團體最早出道日」排序，團體內依出道日排序
   const grouped = useMemo(() => {
     const byGroup = new Map<string, Talent[]>();
-    for (const t of talents) {
+    for (const t of visibleTalents) {
       const key = t.groups?.name_zh || t.groups?.name_ja || "未分類";
       const arr = byGroup.get(key) ?? [];
       arr.push(t);
@@ -89,21 +100,53 @@ export default function TalentsPage() {
         if (!b.earliest) return -1;
         return a.earliest.localeCompare(b.earliest);
       });
-  }, [talents]);
+  }, [visibleTalents]);
 
-  if (loading) return <p>載入中…</p>;
+  if (loading) {
+    return (
+      <div className="space-y-6">
+        <div className="h-6 w-48 bg-neutral-200 dark:bg-neutral-800 rounded animate-pulse" />
+        {Array.from({ length: 2 }).map((_, s) => (
+          <section key={s} className="space-y-2">
+            <div className="h-4 w-32 bg-neutral-200 dark:bg-neutral-800 rounded animate-pulse" />
+            <ul className="grid gap-3 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+              {Array.from({ length: 5 }).map((_, i) => (
+                <li key={i} className="border border-neutral-200 dark:border-neutral-800 rounded-lg overflow-hidden">
+                  <div className="aspect-square bg-neutral-200 dark:bg-neutral-800 animate-pulse" />
+                  <div className="p-2 space-y-1.5">
+                    <div className="h-3 bg-neutral-200 dark:bg-neutral-800 rounded animate-pulse" />
+                    <div className="h-3 w-2/3 bg-neutral-200 dark:bg-neutral-800 rounded animate-pulse" />
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </section>
+        ))}
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-6">
-      <div className="flex items-baseline gap-3">
+      <div className="flex items-baseline gap-3 flex-wrap">
         <h1 className="text-xl font-bold">我買過的成員</h1>
         <span className="text-sm text-neutral-500">
-          共 {talents.length} 位，依團體 + 出道順序
+          共 {talents.length} 位{search && ` · 找到 ${visibleTalents.length} 位`}，依團體 + 出道順序
         </span>
       </div>
 
+      <input
+        type="search"
+        placeholder="🔍 搜尋成員名 / 團體"
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+        className="w-full sm:w-80 border rounded px-3 py-1.5 text-sm bg-transparent"
+      />
+
       {talents.length === 0 ? (
         <p className="text-neutral-500 text-sm">還沒有任何有關聯藝人的商品。</p>
+      ) : visibleTalents.length === 0 ? (
+        <p className="text-neutral-500 text-sm">沒有符合「{search}」的成員。</p>
       ) : (
         grouped.map(({ key, list, earliest }) => (
           <section key={key} className="space-y-2">
