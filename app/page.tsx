@@ -532,6 +532,26 @@ export default function HomePage() {
 
       <MonthlyTrend history={stats.monthlyHistory} jpyToTwd={jpyToTwd} />
 
+      {/* 可能漏領警告：未收到且上架日 > 30 天前 */}
+      {chipCounts.missing > 0 && (
+        <button
+          onClick={() => { setActiveChip("missing"); setReceivedFilter("all"); }}
+          className="w-full text-left p-3 rounded-lg border border-red-300 dark:border-red-900 bg-red-50 dark:bg-red-950/40 hover:bg-red-100 dark:hover:bg-red-950/60 transition-colors flex items-center gap-3"
+          aria-label={`查看 ${chipCounts.missing} 件可能漏領的商品`}
+        >
+          <span className="text-2xl shrink-0">⚠️</span>
+          <div className="flex-1 min-w-0">
+            <div className="text-sm font-semibold text-red-700 dark:text-red-300">
+              有 {chipCounts.missing} 件可能漏領
+            </div>
+            <div className="text-xs text-red-600/80 dark:text-red-400/80 mt-0.5">
+              上架已超過 30 天還沒標記收到，建議去信問代購或檢查狀況
+            </div>
+          </div>
+          <span className="text-red-500" aria-hidden>→</span>
+        </button>
+      )}
+
       {upcoming.length > 0 && (
         <section className="space-y-2">
           <h2 className="text-sm font-semibold text-neutral-600 dark:text-neutral-400">

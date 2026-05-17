@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export function BudgetCard({
   monthSpend,
@@ -17,8 +17,16 @@ export function BudgetCard({
 }) {
   const [editing, setEditing] = useState(false);
   const [draft, setDraft] = useState(String(budget || ""));
+  const [animPct, setAnimPct] = useState(0);
 
   const pct = budget > 0 ? Math.min(100, Math.round((monthSpend / budget) * 100)) : 0;
+
+  // mount 時從 0 動畫到目標 pct
+  useEffect(() => {
+    if (budget <= 0) { setAnimPct(0); return; }
+    const t = setTimeout(() => setAnimPct(pct), 60);
+    return () => clearTimeout(t);
+  }, [pct, budget]);
   const overBudget = budget > 0 && monthSpend > budget;
   const diffPct =
     lastMonthSpend > 0
@@ -104,10 +112,10 @@ export function BudgetCard({
         <div className="mt-2">
           <div className="h-1.5 bg-neutral-100 dark:bg-neutral-800 rounded-full overflow-hidden">
             <div
-              className={`h-full rounded-full transition-all ${
+              className={`h-full rounded-full ${
                 overBudget ? "bg-red-500" : pct >= 80 ? "bg-amber-500" : "bg-emerald-500"
               }`}
-              style={{ width: `${pct}%` }}
+              style={{ width: `${animPct}%`, transition: "width 1s cubic-bezier(.22,1,.36,1)" }}
             />
           </div>
           <div className="text-[10px] text-neutral-500 mt-1 flex justify-between">

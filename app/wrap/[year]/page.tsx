@@ -8,6 +8,8 @@ type Item = {
   qty: number;
   unit_price_jpy: number | null;
   ordered_at: string;
+  received_at: string | null;
+  proxy_service: string | null;
   order_id: string;
   product_id: string;
   product_name: string;
@@ -30,7 +32,7 @@ export default function WrapPage() {
         .from("order_items")
         .select(`
           qty, unit_price_jpy,
-          orders!inner ( id, ordered_at ),
+          orders!inner ( id, ordered_at, received_at, proxy_service ),
           products!inner (
             id, name_ja, image_url,
             product_talents ( talents ( id, name_ja, name_zh, image_url ) )
@@ -42,6 +44,8 @@ export default function WrapPage() {
         qty: r.qty,
         unit_price_jpy: r.unit_price_jpy,
         ordered_at: r.orders.ordered_at,
+        received_at: r.orders.received_at ?? null,
+        proxy_service: r.orders.proxy_service ?? null,
         order_id: r.orders.id,
         product_id: r.products.id,
         product_name: r.products.name_ja,
@@ -112,6 +116,32 @@ export default function WrapPage() {
       .slice(0, 3);
     const peakMonth = monthSpend.indexOf(Math.max(...monthSpend));
 
+    // 平均單筆訂單金額
+    const avgPerOrder = orderIds.size > 0 ? totalSpend / orderIds.size : 0;
+
+    // 收到比例（依 order_id，避免一張訂單多商品被算多次）
+    const receivedOrders = new Set<string>();
+    const allOrdersForRecv = new Set<string>();
+    const proxyCount = new Map<string, number>();  // 各代購商訂單數
+    for (const r of items) {
+      allOrdersForRecv.add(r.order_id);
+      if (r.received_at) receivedOrders.add(r.order_id);
+    }
+    // 計代購商分佈（每張訂單只算一次）
+    const seenForProxy = new Set<string>();
+    for (const r of items) {
+      if (seenForProxy.has(r.order_id)) continue;
+      seenForProxy.add(r.order_id);
+      const key = r.proxy_service || "（未填）";
+      proxyCount.set(key, (proxyCount.get(key) ?? 0) + 1);
+    }
+    const proxyBreakdown = [...proxyCount.entries()]
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 5);
+    const receivedPct = allOrdersForRecv.size > 0
+      ? Math.round((receivedOrders.size / allOrdersForRecv.size) * 100)
+      : 0;
+
     return {
       totalSpend,
       orderCount: orderIds.size,
@@ -124,7 +154,12 @@ export default function WrapPage() {
       topProducts,
       maxOrderSpend,
       maxOrderName,
-      maxOrderImg
+      maxOrderImg,
+      avgPerOrder,
+      receivedPct,
+      receivedOrders: receivedOrders.size,
+      totalOrders: allOrdersForRecv.size,
+      proxyBreakdown,
     };
   }, [items]);
 
@@ -288,6 +323,58 @@ export default function WrapPage() {
               <div className="font-bold">{stats.maxOrderName}</div>
               <div className="text-2xl font-black mt-1">¥{stats.maxOrderSpend.toLocaleString()}</div>
             </div>
+          </div>
+        </section>
+      )}
+
+      {/* 平均單筆 + 收到比例 */}
+      <section className="grid sm:grid-cols-2 gap-3">
+        <div className="border border-neutral-200 dark:border-neutral-800 rounded-lg p-4 bg-white dark:bg-neutral-900">
+          <div className="text-xs text-neutral-500">平均單筆訂單</div>
+          <div className="text-2xl font-bold mt-1">¥{Math.round(stats.avgPerOrder).toLocaleString()}</div>
+          <div className="text-xs text-neutral-500 mt-0.5">
+            ≈ NT${Math.round(stats.avgPerOrder * jpyToTwd).toLocaleString()}
+          </div>
+        </div>
+        <div className="border border-neutral-200 dark:border-neutral-800 rounded-lg p-4 bg-white dark:bg-neutral-900">
+          <div className="text-xs text-neutral-500 flex justify-between">
+            <span>收到比例</span>
+            <span className="text-neutral-400">{stats.receivedOrders}/{stats.totalOrders}</span>
+          </div>
+          <div className="text-2xl font-bold mt-1">{stats.receivedPct}%</div>
+          <div className="h-2 bg-neutral-100 dark:bg-neutral-800 rounded-full overflow-hidden mt-2">
+            <div
+              className={`h-full rounded-full transition-all duration-1000 ${
+                stats.receivedPct >= 90 ? "bg-emerald-500" : stats.receivedPct >= 60 ? "bg-amber-500" : "bg-red-500"
+              }`}
+              style={{ width: `${stats.receivedPct}%` }}
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* 代購商佔比 */}
+      {stats.proxyBreakdown.length > 0 && (
+        <section className="space-y-3">
+          <h2 className="text-xl font-bold">🚚 代購管道</h2>
+          <div className="border border-neutral-200 dark:border-neutral-800 rounded-lg p-4 bg-white dark:bg-neutral-900 space-y-2.5">
+            {stats.proxyBreakdown.map(([name, cnt]) => {
+              const pct = stats.totalOrders > 0 ? Math.round((cnt / stats.totalOrders) * 100) : 0;
+              return (
+                <div key={name}>
+                  <div className="flex justify-between text-xs mb-1">
+                    <span>{name}</span>
+                    <span className="text-neutral-500">{cnt} 筆 · {pct}%</span>
+                  </div>
+                  <div className="h-2 bg-neutral-100 dark:bg-neutral-800 rounded-full overflow-hidden">
+                    <div
+                      className="h-full bg-gradient-to-r from-pink-400 to-purple-500 rounded-full transition-all duration-1000"
+                      style={{ width: `${pct}%` }}
+                    />
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </section>
       )}
