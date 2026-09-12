@@ -3,6 +3,7 @@ import { supabaseServer } from "@/lib/supabase-server";
 import { fetchShopNijisanjiOrderEmails } from "@/lib/gmail-imap";
 import { parseShopNijisanjiOrder } from "@/lib/parse-shop";
 import { notify } from "@/lib/notify";
+import { getOrCreateProduct } from "@/lib/product-upsert";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -103,38 +104,38 @@ export async function GET(req: NextRequest) {
       // 處理每個商品：upsert products by shop_product_code
       for (const it of parsed.items) {
         let productId: string | null = null;
+        let productErr: string | null = null;
 
         if (it.shop_product_code) {
-          const { data: existedProd } = await sb
-            .from("products")
-            .select("id")
-            .eq("shop_product_code", it.shop_product_code)
-            .maybeSingle();
-          if (existedProd) {
-            productId = existedProd.id;
-          }
-        }
-
-        if (!productId) {
+          const prod = await getOrCreateProduct(
+            sb,
+            { column: "shop_product_code", value: it.shop_product_code },
+            { name_ja: it.name_ja, list_price_jpy: it.unit_price_jpy }
+          );
+          productId = prod.id;
+          productErr = prod.error;
+        } else {
+          // 沒有商品編號就無從去重，直接新增一筆
           const { data: newProd, error: prodErr } = await sb
             .from("products")
             .insert({
-              shop_product_code: it.shop_product_code,
               name_ja: it.name_ja,
               list_price_jpy: it.unit_price_jpy
             })
             .select("id")
             .single();
-          if (prodErr || !newProd) {
-            results.push({
-              messageId: mail.messageId,
-              status: "error",
-              order_no: parsed.order_no,
-              reason: `product insert: ${prodErr?.message}`
-            });
-            continue;
-          }
-          productId = newProd.id;
+          productId = newProd?.id ?? null;
+          productErr = prodErr?.message ?? (newProd ? null : "product insert failed");
+        }
+
+        if (!productId) {
+          results.push({
+            messageId: mail.messageId,
+            status: "error",
+            order_no: parsed.order_no,
+            reason: `product insert: ${productErr}`
+          });
+          continue;
         }
 
         await sb.from("order_items").insert({

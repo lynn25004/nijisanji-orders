@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { supabaseServer } from "@/lib/supabase-server";
 import { fetchSheetRows } from "@/lib/parse-sheet";
 import { notify } from "@/lib/notify";
+import { getOrCreateProduct } from "@/lib/product-upsert";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -51,31 +52,18 @@ export async function GET(req: NextRequest) {
         continue;
       }
 
-      // 2. 新增 product（用 shop_url 當唯一鍵避免重複）
+      // 2. 取得或新增 product（用 shop_url 當唯一鍵；撞到重複代表有並行 run，改讀既有）
       const productShopUrl = `sheet://${row.dedupKey}`;
-      let productId: string | null = null;
-      const { data: existingProduct } = await sb
-        .from("products")
-        .select("id")
-        .eq("shop_url", productShopUrl)
-        .maybeSingle();
-      if (existingProduct?.id) {
-        productId = existingProduct.id;
-      } else {
-        const { data: newProd, error: pe } = await sb
-          .from("products")
-          .insert({
-            shop_url: productShopUrl,
-            name_ja: row.campaignName
-          })
-          .select("id")
-          .single();
-        if (pe || !newProd) {
-          results.push({ dedupKey: row.dedupKey, status: "error", reason: pe?.message || "product insert failed" });
-          continue;
-        }
-        productId = newProd.id;
+      const prod = await getOrCreateProduct(
+        sb,
+        { column: "shop_url", value: productShopUrl },
+        { name_ja: row.campaignName }
+      );
+      if (!prod.id) {
+        results.push({ dedupKey: row.dedupKey, status: "error", reason: prod.error || "product insert failed" });
+        continue;
       }
+      const productId = prod.id;
 
       // 3. 新增 order
       const { data: newOrder, error: oe } = await sb

@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { supabaseServer } from "@/lib/supabase-server";
 import { fetchLetaoOrders, LetaoOrder } from "@/lib/letao-api";
 import { notify } from "@/lib/notify";
+import { getOrCreateProduct } from "@/lib/product-upsert";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -224,26 +225,43 @@ export async function GET(req: NextRequest) {
         }
 
         if (!productId) {
-          const { data: newProd, error: pe } = await sb
-            .from("products")
-            .insert({
-              shop_product_code: code,
-              name_ja: it.storeName,
-              image_url: it.image,
-              list_price_jpy: money(it.price)
-            })
-            .select("id")
-            .single();
-          if (pe || !newProd) {
+          const fields = {
+            name_ja: it.storeName,
+            image_url: it.image,
+            list_price_jpy: money(it.price)
+          };
+          let newId: string | null = null;
+          let peMsg: string | null = null;
+
+          if (code) {
+            // 有商品編號 → 走去重版（並行 run 撞 idx_products_code 時改讀既有）
+            const prod = await getOrCreateProduct(
+              sb,
+              { column: "shop_product_code", value: code },
+              fields
+            );
+            newId = prod.id;
+            peMsg = prod.error;
+          } else {
+            const { data: newProd, error: pe } = await sb
+              .from("products")
+              .insert(fields)
+              .select("id")
+              .single();
+            newId = newProd?.id ?? null;
+            peMsg = pe?.message ?? (newProd ? null : "product insert failed");
+          }
+
+          if (!newId) {
             results.push({
               orderId: o.orderId,
               status: "error",
-              reason: `product insert: ${pe?.message}`
+              reason: `product insert: ${peMsg}`
             });
             continue;
           }
-          productId = newProd.id;
-          if (code) productMap.set(code, { id: newProd.id, image_url: it.image ?? null });
+          productId = newId;
+          if (code) productMap.set(code, { id: newId, image_url: it.image ?? null });
         }
 
         await sb.from("order_items").insert({
