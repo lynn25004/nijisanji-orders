@@ -62,8 +62,18 @@ export async function getOrCreateProduct(
   }
 
   if (isUniqueViolation(error)) {
-    const again = await find();
-    if (again) return { id: again, created: false, raced: true, error: null };
+    // DB 說這筆已存在，但剛才的 select 沒看到 → 重讀幾次（涵蓋讀取延遲／並行 run 剛寫入）
+    for (let attempt = 0; attempt < 3; attempt++) {
+      await new Promise((r) => setTimeout(r, 150 * (attempt + 1)));
+      const again = await find();
+      if (again) return { id: again, created: false, raced: true, error: null };
+    }
+    return {
+      id: null,
+      created: false,
+      raced: true,
+      error: `unique violation on ${key.column}="${key.value}" 但重讀 3 次都找不到該列：${error?.message}`
+    };
   }
 
   return {

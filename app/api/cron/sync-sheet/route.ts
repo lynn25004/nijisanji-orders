@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { supabaseServer } from "@/lib/supabase-server";
 import { fetchSheetRows } from "@/lib/parse-sheet";
-import { notify } from "@/lib/notify";
+import { notify, esc, buildTag } from "@/lib/notify";
 import { getOrCreateProduct } from "@/lib/product-upsert";
 
 export const runtime = "nodejs";
@@ -12,7 +12,11 @@ const SHEET_CSV_URL =
   "https://docs.google.com/spreadsheets/d/1c9UKSJTcEIUGYbofOSSTBrdTKL9Su_n0zzq7nZcJsjI/export?format=csv&gid=0";
 
 function unauthorized() {
-  return NextResponse.json({ error: "unauthorized" }, { status: 401 });
+  // 帶上 build sha：不用帶密鑰也能確認這個網址跑的是哪一版程式
+  return NextResponse.json(
+    { error: "unauthorized", build: (process.env.VERCEL_GIT_COMMIT_SHA || "local").slice(0, 7) },
+    { status: 401 }
+  );
 }
 
 export async function GET(req: NextRequest) {
@@ -60,7 +64,13 @@ export async function GET(req: NextRequest) {
         { name_ja: row.campaignName }
       );
       if (!prod.id) {
-        results.push({ dedupKey: row.dedupKey, status: "error", reason: prod.error || "product insert failed" });
+        results.push({
+          dedupKey: row.dedupKey,
+          campaign: row.campaignName,
+          stage: "product",
+          status: "error",
+          reason: prod.error || "product insert failed"
+        });
         continue;
       }
       const productId = prod.id;
@@ -85,6 +95,8 @@ export async function GET(req: NextRequest) {
           (oe?.message || "").includes("source_email_id");
         results.push({
           dedupKey: row.dedupKey,
+          campaign: row.campaignName,
+          stage: "order",
           status: isDup ? "skipped" : "error",
           reason: isDup ? "duplicate (race)" : oe?.message || "order insert failed"
         });
@@ -98,7 +110,13 @@ export async function GET(req: NextRequest) {
 
       results.push({ dedupKey: row.dedupKey, status: "inserted", campaign: row.campaignName });
     } catch (e: any) {
-      results.push({ dedupKey: row.dedupKey, status: "error", reason: e?.message || String(e) });
+      results.push({
+        dedupKey: row.dedupKey,
+        campaign: row.campaignName,
+        stage: "exception",
+        status: "error",
+        reason: e?.message || String(e)
+      });
     }
   }
 
@@ -114,18 +132,30 @@ export async function GET(req: NextRequest) {
   if (summary.inserted > 0) {
     const campaigns = results
       .filter((r) => r.status === "inserted")
-      .map((r) => r.campaign)
+      .map((r) => esc(r.campaign))
       .filter(Boolean)
       .slice(0, 5)
       .join("\n• ");
     await notify(
-      `📋 <b>跟團 Sheet 新增 ${summary.inserted} 筆</b>\n• ${campaigns}\nhttps://nijisanji-orders.vercel.app`
+      `📋 <b>跟團 Sheet 新增 ${summary.inserted} 筆</b>\n<i>${buildTag()}</i>\n• ${campaigns}\nhttps://nijisanji-orders.vercel.app`
     );
   }
   if (summary.errors > 0) {
-    const firstErr = results.find((r) => r.status === "error");
+    // 帶上 build sha、計數與出錯的列，下次再響就知道是哪一版、卡在哪一筆
+    const detail = results
+      .filter((r) => r.status === "error")
+      .slice(0, 3)
+      .map(
+        (r) =>
+          `• [${r.stage}] ${esc(r.campaign) || "?"} <code>${esc(
+            (r.dedupKey || "").replace("sheet:", "").slice(0, 8)
+          )}</code>\n  ${esc(r.reason)}`
+      )
+      .join("\n");
     await notify(
-      `⚠️ <b>sync-sheet 有 ${summary.errors} 筆錯誤</b>\n${firstErr?.reason ?? ""}`
+      `⚠️ <b>sync-sheet 有 ${summary.errors} 筆錯誤</b>\n<i>${buildTag()}</i>\n` +
+        `讀到 ${summary.total} 列｜新增 ${summary.inserted}｜更新 ${summary.updated}｜` +
+        `不變 ${summary.unchanged}｜略過 ${summary.skipped}\n${detail}`
     );
   }
 
