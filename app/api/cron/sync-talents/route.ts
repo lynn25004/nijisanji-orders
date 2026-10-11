@@ -29,6 +29,19 @@ function decodeImage(proxyUrl?: string): string | null {
   return m ? decodeURIComponent(m[1]) : null;
 }
 
+// generateAliases 會把「ぷりん・らら・もーど」切成 ぷりん/らら/もーど/Mode 這種一般詞，
+// 自動標成員時會誤中【Stun Mode】、ぬいもーど 等商品 → 新成員只留夠獨特的別名
+function safeAliases(name_ja: string, name_en: string | null): string[] {
+  const kept = generateAliases(name_ja, name_en).filter((a) => {
+    if (/^[぀-ゟ]+$/.test(a)) return false; // 純平假名（ぷりん、らら）
+    if (/^[゠-ヿ]{1,3}$/.test(a)) return false; // 短片假名（タイガ ⊂ タイガー）
+    if (/^[A-Za-z]+$/.test(a)) return false; // 單一英文字（Mode、Punch）
+    return true;
+  });
+  if (name_en && name_en.includes(" ")) kept.push(name_en);
+  return [...new Set(kept)];
+}
+
 async function fetchOfficialLivers(): Promise<Liver[]> {
   const res = await fetch("https://www.nijisanji.jp/talents", {
     headers: { "User-Agent": "Mozilla/5.0", "Accept-Language": "ja" },
@@ -108,7 +121,7 @@ export async function GET(req: NextRequest) {
       slug: l.slug,
       debut_at,
       image_url,
-      aliases: generateAliases(l.name, name_en),
+      aliases: safeAliases(l.name, name_en),
     });
     if (error) errors.push(`insert ${l.name}: ${error.message}`);
     else inserted.push(l.name);
