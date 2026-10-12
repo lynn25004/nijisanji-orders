@@ -43,7 +43,7 @@ export default function TalentDetailPage() {
     (async () => {
       const { data: tRow } = await supabase
         .from("talents")
-        .select("id,name_ja,name_zh,name_en,debut_at,image_url,slug, groups(name_ja,name_zh)")
+        .select("id,name_ja,name_zh,name_en,debut_at,image_url,slug, groups!talents_group_id_fkey(name_ja,name_zh)")
         .eq("id", id)
         .single();
       if (tRow) {

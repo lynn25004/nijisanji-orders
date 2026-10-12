@@ -29,7 +29,7 @@ export default function TalentsPage() {
         .from("talents")
         .select(`
           id, name_ja, name_zh, name_en, debut_at, image_url, slug, group_id,
-          groups ( name_ja, name_zh ),
+          groups!talents_group_id_fkey ( name_ja, name_zh ),
           product_talents ( product_id )
         `);
       if (error) {

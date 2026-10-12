@@ -50,7 +50,7 @@ export default function HomePage() {
         orders!inner ( id, ordered_at, received_at, proxy_service, proxy_order_no, status, warehouse_status, refund_status, total_jpy, total_twd ),
         products!inner (
           id, name_ja, image_url, release_date,
-          product_talents ( talents ( id, group_id, groups ( id, name_ja, name_zh ) ) )
+          product_talents ( talents ( id, group_id, groups!talents_group_id_fkey ( id, name_ja, name_zh ) ) )
         )
       `);
     if (error) {
