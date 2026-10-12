@@ -35,7 +35,11 @@ const GENERIC_GROUP_NAMES = new Set([
   "その他",
 ]);
 
-function buildNeedles(talents: Talent[], groups: Group[]): Needle[] {
+function buildNeedles(
+  talents: Talent[],
+  groups: Group[],
+  memberships: { talent_id: string; group_id: string }[]
+): Needle[] {
   const needles: Needle[] = [];
   for (const t of talents) {
     if (t.name_ja && t.name_ja.length >= 2) {
@@ -60,17 +64,20 @@ function buildNeedles(talents: Talent[], groups: Group[]): Needle[] {
     }
   }
 
-  // group needles：group 名出現 → 標該 group 所有成員
-  const talentsByGroup = new Map<string, string[]>();
-  for (const t of talents) {
-    if (!t.group_id) continue;
-    const arr = talentsByGroup.get(t.group_id) ?? [];
-    arr.push(t.id);
-    talentsByGroup.set(t.group_id, arr);
-  }
+  // group needles：group 名出現 → 標該 group 所有成員（主團體 + group_members 額外組合）
+  const talentsByGroup = new Map<string, Set<string>>();
+  const add = (gid: string, tid: string) => {
+    const s = talentsByGroup.get(gid) ?? new Set<string>();
+    s.add(tid);
+    talentsByGroup.set(gid, s);
+  };
+  for (const t of talents) if (t.group_id) add(t.group_id, t.id);
+  for (const m of memberships) add(m.group_id, m.talent_id);
   for (const g of groups) {
     if (GENERIC_GROUP_NAMES.has(g.name_ja)) continue;
-    const members = talentsByGroup.get(g.id) ?? [];
+    // 出道批次暱稱（さんばか、SMC、Blues…）商品名不會用，又容易撞一般字 → 不當關鍵字
+    if (g.kind === "nickname") continue;
+    const members = [...(talentsByGroup.get(g.id) ?? [])];
     if (members.length === 0) continue;
     if (g.name_ja && g.name_ja.length >= 3) {
       needles.push({ talentIds: members, text: g.name_ja, caseInsensitive: true, wordBoundary: false });
@@ -122,7 +129,14 @@ export async function GET(req: NextRequest) {
     .select("id, name_ja, name_en, kind");
   if (ge) return NextResponse.json({ error: ge.message }, { status: 500 });
 
-  const needles = buildNeedles((talents || []) as Talent[], (groups || []) as Group[]);
+  // group_members 表還沒建好時當作空的，退回只用主團體
+  const { data: memberships } = await sb.from("group_members").select("talent_id, group_id");
+
+  const needles = buildNeedles(
+    (talents || []) as Talent[],
+    (groups || []) as Group[],
+    memberships || []
+  );
 
   let query = sb.from("products").select("id, name_ja, name_zh, auto_tagged_at");
   if (!force) query = query.is("auto_tagged_at", null);

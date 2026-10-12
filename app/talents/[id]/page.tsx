@@ -14,6 +14,7 @@ type TalentDetail = {
   image_url: string | null;
   slug: string | null;
   group_name: string | null;
+  extra_groups: string[];
 };
 
 type Product = {
@@ -47,6 +48,14 @@ export default function TalentDetailPage() {
         .single();
       if (tRow) {
         const grp = (tRow as any).groups;
+        const { data: gm } = await supabase
+          .from("group_members")
+          .select("groups ( name_ja, name_zh )")
+          .eq("talent_id", id)
+          .eq("is_primary", false);
+        const extra_groups = ((gm ?? []) as any[])
+          .map((m) => m.groups?.name_zh || m.groups?.name_ja)
+          .filter(Boolean) as string[];
         setT({
           id: tRow.id,
           name_ja: tRow.name_ja,
@@ -55,7 +64,8 @@ export default function TalentDetailPage() {
           debut_at: tRow.debut_at,
           image_url: tRow.image_url,
           slug: tRow.slug,
-          group_name: grp?.name_zh || grp?.name_ja || null
+          group_name: grp?.name_zh || grp?.name_ja || null,
+          extra_groups
         });
       }
       // 商品 + 訂單明細
@@ -154,6 +164,9 @@ export default function TalentDetailPage() {
           {t.name_zh && t.name_zh !== t.name_ja && <div className="text-sm text-neutral-500">{t.name_zh}</div>}
           <div className="flex flex-wrap gap-x-3 gap-y-1 text-sm text-neutral-500 pt-2">
             {t.group_name && <span>#{t.group_name}</span>}
+            {t.extra_groups.map((g) => (
+              <span key={g}>#{g}</span>
+            ))}
             {t.debut_at && <span>出道 {t.debut_at.slice(0, 10)}</span>}
           </div>
           <SocialLinks slug={t.slug} />

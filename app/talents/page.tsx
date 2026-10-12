@@ -13,6 +13,8 @@ type Talent = {
   slug: string | null;
   group_id: string | null;
   groups: { name_ja: string | null; name_zh: string | null } | null;
+  // 主團體以外的組合（ROF-MAO、ChroNoiR…），來自 group_members
+  extra_groups: string[];
   product_count: number;
 };
 
@@ -35,6 +37,17 @@ export default function TalentsPage() {
         setLoading(false);
         return;
       }
+      // group_members 另外查：表還沒建好時不影響主列表
+      const extras = new Map<string, string[]>();
+      const { data: gm } = await supabase
+        .from("group_members")
+        .select("talent_id, groups ( name_ja, name_zh )")
+        .eq("is_primary", false);
+      for (const m of (gm ?? []) as any[]) {
+        const name = m.groups?.name_zh || m.groups?.name_ja;
+        if (!name) continue;
+        extras.set(m.talent_id, [...(extras.get(m.talent_id) ?? []), name]);
+      }
       const list: Talent[] = (data ?? [])
         .map((t: any) => ({
           id: t.id,
@@ -46,6 +59,7 @@ export default function TalentsPage() {
           slug: t.slug,
           group_id: t.group_id,
           groups: t.groups,
+          extra_groups: extras.get(t.id) ?? [],
           product_count: (t.product_talents ?? []).length
         }))
         .filter((t) => t.product_count > 0);
@@ -58,7 +72,7 @@ export default function TalentsPage() {
     const q = search.trim().toLowerCase();
     if (!q) return talents;
     return talents.filter((t) =>
-      [t.name_ja, t.name_zh, t.name_en, t.groups?.name_ja, t.groups?.name_zh]
+      [t.name_ja, t.name_zh, t.name_en, t.groups?.name_ja, t.groups?.name_zh, ...t.extra_groups]
         .filter(Boolean)
         .some((s) => s!.toLowerCase().includes(q))
     );
@@ -67,11 +81,14 @@ export default function TalentsPage() {
   // 依團體分組；團體間用「該團體最早出道日」排序，團體內依出道日排序
   const grouped = useMemo(() => {
     const byGroup = new Map<string, Talent[]>();
+    // 一人多團：主團體 + 每個額外組合都各放一次
     for (const t of visibleTalents) {
-      const key = t.groups?.name_zh || t.groups?.name_ja || "未分類";
-      const arr = byGroup.get(key) ?? [];
-      arr.push(t);
-      byGroup.set(key, arr);
+      const keys = [t.groups?.name_zh || t.groups?.name_ja || "未分類", ...t.extra_groups];
+      for (const key of new Set(keys)) {
+        const arr = byGroup.get(key) ?? [];
+        arr.push(t);
+        byGroup.set(key, arr);
+      }
     }
     const earliestOf = (list: Talent[]) => {
       let min: string | null = null;
@@ -160,7 +177,7 @@ export default function TalentsPage() {
             <ul className="grid gap-3 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
               {list.map((t) => (
                 <li
-                  key={t.id}
+                  key={`${key}-${t.id}`}
                   className="border border-neutral-200 dark:border-neutral-800 rounded-lg bg-white dark:bg-neutral-900 overflow-hidden"
                 >
                   <Link
@@ -194,6 +211,9 @@ export default function TalentsPage() {
                       {t.groups?.name_zh || t.groups?.name_ja ? (
                         <span>#{t.groups?.name_zh || t.groups?.name_ja}</span>
                       ) : null}
+                      {t.extra_groups.map((g) => (
+                        <span key={g}>#{g}</span>
+                      ))}
                       <span>· {t.product_count} 件</span>
                     </div>
                     {t.debut_at && (

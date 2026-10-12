@@ -152,14 +152,19 @@ export async function GET(req: NextRequest) {
     "二期生",
     "一期生"
   ]);
-  const { data: groups } = await sb.from("groups").select("id, name_ja");
+  const { data: groups } = await sb.from("groups").select("id, name_ja, kind");
+  const { data: memberships } = await sb.from("group_members").select("talent_id, group_id");
   const groupMatchers: Array<{ name: string; talentIds: string[] }> = [];
   for (const g of groups || []) {
     if (!g.name_ja || g.name_ja.length < 3) continue;
     if (GROUP_BLACKLIST.has(g.name_ja)) continue;
-    const members = (talents || [])
-      .filter((t: any) => t.group_id === g.id)
-      .map((t: any) => t.id);
+    if (g.kind === "nickname") continue; // 出道批次暱稱，商品名不會用
+    const members = [
+      ...new Set([
+        ...(talents || []).filter((t: any) => t.group_id === g.id).map((t: any) => t.id),
+        ...(memberships || []).filter((m: any) => m.group_id === g.id).map((m: any) => m.talent_id),
+      ]),
+    ];
     if (members.length === 0) continue;
     groupMatchers.push({ name: g.name_ja, talentIds: members });
   }
